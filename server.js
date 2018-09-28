@@ -4,12 +4,22 @@ const app = express();
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
+const bodyParser = require("body-parser");
+
+
+//Body-Parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // //DB CONFIG
 const db = require("./config/keys").mongoURI;
-//CONNECT TO MONGODB (this is a promise statement)
+
+//CONNECT TO MONGODB 
 mongooose
-  .connect(db)
+  .connect(
+    db,
+    { useNewUrlParser: true }
+  )
   .then(() => console.log("MongoDB Connected!"))
   .catch(err => console.log(err));
 
