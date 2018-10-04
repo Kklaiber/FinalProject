@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Create Schema
+//Create Schema
 const ProfileSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: "users"
   },
   handle: {
     type: String,
@@ -64,6 +64,7 @@ const ProfileSchema = new Schema({
       }
     }
   ],
+
   education: [
     {
       school: {
@@ -94,6 +95,7 @@ const ProfileSchema = new Schema({
       }
     }
   ],
+
   social: {
     youtube: {
       type: String
