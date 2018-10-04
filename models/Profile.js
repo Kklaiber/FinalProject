@@ -103,17 +103,16 @@ const ProfileSchema = new Schema({
     twitter: {
       type: String
     },
-    linkedin: {
+    facebook: {
       type: String
     },
-    facebook: {
+    linkedin: {
       type: String
     },
     instagram: {
       type: String
     }
   },
-
   date: {
     type: Date,
     default: Date.now
