@@ -2,9 +2,12 @@ img {
   width: 100%;
 }
 
+
+
+
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  background: url('./img/pexels-photo-1000444.jpeg') no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -16,8 +19,9 @@ img {
   padding-top: 80px;
 }
 
+
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(26, 26, 26, 0.7);
   position: absolute;
   top: 0;
   left: 0;

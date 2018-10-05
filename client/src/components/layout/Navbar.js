@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from "../../actions/authActions";
- 
+
+import '../../App.css';
 
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -41,7 +42,7 @@ class Navbar extends Component {
             //jsx here
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
             <div className="container">
-              <Link className="navbar-brand" to="/">DevConnector</Link>
+              <Link className="navbar-brand" to="/">Collective</Link>
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -51,7 +52,7 @@ class Navbar extends Component {
                   <li className="nav-item">
                     <Link className="nav-link" to="/profiles"> 
                     {' '}
-                    Developers
+                   About
                     </Link>
                   </li>
                 </ul>
