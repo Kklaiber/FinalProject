@@ -61,14 +61,13 @@ router.post('/register', (req, res) => {
   });
 });
 
-
-//@route   GET api/users/login
-//@desc    Login User/ Returning JWT Token
-//@access  Public
-router.post("/login", (req, res) => {
+// @route   GET api/users/login
+// @desc    Login User / Returning JWT Token
+// @access  Public
+router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
-  //Check Validation
+  // Check Validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -80,7 +79,7 @@ router.post("/login", (req, res) => {
   User.findOne({ email }).then(user => {
     // Check for user
     if (!user) {
-      errors.email = 'User Not Found';
+      errors.email = 'User not found';
       return res.status(404).json(errors);
     }
 
@@ -98,7 +97,7 @@ router.post("/login", (req, res) => {
           (err, token) => {
             res.json({
               success: true,
-              token: "Bearer " + token
+              token: 'Bearer ' + token
             });
           }
         );
