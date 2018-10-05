@@ -3,8 +3,6 @@ img {
 }
 
 
-
-
 .landing {
   position: relative;
   background: url('./img/pexels-photo-1000444.jpeg') no-repeat;
@@ -38,6 +36,6 @@ img {
   height: 40px;
 }
 
-.form-control::placeholder {
-  color: #bbb !important;
+.form-field::placeholder {
+  color: rgb(216, 216, 216) !important;
 }
