@@ -1,52 +1,20 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
-import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser, logoutUser }from './actions/authActions';
-=======
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import { clearCurrentProfile } from './actions/profileActions';
->>>>>>> f12c446591d79609ad5d4881a0ef447e8b75c0c7
 
 import { Provider } from 'react-redux';
 import store from './store';
 
-<<<<<<< HEAD
-=======
 import PrivateRoute from './components/common/PrivateRoute';
 
->>>>>>> f12c446591d79609ad5d4881a0ef447e8b75c0c7
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
-<<<<<<< HEAD
-
-import './App.css';
-
-// check for token 
-if(localStorage.jwtToken){
-  //set auth token to header auth 
-  setAuthToken(localStorage.jwtToken);
-  //decode token and get user info and exp 
-  const decoded = jwt_decode(localStorage.jwtToken);
-  //set user and is auth 
-  store.dispatch(setCurrentUser(decoded));
-
-  //check for expired token 
-  const currentTime = Date.now() / 1000;
-  if(decoded.exp < currentTime) {
-    //logout user 
-    store.dispatch(logoutUser());
-    //todo: clear the current profile
-    //redir login 
-    window.location.href= "/login";
-=======
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/create-profile/CreateProfile';
 import EditProfile from './components/edit-profile/EditProfile';
@@ -73,30 +41,12 @@ if (localStorage.jwtToken) {
     store.dispatch(clearCurrentProfile());
     // Redirect to login
     window.location.href = '/login';
->>>>>>> f12c446591d79609ad5d4881a0ef447e8b75c0c7
   }
 }
 
 class App extends Component {
   render() {
     return (
-<<<<<<< HEAD
-      <Provider store={ store }>
-        <Router>
-          <div className="App">
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <div className="container">
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          </div>
-          <Footer />
-
-          </div>
-      
-      </Router>
-    </Provider>
-=======
       <Provider store={store}>
         <Router>
           <div className="App">
@@ -141,7 +91,6 @@ class App extends Component {
           </div>
         </Router>
       </Provider>
->>>>>>> f12c446591d79609ad5d4881a0ef447e8b75c0c7
     );
   }
 }

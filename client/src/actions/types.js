@@ -1,12 +1,7 @@
 export const GET_ERRORS = 'GET_ERRORS';
-<<<<<<< HEAD
-
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
-=======
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_LOADING = 'PROFILE_LOADING';
 export const PROFILE_NOT_FOUND = 'PROFILE_NOT_FOUND';
 export const CLEAR_CURRENT_PROFILE = 'CLEAR_CURRENT_PROFILE';
 export const GET_PROFILES = 'GET_PROFILES';
->>>>>>> f12c446591d79609ad5d4881a0ef447e8b75c0c7
