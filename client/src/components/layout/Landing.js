@@ -19,7 +19,9 @@ class Landing extends Component {
             <div className="row">
            
               <div className="col-md-12 text-center">
-              <FadeIn>
+
+              <FadeIn> 
+
                 <h1 className="display-3 mb-4 brand-text">Collective</h1>
                 <p className="lead">
                   {' '}
@@ -34,7 +36,9 @@ class Landing extends Component {
                   Login
                 </Link>
                 </div>
+
                 </FadeIn>
+
               </div>
              
             </div>
