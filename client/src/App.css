@@ -1,9 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Caveat|Courgette');
+
+/* 
+font-family: 'Caveat', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Calligraffitti', cursive;
+*/
+
 img {
     width: 100%;
   }
   
+
+
+nav li a:hover{
+  color:#DCAE1D !important;
+  transition: cubic-bezier(1, 0, 0, 1), 1s;
+}
+
   .landing {
     position: relative;
+    background: url('./img/pexels-photo-1000444.jpeg') no-repeat;
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -14,15 +30,24 @@ img {
   .landing-inner {
     padding-top: 80px;
   }
-  
-  .dark-overlay {
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  .brand-text {
+    color: rgb(218, 175, 36);
+    font-size: 10vh;
+    font-family: 'Caveat', cursive;
+    letter-spacing: 1px;
   }
+  .gold-text {
+    color: rgb(218, 175, 36);
+  }
+  
+.dark-overlay {
+  background-color: rgba(26, 26, 26, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
   
   .card-form {
     opacity: 0.9;
