@@ -17,6 +17,14 @@ nav li a:hover{
   transition: cubic-bezier(1, 0, 0, 1), 1s;
 }
 
+  .login {
+    height: 100vh;
+  }
+  
+  .register {
+    height: 100vh;
+  }
+
   .landing {
     position: relative;
     background: url('./img/pexels-photo-1000444.jpeg') no-repeat;
