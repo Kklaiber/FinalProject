@@ -44,8 +44,6 @@ class PostForm extends Component {
   render() {
     const { errors } = this.state;
 
-
-
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
@@ -53,7 +51,6 @@ class PostForm extends Component {
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-
                 <TextAreaFieldGroup
                   placeholder="Create a post"
                   name="text"
@@ -61,8 +58,6 @@ class PostForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
-
-                <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>500 Character Limit</h6>
               </div>
               <button type="submit" className="btn btn-dark">
                 Submit
