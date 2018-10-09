@@ -6,9 +6,11 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
     "cryptiles": "^4.1.2",
+    "deep-extend": "^0.6.0",
     "jwt-decode": "^2.2.0",
     "macaddress": "^0.2.9",
     "moment": "^2.22.2",
+    "randomatic": "^3.1.0",
     "react": "^16.5.2",
     "react-dom": "^16.3.1",
     "react-fade-in": "^0.1.6",
@@ -27,5 +29,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
