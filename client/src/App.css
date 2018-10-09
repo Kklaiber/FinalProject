@@ -9,8 +9,6 @@ font-family: 'Calligraffitti', cursive;
 img {
     width: 100%;
   }
-  
-
 
 nav li a:hover{
   color:#DCAE1D !important;
@@ -20,7 +18,7 @@ nav li a:hover{
   .login {
     height: 100vh;
   }
-  
+
   .register {
     height: 100vh;
   }
