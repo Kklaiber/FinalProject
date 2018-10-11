@@ -7,6 +7,7 @@ import Spinner from '../common/Spinner';
 import ProfileActions from './ProfileActions';
 import Experience from './Experience';
 import Education from './Education';
+import Groups from '../Groups/Groups';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -34,6 +35,7 @@ class Dashboard extends Component {
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
             <ProfileActions />
+            <Groups  />
             <Experience experience={profile.experience}/>
             <Education education={profile.education}/>
             <div style={{ marginBottom: '60px' }} />
