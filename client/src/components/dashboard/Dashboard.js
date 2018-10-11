@@ -9,6 +9,7 @@ import Experience from './Experience';
 import Education from './Education';
 import Groups from '../Groups/Groups';
 
+
 class Dashboard extends Component {
   componentDidMount() {
     this.props.getCurrentProfile();
@@ -35,11 +36,13 @@ class Dashboard extends Component {
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
             <ProfileActions />
+
             <Groups  />
             <Experience experience={profile.experience}/>
             <Education education={profile.education}/>
             <div style={{ marginBottom: '60px' }} />
             <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
+
               Delete My Account
             </button>
           </div>
@@ -85,4 +88,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard);
+export default connect(
+  mapStateToProps,
+  { getCurrentProfile, deleteAccount }
+)(Dashboard);
