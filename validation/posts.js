@@ -6,14 +6,13 @@ module.exports = function validatePostInput(data) {
 
   data.text = !isEmpty(data.text) ? data.text : '';
 
-  if(!validator.isLength(data.text, { min: 1, max: 500 })) {
+  if(!Validator.isLength(data.text, { min: 1, max: 500 })) {
       error.text = 'Post cannot be longer than 500 characters';
   }
 
   if (Validator.isEmpty(data.text)) {
     errors.text = 'Text field is required';
   }
-
 
   return {
     errors,
