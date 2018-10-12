@@ -95,11 +95,7 @@ class App extends Component {
                 />
               </Switch>
               <Switch>
-                <PrivateRoute
-                  exact
-                  path="/add-group"
-                  component={AddGroup}
-                />
+                <PrivateRoute exact path="/add-group" component={AddGroup} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/feed" component={Posts} />
