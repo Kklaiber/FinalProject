@@ -32,7 +32,10 @@ nav li a:hover{
     margin-top: -24px;
     margin-bottom: -50px;
   }
-  
+  .community-photo {
+    width: 100%;
+    height: auto
+  }
   .landing-inner {
     padding-top: 80px;
   }

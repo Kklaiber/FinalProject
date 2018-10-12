@@ -6,7 +6,7 @@ import PostItem from '../posts/PostItem';
 import CommentForm from './CommentForm';
 import CommentFeed from './CommentFeed';
 import Spinner from '../common/Spinner';
-import { getPost } from '../../actions/postActions';
+import { getPost } from '../../actions/postMissionsActions';
 
 class Post extends Component {
   componentDidMount() {
@@ -30,12 +30,13 @@ class Post extends Component {
     }
   
     return (
+      
       <div className="post">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <Link to="/feed" className="btn btn-light mb-3">
-                Back To Feed
+              <Link to="/missions" className="btn btn-light mb-3">
+                Back To Missions
               </Link>
               {postContent}
             </div>

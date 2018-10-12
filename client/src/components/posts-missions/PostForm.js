@@ -9,7 +9,9 @@ class PostForm extends Component {
     super(props);
     this.state = {
       text: '',
-      errors: {}
+      errors: {},
+      community: 'missions' 
+      //this needs to be changed to corresponding community
     };
 
     this.onChange = this.onChange.bind(this);
@@ -45,12 +47,10 @@ class PostForm extends Component {
   render() {
     const { errors } = this.state;
 
-
-    
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">Share your story...</div>
+          <div className="card-header bg-info text-white">Share your mission...</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
@@ -63,6 +63,11 @@ class PostForm extends Component {
                   error={errors.text}
                 />
 
+              <small id="communityHelper" className="form-text text-muted">
+              You are posting to the Missions Community
+              </small>
+
+          
                
       </div>
 

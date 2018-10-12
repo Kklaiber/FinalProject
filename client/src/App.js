@@ -22,8 +22,14 @@ import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
+
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
+
+//missions posts and commenting
+import PostsMissions from "./components/posts-missions/PostsMissions";
+import PostMissions from "./components/post-missions/PostMissions";
+
 import NotFound from "./components/not-found/NotFound";
 
 import "./App.css";
@@ -97,9 +103,22 @@ class App extends Component {
                 <PrivateRoute
                   exact
                   path="/missions"
-                  component={Posts}
+                  component={PostsMissions}
                 />
               </Switch>
+
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/missions/post/:id"
+                  component={PostMissions}
+                />
+              </Switch>
+
+
+
+
+
               <Switch>
                 <PrivateRoute exact path="/feed" component={Posts} />
               </Switch>
