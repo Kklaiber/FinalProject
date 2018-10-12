@@ -62,8 +62,28 @@ class PostForm extends Component {
                   error={errors.text}
                 />
 
-                <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>500 Character Limit</h6>
+              <small id="communityHelper" className="form-text text-muted">
+              Select the community for your post
+              </small>
+
+              <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="community" value="missions"/>
+                <label className="form-check-label">Missions</label>
               </div>
+              <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="community" value="outdoors"/>
+                <label className="form-check-label">Outdoors</label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="community" value="smallgroups"/>
+                <label className="form-check-label">Small Groups</label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="community" value="specialneeds"/>
+                <label className="form-check-label">Special Needs</label>
+              </div>
+              </div>
+              <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>500 Character Limit</h6>
               <button type="submit" className="btn btn-dark">
                 Submit
               </button>
