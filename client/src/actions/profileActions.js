@@ -86,6 +86,19 @@ export const addEducation = (eduData, history) => dispatch => {
     );
 };
 
+// Add group
+export const addGroup = (groupData, history) => dispatch => {
+  axios
+    .post("/api/profile/group", groupData)
+    .then(res => history.push("/dashboard"))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Delete Experience
 export const deleteExperience = id => dispatch => {
   axios
