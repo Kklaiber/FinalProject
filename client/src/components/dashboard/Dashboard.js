@@ -35,6 +35,7 @@ class Dashboard extends Component {
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
             <ProfileActions />
+
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
             <Group group={profile.group} />
