@@ -9,7 +9,8 @@ class PostForm extends Component {
     super(props);
     this.state = {
       text: '',
-      errors: {}
+      errors: {},
+      community: 'general'
     };
 
     this.onChange = this.onChange.bind(this);
@@ -50,7 +51,8 @@ class PostForm extends Component {
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">Share your story...</div>
+        <img className="card-img-top" src="https://images.pexels.com/photos/134062/pexels-photo-134062.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card cap"/>
+          <div className="card-header text-white">Share your story...</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
@@ -63,6 +65,9 @@ class PostForm extends Component {
                   error={errors.text}
                 />
 
+              <small id="communityHelper" className="form-text text-muted">
+              You are posting to the Collective Community
+              </small>
                
       </div>
 

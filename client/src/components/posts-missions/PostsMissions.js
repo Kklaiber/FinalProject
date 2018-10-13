@@ -22,11 +22,9 @@ class Posts extends Component {
     }
 
     return (
+
       <div className="feed">
-      <h1>Missions</h1>
-      <div className="community-photo">
-      <img src="http://cdn.northlight-images.co.uk/wp-content/uploads/2015/05/pan_h_006339_rutland.jpg" alt= "people on a freaking mountain"/>
-      </div>
+     
         <div className="container">
           <div className="row">
             <div className="col-md-12">
