@@ -115,7 +115,7 @@ router.post(
       // Return any errors with 400 status
       return res.status(400).json(errors);
     }
-
+    
     // Get fields
     const profileFields = {};
     profileFields.user = req.user.id;
@@ -125,6 +125,7 @@ router.post(
     if (req.body.location) profileFields.location = req.body.location;
     if (req.body.bio) profileFields.bio = req.body.bio;
     if (req.body.status) profileFields.status = req.body.status;
+    if (req.body.avatar) profileFields.avatar = req.body.avatar;
     if (req.body.githubusername)
       profileFields.githubusername = req.body.githubusername;
     // Skills - Spilt into array

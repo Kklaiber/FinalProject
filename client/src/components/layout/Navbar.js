@@ -23,6 +23,11 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item">
+         <Link className="nav-link" to="/missions">
+           Missions
+          </Link>
+          </li>
+        <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
             Dashboard
           </Link>
@@ -39,7 +44,8 @@ class Navbar extends Component {
               alt={user.name}
               style={{ width: '25px', marginRight: '5px' }}
               title="You must have a Gravatar connected to your email to display an image"
-            />{' '}
+            />
+            {' '}
             Logout
           </a>
         </li>
