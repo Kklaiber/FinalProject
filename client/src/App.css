@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Caveat|Courgette');
-
+@import url('https://fonts.googleapis.com/css?family=Caveat|Montserrat:300');
 /* 
 font-family: 'Caveat', cursive;
-font-family: 'Courgette', cursive;
-font-family: 'Calligraffitti', cursive;
+font-family: 'Montserrat', sans-serif;
+
 */
 
 img {
@@ -32,7 +31,13 @@ nav li a:hover{
     margin-top: -24px;
     margin-bottom: -50px;
   }
-  
+  .card-title-text {
+    color: rgb(255, 255, 255);
+    font-size: 6vw;
+    opacity: .9;
+  }  
+
+
   .landing-inner {
     padding-top: 80px;
   }
@@ -66,5 +71,15 @@ nav li a:hover{
   
   .form-control::placeholder {
     color: #bbb !important;
+  }
+  .card-header {
+   background-color: rgba(40, 107, 146, 0.795);
+  }
+  .post-form {
+    background-color: rgb(204, 204, 204);
+  }
+ 
+  .post-card {
+    background-color: rgb(247, 247, 247);
   }
   

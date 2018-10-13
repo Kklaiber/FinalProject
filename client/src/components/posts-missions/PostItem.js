@@ -31,7 +31,7 @@ class PostItem extends Component {
     const { post, auth, showActions } = this.props;
 
     return (
-      <div className="card card-body mb-3 post-card">
+      <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
             <a href="profile.html">
@@ -67,7 +67,7 @@ class PostItem extends Component {
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
-                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
+                <Link to={`missions/post/${post._id}`} className="btn btn-info mr-1">
                   Comments
                 </Link>
                 {post.user === auth.user.id ? (

@@ -7,6 +7,9 @@ const PostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
+  community: {
+    type: String,
+  },
   text: {
     type: String,
     required: true
@@ -30,6 +33,10 @@ const PostSchema = new Schema({
       user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
+      },
+      community: {
+        type: String,
+       
       },
       text: {
         type: String,

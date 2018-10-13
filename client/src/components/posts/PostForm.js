@@ -9,7 +9,8 @@ class PostForm extends Component {
     super(props);
     this.state = {
       text: '',
-      errors: {}
+      errors: {},
+      community: 'general'
     };
 
     this.onChange = this.onChange.bind(this);
@@ -30,7 +31,8 @@ class PostForm extends Component {
     const newPost = {
       text: this.state.text,
       name: user.name,
-      avatar: user.avatar
+      avatar: user.avatar,
+      community: this.state.community
     };
 
     this.props.addPost(newPost);
@@ -47,7 +49,8 @@ class PostForm extends Component {
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">Say Somthing...</div>
+        <img className="card-img-top" src="https://images.pexels.com/photos/134062/pexels-photo-134062.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card cap"/>
+          <div className="card-header text-white">Share your story...</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
@@ -58,7 +61,15 @@ class PostForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
-              </div>
+
+
+              <small id="communityHelper" className="form-text text-muted">
+              You are posting to the Collective Community
+              </small>
+               
+      </div>
+              <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>500 Character Limit</h6>
+
               <button type="submit" className="btn btn-dark">
                 Submit
               </button>

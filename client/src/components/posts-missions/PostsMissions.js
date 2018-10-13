@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PostForm from './PostForm';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
-import { getPosts } from '../../actions/postActions';
+import { getPosts } from '../../actions/postMissionsActions';
 
 class Posts extends Component {
   componentDidMount() {
@@ -22,8 +22,9 @@ class Posts extends Component {
     }
 
     return (
+
       <div className="feed">
-       <h2>Collective Community</h2>
+     
         <div className="container">
           <div className="row">
             <div className="col-md-12">
