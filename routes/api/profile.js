@@ -115,7 +115,7 @@ router.post(
       // Return any errors with 400 status
       return res.status(400).json(errors);
     }
-
+    
     // Get fields
     const profileFields = {};
     profileFields.user = req.user.id;

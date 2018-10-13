@@ -24,12 +24,13 @@ nav li a:hover{
 
   .landing {
     position: relative;
-    background: url('./img/pexels-photo-1000444.jpeg') no-repeat;
+    /* background: url('./img/pexels-photo-1000444.jpeg') no-repeat; */
+    background: url('https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     background-size: cover;
     background-position: center;
     height: 100vh;
     margin-top: -24px;
-    margin-bottom: -50px;
+    margin-bottom: -50px; 
   }
   .card-title-text {
     color: rgb(255, 255, 255);
@@ -48,16 +49,17 @@ nav li a:hover{
     letter-spacing: 1px;
   }
   .gold-text {
-    color: rgb(218, 175, 36);
+    color: rgb(230, 185, 39);
   }
   
 .dark-overlay {
-  background-color: rgba(26, 26, 26, 0.7);
+  background-color: rgba(26, 26, 26, 0.473);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  
 }
   
   .card-form {
