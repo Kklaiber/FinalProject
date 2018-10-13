@@ -46,8 +46,6 @@ class PostForm extends Component {
   render() {
     const { errors } = this.state;
 
-
-    
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
@@ -56,7 +54,6 @@ class PostForm extends Component {
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-
                 <TextAreaFieldGroup
                   placeholder="Create a post"
                   name="text"
@@ -65,14 +62,14 @@ class PostForm extends Component {
                   error={errors.text}
                 />
 
+
               <small id="communityHelper" className="form-text text-muted">
               You are posting to the Collective Community
               </small>
                
       </div>
-
-         
               <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>500 Character Limit</h6>
+
               <button type="submit" className="btn btn-dark">
                 Submit
               </button>

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import PostItem from '../posts/PostItem';
-import CommentForm from './CommentForm';
-import CommentFeed from './CommentFeed';
-import Spinner from '../common/Spinner';
-import { getPost } from '../../actions/postActions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import PostItem from "../posts/PostItem";
+import CommentForm from "./CommentForm";
+import CommentFeed from "./CommentFeed";
+import Spinner from "../common/Spinner";
+import { getPost } from "../../actions/postActions";
 
 class Post extends Component {
   componentDidMount() {
@@ -34,8 +34,8 @@ class Post extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <Link to="/feed" className="btn btn-light mb-3">
-                Back To Feed
+              <Link to="/dashboard" className="btn btn-light mb-3">
+                Back To Dashboard
               </Link>
               {postContent}
             </div>
@@ -55,4 +55,7 @@ const mapStateToProps = state => ({
   post: state.post
 });
 
-export default connect(mapStateToProps, { getPost })(Post);
+export default connect(
+  mapStateToProps,
+  { getPost }
+)(Post);

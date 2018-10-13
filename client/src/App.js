@@ -20,6 +20,7 @@ import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
+import AddGroup from "./components/add-credentials/AddGroup";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 
@@ -100,6 +101,7 @@ class App extends Component {
                 />
               </Switch>
               <Switch>
+
                 <PrivateRoute
                   exact
                   path="/missions"
@@ -116,11 +118,15 @@ class App extends Component {
               </Switch>
 
 
-
-
+             <Switch>
+                <PrivateRoute exact path="/add-group" component={AddGroup} />
+              </Switch>
 
               <Switch>
                 <PrivateRoute exact path="/feed" component={Posts} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/outdoors" component={Posts} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
