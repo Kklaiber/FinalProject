@@ -34,8 +34,8 @@ class Post extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <Link to="/dashboard" className="btn btn-light mb-3">
-                Back To Dashboard
+              <Link to="/feed" className="btn btn-light mb-3">
+                Back To Collective
               </Link>
               {postContent}
             </div>

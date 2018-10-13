@@ -28,6 +28,7 @@ class CreateProfile extends Component {
       linkedin: '',
       youtube: '',
       instagram: '',
+      avatar: '',
       errors: {}
     };
 
@@ -62,6 +63,7 @@ class CreateProfile extends Component {
         profile.linkedin = !isEmpty(profile.social.linkedin) ? profile.social.linkedin : '';
         profile.youtube = !isEmpty(profile.social.youtube) ? profile.social.youtube : '';
         profile.instagram = !isEmpty(profile.social.instagram) ? profile.social.instagram : '';
+        profile.avatar = !isEmpty(profile.avatar) ? profile.avatar : '';
 
         // Set component fields state
         this.setState({
@@ -77,7 +79,8 @@ class CreateProfile extends Component {
             facebook: profile.facebook,
             linkedin: profile.linkedin,
             youtube: profile.youtube,
-            instagram: profile.instagram
+            instagram: profile.instagram,
+            avatar: profile.avatar
         });
     }
   }
@@ -98,7 +101,8 @@ class CreateProfile extends Component {
       facebook: this.state.facebook,
       linkedin: this.state.linkedin,
       youtube: this.state.youtube,
-      instagram: this.state.instagram
+      instagram: this.state.instagram,
+      avatar: this.state.avatar
     };
 
     this.props.createProfile(profileData, this.props.history);
@@ -194,8 +198,17 @@ class CreateProfile extends Component {
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname"
+                  info="This could be your username, common handle, or nickname"
                 />
+                  <TextFieldGroup
+                  placeholder="Profile Picture Link"
+                  name="avatar"
+                  value={this.state.avatar}
+                  onChange={this.onChange}
+                  error={errors.avatar}
+                  info="Tell us a little about yourself"
+                />
+                
                 <SelectListGroup
                   placeholder="Status"
                   name="status"
@@ -254,6 +267,7 @@ class CreateProfile extends Component {
                   error={errors.bio}
                   info="Tell us a little about yourself"
                 />
+              
 
                 <div className="mb-3">
                   <button

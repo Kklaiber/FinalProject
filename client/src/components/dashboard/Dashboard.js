@@ -32,10 +32,10 @@ class Dashboard extends Component {
         dashboardContent = (
           <div>
             <p className="lead text-muted">
-              Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+              Welcome <Link to={`/profile/${profile.handle}`}><span className="gold-text">{user.name}</span></Link>
             </p>
             <ProfileActions />
-
+            
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
             <Group group={profile.group} />

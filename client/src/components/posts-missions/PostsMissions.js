@@ -24,7 +24,7 @@ class Posts extends Component {
     return (
 
       <div className="feed">
-     
+     <h2>Missions Community</h2>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
