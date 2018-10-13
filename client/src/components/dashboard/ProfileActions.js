@@ -9,15 +9,15 @@ const ProfileActions = () => {
         Edit Profile
       </Link>
       <Link to="/add-experience" className="btn btn-light">
-        <i className="fas fa-black-tie text-info mr-1" />
+        <i className="fas fa-briefcase text-info mr-1" />
         Add Experience
       </Link>
       <Link to="/add-education" className="btn btn-light">
         <i className="fas fa-graduation-cap text-info mr-1" />
         Add Education
       </Link>
-      <Link to="/add-group" className="btn btn-ligh">
-        <i className="fas fa-commenting-o" aria-hidden="true" />
+      <Link to="/add-group" className="btn btn-light">
+        <i className="fas fa-users text-info mr-1" aria-hidden="true" />
         Add Group
       </Link>
     </div>
