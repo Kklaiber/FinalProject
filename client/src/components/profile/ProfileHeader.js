@@ -4,7 +4,7 @@ import isEmpty from '../../validation/is-empty';
 class ProfileHeader extends Component {
   render() {
     const { profile } = this.props;
-
+    
     return (
       <div className="row">
         <div className="col-md-12">
@@ -13,7 +13,7 @@ class ProfileHeader extends Component {
               <div className="col-4 col-md-3 m-auto">
                 <img
                   className="rounded-circle"
-                  src={profile.user.avatar}
+                  src={profile.avatar}
                   alt=""
                 />
               </div>

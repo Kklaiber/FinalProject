@@ -112,7 +112,6 @@ router.post(
 
     // Check Validation
     if (!isValid) {
-      // Return any errors with 400 status
       return res.status(400).json(errors);
     }
     
@@ -143,6 +142,10 @@ router.post(
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
+
+        User.findOneAndUpdate(
+          { avatar: req.body.avatar }
+        )
         // Update
         Profile.findOneAndUpdate(
           { user: req.user.id },

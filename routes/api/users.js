@@ -118,4 +118,29 @@ router.get(
 );
 
 
+// @route   POST api/profile/experience
+// @desc    Add experience to profile
+// @access  Private
+router.post(
+  '/editpicture',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateExperienceInput(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      return res.status(400).json(errors);
+    }
+
+    User.findOneAndUpdate({ user: req.user.id }).then(user => {
+      const newExp = {
+       avatar: req.body.avatar
+      };
+
+      user.save().then(user => res.json(user));
+    });
+  }
+);
+
 module.exports = router;

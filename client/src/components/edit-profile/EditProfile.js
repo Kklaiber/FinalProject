@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
@@ -8,7 +7,7 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
 import { createProfile, getCurrentProfile } from '../../actions/profileActions';
-import isEmpty from '../../validation/is-empty'
+import isEmpty from '../../validation/is-empty';
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -200,15 +199,14 @@ class CreateProfile extends Component {
                   error={errors.handle}
                   info="This could be your username, common handle, or nickname"
                 />
-                  <TextFieldGroup
-                  placeholder="Profile Picture Link"
+               <TextFieldGroup
+                  placeholder="Profile Picture URL"
                   name="avatar"
                   value={this.state.avatar}
                   onChange={this.onChange}
                   error={errors.avatar}
-                  info="Tell us a little about yourself"
+                  info="Upload your profile picture here!"
                 />
-                
                 <SelectListGroup
                   placeholder="Status"
                   name="status"
