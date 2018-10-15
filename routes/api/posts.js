@@ -57,7 +57,7 @@ router.post(
       name: req.body.name,
       avatar: req.body.avatar,
       user: req.user.id,
-      community: req.body.community
+      community: 'general'
     });
 
     newPost.save().then(post => res.json(post));

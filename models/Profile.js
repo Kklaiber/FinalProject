@@ -13,7 +13,7 @@ const ProfileSchema = new Schema({
     max: 40
   },
   avatar: {
-    type: String,
+    type:  String,
   },
   company: {
     type: String

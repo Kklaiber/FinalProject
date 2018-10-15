@@ -86,6 +86,19 @@ export const addEducation = (eduData, history) => dispatch => {
     );
 };
 
+// Add profile picture
+export const addProfilePicture = (picData, history) => dispatch => {
+  axios
+    .post("/api/users/profilepicture", picData)
+    .then(res => history.push("/edit-profile"))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Add group
 export const addGroup = (groupData, history) => dispatch => {
   axios
