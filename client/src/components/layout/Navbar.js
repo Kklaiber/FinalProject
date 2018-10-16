@@ -24,6 +24,11 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item">
+         <Link className="nav-link" to="/events">
+           Events
+          </Link>
+          </li>
+        <li className="nav-item">
          <Link className="nav-link" to="/missions">
            Missions
           </Link>
@@ -88,7 +93,7 @@ class Navbar extends Component {
               <li className="nav-item">
                 <Link className="nav-link" to="/profiles">
                   {' '}
-                  Developers
+                  Friends
                 </Link>
               </li>
             </ul>

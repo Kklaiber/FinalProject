@@ -32,12 +32,17 @@ nav li a:hover{
     margin-top: -24px;
     margin-bottom: -50px; 
   }
+
   .card-title-text {
     color: rgb(255, 255, 255);
     font-size: 6vw;
     opacity: .9;
   }  
-
+  .header-box {
+    background-image: linear-gradient(rgba(40, 107, 146), rgba(156, 156, 156, 0.753));
+    border: none;
+    box-shadow: none;
+  }
 
   .landing-inner {
     padding-top: 80px;

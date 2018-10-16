@@ -98,6 +98,18 @@ const ProfileSchema = new Schema({
       }
     }
   ],
+  group: [
+    {
+      title: {
+        type: String,
+        required: true
+      },
+      description: {
+        type: String,
+        required: true
+      }
+    }
+  ],
   social: {
     youtube: {
       type: String
