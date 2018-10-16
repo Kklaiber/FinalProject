@@ -26,6 +26,7 @@ import Profile from "./components/profile/Profile";
 
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
+import Events from "./components/events/Events"
 
 //missions posts and commenting
 import PostsMissions from "./components/posts-missions/PostsMissions";
@@ -98,6 +99,13 @@ class App extends Component {
                   exact
                   path="/add-education"
                   component={AddEducation}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/events"
+                  component={Events}
                 />
               </Switch>
               <Switch>
