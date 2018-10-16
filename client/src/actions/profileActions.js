@@ -86,6 +86,20 @@ export const addEducation = (eduData, history) => dispatch => {
     );
 };
 
+// Add interests
+export const addInterests = (intData, history) => dispatch => {
+  axios
+    .post("/api/profile/interests", intData)
+    .then(res => history.push("/dashboard"))
+    .catch(err =>
+      console.log(err)
+      // dispatch({
+      //   type: GET_ERRORS,
+      //   payload: err
+      // })
+    );
+};
+
 // Delete Experience
 export const deleteExperience = id => dispatch => {
   axios
@@ -121,6 +135,25 @@ export const deleteEducation = id => dispatch => {
       })
     );
 };
+
+// Delete Interests
+export const deleteInterests = id => dispatch => {
+  axios
+    .delete(`/api/profile/interests/${id}`)
+    .then(res =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 
 // Get all profiles
 export const getProfiles = () => dispatch => {

@@ -7,6 +7,8 @@ const passport = require('passport');
 const validateProfileInput = require('../../validation/profile');
 const validateExperienceInput = require('../../validation/experience');
 const validateEducationInput = require('../../validation/education');
+const validateInterestsInput = require('../../validation/interests');
+
 
 // Load Profile Model
 const Profile = require('../../models/Profile');
@@ -125,8 +127,6 @@ router.post(
     if (req.body.location) profileFields.location = req.body.location;
     if (req.body.bio) profileFields.bio = req.body.bio;
     if (req.body.status) profileFields.status = req.body.status;
-    if (req.body.githubusername)
-      profileFields.githubusername = req.body.githubusername;
     // Skills - Spilt into array
     if (typeof req.body.skills !== 'undefined') {
       profileFields.skills = req.body.skills.split(',');
@@ -234,6 +234,37 @@ router.post(
   }
 );
 
+// @route   POST api/profile/interests
+// @desc    Add interests to profile
+// @access  Private
+router.post(
+  '/interests',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateInterestsInput(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      return res.status(400).json(errors);
+    }
+
+    const interestsFields = {};
+    interestsFields.user = req.user.id;
+    if (typeof req.body.interests !== 'undefined') {
+      interestsFields.interests = req.body.interests.split(',');
+    }
+
+    Profile.findOne({ user: req.user.id }).then(profile => {
+
+      // Add to int array
+      profile.interests = profile.interests.concat(interestsFields.interests);
+
+      profile.save().then(profile => res.json(profile));
+    });
+  }
+);
+
 // @route   DELETE api/profile/experience/:exp_id
 // @desc    Delete experience from profile
 // @access  Private
@@ -274,6 +305,30 @@ router.delete(
 
         // Splice out of array
         profile.education.splice(removeIndex, 1);
+
+        // Save
+        profile.save().then(profile => res.json(profile));
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
+// @route   DELETE api/profile/interests/:int_id
+// @desc    Delete interests from profile
+// @access  Private
+router.delete(
+  '/interests/:int_id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        // Get remove index
+        const removeIndex = profile.interests
+          .map(item => item.id)
+          .indexOf(req.params.int_id);
+
+        // Splice out of array
+        profile.interests.splice(removeIndex, 1);
 
         // Save
         profile.save().then(profile => res.json(profile));

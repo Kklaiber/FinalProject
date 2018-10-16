@@ -21,7 +21,6 @@ class CreateProfile extends Component {
       location: '',
       status: '',
       skills: '',
-      githubusername: '',
       bio: '',
       twitter: '',
       facebook: '',
@@ -54,7 +53,6 @@ class CreateProfile extends Component {
         profile.company = !isEmpty(profile.company) ? profile.company : '';
         profile.website = !isEmpty(profile.website) ? profile.website : '';
         profile.location = !isEmpty(profile.location) ? profile.location : '';
-        profile.githubusername = !isEmpty(profile.githubusername) ? profile.githubusername : '';
         profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
         profile.social = !isEmpty(profile.social) ? profile.social : {};
         profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : '';
@@ -71,7 +69,6 @@ class CreateProfile extends Component {
             location: profile.location,
             status: profile.status,
             skills: skillsCSV,
-            githubusername: profile.githubusername,
             bio: profile.bio,
             twitter: profile.twitter,
             facebook: profile.facebook,
@@ -92,7 +89,6 @@ class CreateProfile extends Component {
       location: this.state.location,
       status: this.state.status,
       skills: this.state.skills,
-      githubusername: this.state.githubusername,
       bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
@@ -237,14 +233,6 @@ class CreateProfile extends Component {
                   error={errors.skills}
                   info="Please use comma separated values (eg.
                     HTML,CSS,JavaScript,PHP"
-                />
-                <TextFieldGroup
-                  placeholder="Github Username"
-                  name="githubusername"
-                  value={this.state.githubusername}
-                  onChange={this.onChange}
-                  error={errors.githubusername}
-                  info="If you want your latest repos and a Github link, include your username"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
