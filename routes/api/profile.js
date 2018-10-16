@@ -316,6 +316,30 @@ router.delete(
   }
 );
 
+// @route   DELETE api/profile/group/:group_id
+// @desc    Delete group from profile
+// @access  Private
+router.delete(
+  "/group/:group_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        // Get remove index
+        const removeIndex = profile.group
+          .map(item => item.id)
+          .indexOf(req.params.group_id);
+
+        // Splice out of array
+        profile.group.splice(removeIndex, 1);
+
+        // Save
+        profile.save().then(profile => res.json(profile));
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
 // @route   DELETE api/profile
 // @desc    Delete user and profile
 // @access  Private
