@@ -183,7 +183,7 @@ router.post(
         // Save
         post.save().then(post => res.json(post));
       })
-      .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
+      // .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
   }
 );
 
