@@ -123,7 +123,7 @@ router.delete(
   }
 );
 
-//@route PUT api/posts/:id/edit
+//@route PUT api/posts/:id
 //@desc Edit and update post
 //@access Private
 
