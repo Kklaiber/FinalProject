@@ -37,7 +37,11 @@ nav li a:hover{
     font-size: 6vw;
     opacity: .9;
   }  
-
+  .header-box {
+    background-image: linear-gradient(rgb(44, 75, 212), rgb(179, 179, 179));
+    border: none;
+    box-shadow: none;
+  }
 
   .landing-inner {
     padding-top: 80px;
