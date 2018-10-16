@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from '../../validation/is-empty';
+import DisplayGroups from "../profile/DisplayGroups";
 
 class ProfileAbout extends Component {
   render() {
@@ -29,10 +30,11 @@ class ProfileAbout extends Component {
               )}
             </p>
             <hr />
-            <h3 className="text-center text-info">Skill Set</h3>
+            <h3 className="text-center text-info">Communities</h3>
             <div className="row">
               <div className="d-flex flex-wrap justify-content-center align-items-center">
-                {skills}
+                {/* {skills} */}
+                <DisplayGroups group={profile.group} />
               </div>
             </div>
           </div>
