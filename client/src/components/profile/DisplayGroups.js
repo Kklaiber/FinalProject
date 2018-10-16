@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
-import PropTypes from 'prop-types';
 import { deleteGroup } from '../../actions/profileActions';
 
 class DisplayGroups extends Component {

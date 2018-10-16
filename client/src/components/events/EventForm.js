@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import TextFieldGroup from '../common/TextFieldGroup';
+import SelectListGroup from '../common/SelectListGroup';
 import { addEvent } from "../../actions/eventActions";
 
 class EventForm extends Component {
@@ -62,20 +64,39 @@ class EventForm extends Component {
   render() {
     const { errors } = this.state;
 
+     // Select options for childcare
+     const careOptions = [
+      { label: 'Childcare Options', value: 0 },
+      { label: 'Childcare Is Provided', value: 'Yes' },
+      { label: 'Childcare For Ages Over 3', value: 'Yes, ages 3+' },
+      { label: 'No Childcare Will Be Provided', value: 'No' },
+    ];
+
+     // Select options for family friendly
+     const familyOptions = [
+      { label: 'Family Friendly Options', value: 0 },
+      { label: 'This Event Is For The Whole Family!', value: 'This Event Is For The Whole Family!' },
+      { label: 'This Event Is For Young Adults', value: 'This Event Is For Young Adults' },
+      { label: 'This Event Is Not Recommended For Kids', value: 'This Event Is Not Recommended For Kids' },
+      { label: 'This Event Is For Teens', value: 'This Event Is For Teens' },
+     
+    ];
+
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">Create An Event!</div>
+          <div className="card-header text-white">Create An Event!</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <TextAreaFieldGroup
+                <TextFieldGroup
                   placeholder="Event Title"
                   name="title"
                   value={this.state.title}
                   onChange={this.onChange}
                   error={errors.text}
                 />
+                
                 <TextAreaFieldGroup
                   placeholder="Describe Your Event"
                   name="description"
@@ -83,46 +104,61 @@ class EventForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
-                <TextAreaFieldGroup
-                placeholder="Date Of Event"
-                name="when"
-                value={this.state.when}
-                onChange={this.onChange}
-                error={errors.text}
-                />
-                <TextAreaFieldGroup
-                placeholder="Time Of Event"
-                name="time"
-                value={this.state.time}
-                onChange={this.onChange}
-                error={errors.text}
-                />
-                <TextAreaFieldGroup
-                placeholder="Location Of Event"
+                 <TextFieldGroup
+                placeholder="Location of Event"
                 name="where"
                 value={this.state.where}
                 onChange={this.onChange}
                 error={errors.text}
                 />
-                <TextAreaFieldGroup
+
+                 <small id="communityHelper" className="form-text text-muted">
+                Please enter the date and time of your event!
+                </small>
+                <div class="row">
+                <div class="col-md-6">
+                <TextFieldGroup
+                placeholder="Date Of Event"
+                name="when"
+                type="date"
+                value={this.state.when}
+                onChange={this.onChange}
+                error={errors.text}
+                />
+                </div>
+                <div class="col-md-6">
+                <TextFieldGroup
+                placeholder="Time Of Event"
+                name="time"
+                type="time"
+                value={this.state.time}
+                onChange={this.onChange}
+                error={errors.text}
+                />
+                </div>
+                </div>
+                <small id="communityHelper" className="form-text text-muted">
+                Is childcare provided?
+                </small>
+                <SelectListGroup
                 placeholder="Is Childcare Provided?"
                 name="childcare"
                 value={this.state.childcare}
                 onChange={this.onChange}
                 error={errors.text}
-                />
-                <TextAreaFieldGroup
+                options={careOptions}
+                 />
+                <small id="communityHelper" className="form-text text-muted">
+                Is your event family friendly? 
+                </small>
+                <SelectListGroup
                 placeholder="Is Your Event Family-Friendly?"
                 name="kidfriendly"
                 value={this.state.kidfriendly}
                 onChange={this.onChange}
                 error={errors.text}
-                />
-
-                <small id="communityHelper" className="form-text text-muted">
-              You are posting to the Events Page
-              </small>
-
+                options={familyOptions}
+                 />
               </div>
 
               <button type="submit" className="btn btn-dark">
