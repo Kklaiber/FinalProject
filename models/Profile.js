@@ -14,6 +14,7 @@ const ProfileSchema = new Schema({
   },
   avatar: {
     type:  String,
+    ref: 'users'
   },
   company: {
     type: String
@@ -94,6 +95,18 @@ const ProfileSchema = new Schema({
       },
       description: {
         type: String
+      }
+    }
+  ],
+  group: [
+    {
+      title: {
+        type: String,
+        required: true
+      },
+      description: {
+        type: String,
+        required: true
       }
     }
   ],

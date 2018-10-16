@@ -14,7 +14,6 @@ class Navbar extends Component {
   }
   
   render() {
-    const { profile } = this.props;
     const { isAuthenticated, user } = this.props.auth;
     
     const authLinks = (
@@ -94,7 +93,7 @@ class Navbar extends Component {
               <li className="nav-item">
                 <Link className="nav-link" to="/profiles">
                   {' '}
-                  Developers
+                  Friends
                 </Link>
               </li>
             </ul>
