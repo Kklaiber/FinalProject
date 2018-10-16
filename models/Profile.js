@@ -14,6 +14,7 @@ const ProfileSchema = new Schema({
   },
   avatar: {
     type:  String,
+    ref: 'users'
   },
   company: {
     type: String

@@ -4,12 +4,16 @@ import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addPost } from '../../actions/postActions';
 
+
 class PostForm extends Component {
   constructor(props) {
     super(props);
+
+   
     this.state = {
       text: '',
       errors: {},
+      avatar: null,
       community: 'general'
     };
 
@@ -54,6 +58,7 @@ class PostForm extends Component {
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
+
                 <TextAreaFieldGroup
                   placeholder="Create a post"
                   name="text"
@@ -61,7 +66,6 @@ class PostForm extends Component {
                   onChange={this.onChange}
                   error={errors.text}
                 />
-
 
               <small id="communityHelper" className="form-text text-muted">
               You are posting to the Collective Community

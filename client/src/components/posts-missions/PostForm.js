@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { addPost } from '../../actions/postActions';
+import { addPost } from '../../actions/postMissionsActions'; //DONT CHANGE THIS!!!!!!!!
 
 class PostForm extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       text: '',
       errors: {},
@@ -17,6 +18,7 @@ class PostForm extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
 
   componentWillReceiveProps(newProps) {
     if (newProps.errors) {
