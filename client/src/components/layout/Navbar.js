@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentProfile } from '../../actions/profileActions';
 
-
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
@@ -15,7 +14,7 @@ class Navbar extends Component {
   
   render() {
     const { isAuthenticated, 
-    //  user 
+    //user 
     } = this.props.auth;
     
     const authLinks = (
@@ -49,13 +48,6 @@ class Navbar extends Component {
           >
           
           <i className="fas fa-sign-out-alt"></i>
-            {/* <img
-              className="rounded-circle"
-              src={user.avatar}
-              alt=""
-              style={{ width: '25px', marginRight: '5px' }}
-              title="You must have a Gravatar connected to your email to display an image"
-            /> */}
             {'  '}
             Logout
           </a>
