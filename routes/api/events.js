@@ -107,6 +107,36 @@ router.post(
   }
 );
 
+// @route    POST api/interested/:id
+// @desc     Signify You're interested to event
+// @access   Private
+router.post(
+  "/interested/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      Event.findById(req.params.id)
+        .then(event => {
+          if (
+            event.interested.filter(interested => interested.user.toString() === req.user.id)
+              .length > 0
+          ) {
+            return res
+              .status(400)
+              .json({ alreadyinterested: "User is already interested in coming to event" });
+          }
+          //If user hasnt clicked interested yet, this will add user to interested array
+          event.interested.unshift({ user: req.user.id });
+
+          event.save().then(event => res.json(event));
+        })
+        .catch(err =>
+          res.status(404).json({ eventnotsssfound: "Sorry! No Event Found" })
+        );
+    });
+  }
+);
+
 // @route    POST api/events
 // @desc     CREATE events
 // @access   Private

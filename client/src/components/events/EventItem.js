@@ -2,13 +2,60 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-//import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import classnames from 'classnames';
+
+import {
+  deleteEvent,
+  goingToEvent,
+  interestedInEvent
+} from "../../actions/eventActions";
 
 class EventItem extends Component {
   onDeleteClick(id) {
-    this.props.deletePost(id);
+    this.props.deleteEvent(id);
   }
- 
+
+  onGoingClick(id) {
+    this.props.goingToEvent(id);
+  }
+  onInterestedClick(id) {
+    this.props.interestedInEvent(id);
+  }
+  onLikeClick(id) {
+    this.props.addLike(id);
+  }
+
+  onUnlikeClick(id) {
+    this.props.removeLike(id);
+  }
+
+  findUserGoing(going){
+    const { auth } =this.props;
+    if(going.filter(going => going.user === auth.user.id).length > 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  findUserInterested(interested){
+    const { auth } =this.props;
+    if(interested.filter(interested => interested.user === auth.user.id).length > 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  findUserLike(likes) {
+    const { auth } = this.props;
+    if (likes.filter(like => like.user === auth.user.id).length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   render() {
     const { event, auth } = this.props;
@@ -33,13 +80,29 @@ class EventItem extends Component {
               {/* {event.description} */}
             </p>
             {/* <p>{event.when}</p> */}
-            <button type="button" className="btn btn-light mr-1">
-              <i className="text-info fas fa-user-plus" />
+            <button
+              onClick={this.onGoingClick.bind(this, event._id)}
+              type="button"
+              className="btn btn-light mr-1"
+            >
+              <i className={classnames("fas fa-user-plus", {
+                "text-info": this.findUserGoing(event.going)
+              } )}/>
               <span className="badge badge-light">{event.going.length}</span>
             </button>
-            <button type="button" className="btn btn-light mr-1">
-              <i className="text-secondary far fa-calendar" />
+            <button
+              onClick={this.onInterestedClick.bind(this, event._id)}
+              type="button"
+              className="btn btn-light mr-1"
+            >
+              <i className={classnames("text-secondary far fa-calendar", {
+              "fal fa-calendar-check": this.findUserInterested(event.interested) 
+              })} />
+              <span className="badge badge-light">
+                {event.interested.length}
+              </span>
             </button>
+
             <Link to={`/event/${event._id}`} className="btn btn-info mr-1" />
             {event.user === auth.user.id ? (
               <button
@@ -58,6 +121,9 @@ class EventItem extends Component {
 }
 
 EventItem.propTypes = {
+  deleteEvent: PropTypes.func.isRequired,
+  goingToEvent: PropTypes.func.isRequired,
+  interestedInEvent: PropTypes.func.isRequired,
   event: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,  
 };
@@ -66,4 +132,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(EventItem);
+export default connect(
+  mapStateToProps,
+  { addLike, removeLike, deleteEvent, goingToEvent, interestedInEvent }
+)(EventItem);
