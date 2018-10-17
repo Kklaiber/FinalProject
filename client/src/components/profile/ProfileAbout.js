@@ -35,6 +35,12 @@ class ProfileAbout extends Component {
                 {skills}
               </div>
             </div>
+            <h3 className="text-center text-info">Skill Set</h3>
+            <div className="row">
+              <div className="d-flex flex-wrap justify-content-center align-items-center">
+                {skills}
+              </div>
+            </div>
           </div>
         </div>
       </div>
