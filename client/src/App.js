@@ -109,13 +109,15 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/events" component={Events} />
               </Switch>
+
               <Switch>
                 <PrivateRoute
                   exact
-                  path="/event/post/:id"
+                  path="/event/:id"
                   component={PostEvents}
                 />
               </Switch>
+              
               <Switch>
                 <PrivateRoute
                   exact
