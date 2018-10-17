@@ -1,6 +1,12 @@
 import axios from "axios";
 
-import { ADD_EVENT, GET_ERRORS, GET_EVENTS, EVENT_LOADING } from "./types";
+import {
+  ADD_EVENT,
+  GET_ERRORS,
+  GET_EVENTS,
+  EVENT_LOADING,
+  DELETE_EVENT
+} from "./types";
 
 //ADD EVENT
 export const addEvent = eventData => dispatch => {
@@ -36,6 +42,50 @@ export const getEvents = () => dispatch => {
       dispatch({
         type: GET_EVENTS,
         payload: null
+      })
+    );
+};
+
+//DELETE EVENT
+export const deleteEvent = id => dispatch => {
+  axios
+    .delete(`/api/events/${id}`)
+    .then(res =>
+      dispatch({
+        type: DELETE_EVENT,
+        payload: id
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+//ADD "GOING" TO EVENT
+export const goingToEvent = id => dispatch => {
+  axios
+    .post(`/api/events/going/${id}`)
+    .then(res => dispatch(getEvents()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+//ADD "INTERESTED" IN EVENT
+export const interestedInEvent = id => dispatch => {
+  axios
+    .post(`/api/events/interested/${id}`)
+    .then(res => dispatch(getEvents()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
       })
     );
 };
