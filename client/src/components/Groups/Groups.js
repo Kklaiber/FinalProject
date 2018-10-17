@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import FadeIn from "react-fade-in";
 
 
  class Groups extends Component {
   render() {
     return (
-      <div class="row">
+   <div>
+     <FadeIn>
+      <div className="row">
 
+  
       <div className="card community-card col-md-6">
         <img className="card-img-top" src="https://images.pexels.com/photos/134062/pexels-photo-134062.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card cap"/>
         <div className="card-body">
@@ -21,6 +24,7 @@ import { Link } from 'react-router-dom';
           </Link>
         </div>  
     </div>
+
 
 
     <div className="card community-card col-md-6">
@@ -38,6 +42,12 @@ import { Link } from 'react-router-dom';
     </div>
 
 
+</div>
+</FadeIn>
+
+
+<FadeIn>
+<div className="row">
     <div className="card community-card col-md-6">
         <img className="card-img-top" src="https://images.pexels.com/photos/615471/pexels-photo-615471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card cap"/>
         <div className="card-body">
@@ -67,6 +77,9 @@ import { Link } from 'react-router-dom';
     </div>
 
 </div>
+</FadeIn>
+</div>
+
     )
   }
 }

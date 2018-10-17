@@ -1,4 +1,9 @@
-import { ADD_EVENT, GET_EVENTS, EVENT_LOADING } from "../actions/types";
+import {
+  ADD_EVENT,
+  GET_EVENTS,
+  DELETE_EVENT,
+  EVENT_LOADING
+} from "../actions/types";
 
 const initialState = {
   events: [],
@@ -23,6 +28,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         events: [action.payload, ...state.events]
+      };
+    case DELETE_EVENT:
+      return {
+        ...state,
+        events: state.events.filter(event => event._id !== action.payload)
       };
     default:
       return state;

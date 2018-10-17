@@ -204,6 +204,7 @@ class CreateProfile extends Component {
                   info="Please use comma separated values (eg.
                     HTML,CSS,JavaScript,PHP"
                 /> */}
+
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
                   name="bio"
