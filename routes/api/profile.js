@@ -43,8 +43,8 @@ router.get(
 
 // @route   GET api/profile/all
 // @desc    Get all profiles
-// @access  Public
-router.get("/all", (req, res) => {
+// @access  Private (must be logged in)
+router.get("/all",  passport.authenticate("jwt", { session: false }), (req, res) => {
   const errors = {};
 
   Profile.find()

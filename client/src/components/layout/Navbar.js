@@ -20,19 +20,20 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/feed">
-            Post Feed
+          Posts
           </Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/communities">
+          Communities
+          </Link>
+          </li>
         <li className="nav-item">
          <Link className="nav-link" to="/events">
            Events
           </Link>
           </li>
-        <li className="nav-item">
-         <Link className="nav-link" to="/missions">
-           Missions
-          </Link>
-          </li>
+       
         <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
             Dashboard
@@ -44,19 +45,37 @@ class Navbar extends Component {
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
           >
-            <img
+          
+          <i className="fas fa-sign-out-alt"></i>
+            {/* <img
               className="rounded-circle"
               src={user.avatar}
-              alt={user.name}
+              alt=""
               style={{ width: '25px', marginRight: '5px' }}
               title="You must have a Gravatar connected to your email to display an image"
-            />
-            {'   '}
+            /> */}
+            {'  '}
             Logout
           </a>
         </li>
       </ul>
     );
+    
+    const friendLinks = (
+     
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <Link className="nav-link" to="/profiles">
+          
+            {' '}
+            Friends
+          </Link>
+          
+        </li>
+      </ul>
+   
+    );
+
 
     const guestLinks = (
       <ul className="navbar-nav ml-auto">
@@ -87,18 +106,10 @@ class Navbar extends Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
-
           <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/profiles">
-                  {' '}
-                  Friends
-                </Link>
-              </li>
-            </ul>
+            {isAuthenticated ? friendLinks : null}
             {isAuthenticated ? authLinks : guestLinks}
-          </div>
+        </div>
         </div>
       </nav>
     );

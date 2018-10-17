@@ -115,8 +115,8 @@ class EventForm extends Component {
                  <small id="communityHelper" className="form-text text-muted">
                 Please enter the date and time of your event!
                 </small>
-                <div class="row">
-                <div class="col-md-6">
+                <div className="row">
+                <div className="col-md-6">
                 <TextFieldGroup
                 placeholder="Date Of Event"
                 name="when"
@@ -126,7 +126,7 @@ class EventForm extends Component {
                 error={errors.text}
                 />
                 </div>
-                <div class="col-md-6">
+                <div className="col-md-6">
                 <TextFieldGroup
                 placeholder="Time Of Event"
                 name="time"

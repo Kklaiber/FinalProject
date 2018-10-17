@@ -2,13 +2,32 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { deletePost, addLike, removeLike } from '../../actions/postActions';
 
 class EventItem extends Component {
   onDeleteClick(id) {
-    console.log(id);
+    this.props.deletePost(id);
   }
+  onLikeClick(id) {
+    this.props.addLike(id);
+  }
+
+  onUnlikeClick(id) {
+    this.props.removeLike(id);
+  }
+
+  findUserLike(likes) {
+    const { auth } = this.props;
+    if (likes.filter(like => like.user === auth.user.id).length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   render() {
-    const { event, auth } = this.props;
+    const { event, auth, showActions } = this.props;
+
     return (
       <div className="card card-body mb-3">
         <div className="row">
@@ -55,11 +74,13 @@ class EventItem extends Component {
 
 EventItem.propTypes = {
   event: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  addLike: PropTypes.func.isRequired,
+  removeLike: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(EventItem);
+export default connect(mapStateToProps, { addLike, removeLike })(EventItem);

@@ -14,7 +14,8 @@ const ProfileSchema = new Schema({
   },
   avatar: {
     type:  String,
-    ref: 'users'
+    ref: 'users', 
+    default: 'http://notdavidscott.com/images/collective/profilepicture.png'
   },
   company: {
     type: String
