@@ -7,7 +7,6 @@ import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
-import Interests from "./Interests";
 import Group from "./Group";
 
 class Dashboard extends Component {
@@ -39,6 +38,7 @@ class Dashboard extends Component {
             
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
+            
             <Group group={profile.group} />
             <div style={{ marginBottom: "60px" }} />
             <button
