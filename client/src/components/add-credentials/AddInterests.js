@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import TextFieldGroup from '../common/TextFieldGroup';
-// import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addInterests } from '../../actions/profileActions';
@@ -68,8 +67,7 @@ class AddInterests extends Component {
                                 value={this.state.interests}
                                 onChange={this.onChange}
                                 error={errors.interests}
-                                info="Please use comma separated values eg.
-                                HTML,CSS,JavaScript,PHP"
+                                info="Cooking, Music, Hiking..."
                             />
                             {/* <TextAreaFieldGroup
                                 placeholder="Tell us more!"
