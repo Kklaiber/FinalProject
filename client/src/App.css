@@ -33,6 +33,12 @@ nav li a:hover{
     margin-bottom: -50px; 
   }
 
+  .community-card {
+    box-shadow: 2px 5px 10px rgb(146, 146, 146);
+    margin: 0px;
+    padding: 1px;
+  }
+
   .card-title-text {
     color: rgb(255, 255, 255);
     font-size: 6vw;

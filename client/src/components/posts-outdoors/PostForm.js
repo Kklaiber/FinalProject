@@ -52,9 +52,9 @@ class PostForm extends Component {
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-        <img className="card-img-top" src="https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card cap"/>
+        <img className="card-img-top" src="https://images.pexels.com/photos/615471/pexels-photo-615471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card cap"/>
         
-          <div className="card-header text-white">Share your adventure...</div>
+          <div className="card-header text-white">Share your adventures...</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
