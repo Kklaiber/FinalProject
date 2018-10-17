@@ -23,18 +23,19 @@ import AddEducation from "./components/add-credentials/AddEducation";
 import AddGroup from "./components/add-credentials/AddGroup";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
-import Groups from './components/Groups/Groups';
+import Groups from "./components/Groups/Groups";
 
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
-import Events from "./components/events/Events"
+import Events from "./components/events/Events";
+import PostEvents from "./components/post-events/PostEvents";
 
 //missions posts and commenting
 import PostsMissions from "./components/posts-missions/PostsMissions";
 import PostMissions from "./components/post-missions/PostMissions";
 
 import PostsOutdoors from "./components/posts-outdoors/PostsOutdoors";
-import PostOutdoors from './components/post-outdoors/PostOutdoors';
+import PostOutdoors from "./components/post-outdoors/PostOutdoors";
 
 import NotFound from "./components/not-found/NotFound";
 
@@ -106,14 +107,16 @@ class App extends Component {
                 />
               </Switch>
               <Switch>
+                <PrivateRoute exact path="/events" component={Events} />
+              </Switch>
+              <Switch>
                 <PrivateRoute
                   exact
-                  path="/events"
-                  component={Events}
+                  path="/event/post/:id"
+                  component={PostEvents}
                 />
               </Switch>
               <Switch>
-
                 <PrivateRoute
                   exact
                   path="/missions"
@@ -129,9 +132,8 @@ class App extends Component {
                 />
               </Switch>
 
-
               <Switch>
-              <PrivateRoute
+                <PrivateRoute
                   exact
                   path="/outdoors"
                   component={PostsOutdoors}
@@ -145,25 +147,19 @@ class App extends Component {
                   component={PostOutdoors}
                 />
               </Switch>
-              
 
               <Switch>
-                <PrivateRoute
-                  exact
-                  path="/communities"
-                  component={Groups}
-                />
+                <PrivateRoute exact path="/communities" component={Groups} />
               </Switch>
 
-
-             <Switch>
+              <Switch>
                 <PrivateRoute exact path="/add-group" component={AddGroup} />
               </Switch>
 
               <Switch>
                 <PrivateRoute exact path="/feed" component={Posts} />
               </Switch>
-             
+
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
