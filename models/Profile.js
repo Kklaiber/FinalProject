@@ -12,6 +12,11 @@ const ProfileSchema = new Schema({
     required: true,
     max: 40
   },
+  avatar: {
+    type:  String,
+    ref: 'users', 
+    default: 'http://notdavidscott.com/images/collective/profilepicture.png'
+  },
   company: {
     type: String
   },
@@ -95,6 +100,18 @@ const ProfileSchema = new Schema({
     type: [String],
     required: true
   },
+  group: [
+    {
+      title: {
+        type: String,
+        required: true
+      },
+      description: {
+        type: String,
+        required: true
+      }
+    }
+  ],
   social: {
     youtube: {
       type: String

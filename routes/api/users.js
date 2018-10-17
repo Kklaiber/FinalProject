@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
@@ -33,17 +32,11 @@ router.post('/register', (req, res) => {
     if (user) {
       errors.email = 'Email already exists';
       return res.status(400).json(errors);
-    } else {
-      const avatar = gravatar.url(req.body.email, {
-        s: '200', // Size
-        r: 'pg', // Rating
-        d: 'mm' // Default
-      });
+    }
 
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        avatar,
         password: req.body.password
       });
 
@@ -57,7 +50,7 @@ router.post('/register', (req, res) => {
             .catch(err => console.log(err));
         });
       });
-    }
+    
   });
 });
 
@@ -120,6 +113,32 @@ router.get(
       id: req.user.id,
       name: req.user.name,
       email: req.user.email
+    });
+  }
+);
+
+
+// @route   POST api/profile/experience
+// @desc    Add experience to profile
+// @access  Private
+router.post(
+  '/editpicture',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateExperienceInput(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      return res.status(400).json(errors);
+    }
+
+    User.findOneAndUpdate({ user: req.user.id }).then(user => {
+      const newExp = {
+       avatar: req.body.avatar
+      };
+
+      user.save().then(user => res.json(user));
     });
   }
 );

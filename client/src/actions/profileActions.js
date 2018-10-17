@@ -100,6 +100,32 @@ export const addInterests = (intData, history) => dispatch => {
     );
 };
 
+// Add profile picture
+export const addProfilePicture = (picData, history) => dispatch => {
+  axios
+    .post("/api/users/profilepicture", picData)
+    .then(res => history.push("/edit-profile"))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Add group
+export const addGroup = (groupData, history) => dispatch => {
+  axios
+    .post("/api/profile/group", groupData)
+    .then(res => history.push("/dashboard"))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Delete Experience
 export const deleteExperience = id => dispatch => {
   axios
@@ -154,6 +180,23 @@ export const deleteInterests = id => dispatch => {
     );
 };
 
+// Delete Group
+export const deleteGroup = id => dispatch => {
+  axios
+    .delete(`/api/profile/group/${id}`)
+    .then(res =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
 
 // Get all profiles
 export const getProfiles = () => dispatch => {

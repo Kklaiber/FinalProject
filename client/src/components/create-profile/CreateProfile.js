@@ -25,6 +25,7 @@ class CreateProfile extends Component {
       linkedin: '',
       youtube: '',
       instagram: '',
+      avatar: '',
       errors: {}
     };
 
@@ -53,7 +54,8 @@ class CreateProfile extends Component {
       facebook: this.state.facebook,
       linkedin: this.state.linkedin,
       youtube: this.state.youtube,
-      instagram: this.state.instagram
+      instagram: this.state.instagram,
+      avatar: this.state.avatar
     };
 
     this.props.createProfile(profileData, this.props.history);
@@ -151,6 +153,15 @@ class CreateProfile extends Component {
                   error={errors.handle}
                   info="A unique handle for your profile URL. Your full name, company name, nickname"
                 />
+                  <TextFieldGroup
+                  placeholder="Profile Picture Link"
+                  name="avatar"
+                  value={this.state.avatar}
+                  onChange={this.onChange}
+                  error={errors.avatar}
+                  info="Paste your profile image link here"
+                />
+                    
                 <SelectListGroup
                   placeholder="Status"
                   name="status"
@@ -184,7 +195,7 @@ class CreateProfile extends Component {
                   error={errors.location}
                   info="City or city & state suggested (eg. Boston, MA)"
                 />
-                <TextFieldGroup
+                {/* <TextFieldGroup
                   placeholder="* Skills"
                   name="skills"
                   value={this.state.skills}
@@ -192,7 +203,7 @@ class CreateProfile extends Component {
                   error={errors.skills}
                   info="Please use comma separated values (eg.
                     HTML,CSS,JavaScript,PHP"
-                />
+                /> */}
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
                   name="bio"

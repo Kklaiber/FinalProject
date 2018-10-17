@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Caveat|Courgette');
-
+@import url('https://fonts.googleapis.com/css?family=Caveat|Montserrat:300');
 /* 
 font-family: 'Caveat', cursive;
-font-family: 'Courgette', cursive;
-font-family: 'Calligraffitti', cursive;
+font-family: 'Montserrat', sans-serif;
+
 */
 
 img {
@@ -25,14 +24,32 @@ nav li a:hover{
 
   .landing {
     position: relative;
-    background: url('./img/pexels-photo-1000444.jpeg') no-repeat;
+    /* background: url('./img/pexels-photo-1000444.jpeg') no-repeat; */
+    background: url('https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     background-size: cover;
     background-position: center;
     height: 100vh;
     margin-top: -24px;
-    margin-bottom: -50px;
+    margin-bottom: -50px; 
   }
-  
+
+  .community-card {
+    box-shadow: 2px 5px 10px rgb(146, 146, 146);
+    margin: 0px;
+    padding: 1px;
+  }
+
+  .card-title-text {
+    color: rgb(255, 255, 255);
+    font-size: 6vw;
+    opacity: .9;
+  }  
+  .header-box {
+    background-image: linear-gradient(rgba(40, 107, 146), rgba(156, 156, 156, 0.753));
+    border: none;
+    box-shadow: none;
+  }
+
   .landing-inner {
     padding-top: 80px;
   }
@@ -43,16 +60,17 @@ nav li a:hover{
     letter-spacing: 1px;
   }
   .gold-text {
-    color: rgb(218, 175, 36);
+    color: rgb(230, 185, 39);
   }
   
 .dark-overlay {
-  background-color: rgba(26, 26, 26, 0.7);
+  background-color: rgba(26, 26, 26, 0.473);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  
 }
   
   .card-form {
@@ -66,5 +84,15 @@ nav li a:hover{
   
   .form-control::placeholder {
     color: #bbb !important;
+  }
+  .card-header {
+   background-color: rgba(40, 107, 146, 0.795);
+  }
+  .post-form {
+    background-color: rgb(204, 204, 204);
+  }
+ 
+  .post-card {
+    background-color: rgb(247, 247, 247);
   }
   
