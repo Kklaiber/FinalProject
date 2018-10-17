@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-//import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import { deletePost, addLike, removeLike } from '../../actions/postActions';
 import classnames from 'classnames';
 
 import {
