@@ -103,7 +103,7 @@ class EventItem extends Component {
               </span>
             </button>
 
-            <Link to={`/event/${event._id}`} className="btn btn-info mr-1" />
+            <Link to={`/events/${event._id}`} className="btn btn-info mr-1" />
             {event.user === auth.user.id ? (
               <button
                 onClick={this.onDeleteClick.bind(this, event._id)}
