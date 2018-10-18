@@ -82,6 +82,9 @@ class PostItem extends Component {
                     type="button"
                     className="badge badge-light mr-1">
                   <span className="text-danger"> Delete Post </span>
+                  {/* className="btn btn-danger mr-1 float-right"
+                  >
+                    <i className="far fa-trash-alt" /> */}
                   </button>
                 ) : null}
               </span>

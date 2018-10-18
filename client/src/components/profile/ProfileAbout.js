@@ -19,21 +19,24 @@ class ProfileAbout extends Component {
             <h3 className="text-center text-info">{firstName}'s Bio</h3>
             <p className="lead">
               {isEmpty(profile.bio) ? (
-                <span>{firstName} does not have a bio</span>
+                <span>{firstName} has not added a bio yet.</span>
               ) : (
                 <span>{profile.bio}</span>
               )}
             </p>
             <hr />
-            <h3 className="text-center text-info">Interests</h3>
+            <h3 className="text-center text-info">Interests</h3> 
+         
             <ul className="list-group">
-              {profile.interests.slice(0, 5).map((interest, index) => (
+              {profile.interests.slice(0, 2).map((interest, index) => (
+                
                 <li key={index} className="list-group-item">
                 
                   {interest}
                 </li>
               ))}
             </ul>
+        
             <hr />
             <h3 className="text-center text-info">Communities</h3>
             <div className="row">

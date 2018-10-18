@@ -81,29 +81,29 @@ class EventItem extends Component {
           <div className="col-md-10">
            {fullDescription ? (<span>
             <p className="lead">
-              Title: {event.title}
+             <strong>Title: </strong>{event.title}
               <br/>
-              Description: {event.description}
+             <strong>Description: </strong> {event.description}
               <br/>
-              Date: {event.when}
+            <strong>Date:</strong> {event.when}
               <br/>
-              Time: {event.time}
-             <br/>
-              Location: {event.where}
+              <strong> Time:</strong> {event.time}
               <br/>
-              Childcare: {event.childcare}
+              <strong>Location: </strong>{event.where}
               <br/>
-              Ages: {event.kidfriendly}
+              <strong>Childcare: </strong>{event.childcare}
+              <br/>
+              <strong>Ages: </strong>{event.kidfriendly}
               </p>
            </span>) : <span>
            <p className="lead">
-              Title: {event.title}
+           <strong>Title: </strong>{event.title}
               <br/>
-              Description: {event.description}
+              <strong>Description: </strong> {event.description}
               <br/>
-              Date: {event.when}
+              <strong>Date:</strong> {event.when}
               <br/>
-              Time: {event.time}
+              <strong> Time:</strong> {event.time}
               </p>
            </span>}
             
@@ -151,7 +151,7 @@ class EventItem extends Component {
                   <button
                     onClick={this.onDeleteClick.bind(this, event._id)}
                     type="button"
-                    className="btn btn-danger mr-1"
+                    className="btn btn-danger mr-1 float-right"
                   >
                     <i className="far fa-trash-alt" />
                   </button>

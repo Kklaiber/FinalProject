@@ -22,6 +22,36 @@ class Profile extends Component {
   }
 
   render() {
+
+    editProfile = (
+    
+      <div className="row edit-profile">
+      
+        <Link to="/edit-profile" className="btn btn-light">
+            <i className="fas fa-user-circle  text-warning mr-1" /> 
+            Edit Profile
+        </Link>
+        <Link to="/add-experience" className="btn btn-light">
+        <i className="fas fa-briefcase text-warning mr-1" />
+            Add Experience
+        </Link>
+        <Link to="/add-education" className="btn btn-light">
+            <i className="fas fa-graduation-cap text-warning mr-1" /> 
+            Add Education
+        </Link> 
+        <Link to="/add-interests" className="btn btn-light">
+        <i className="far fa-star text-warning mr-1"></i>
+            Add Interests
+        </Link>
+        <Link to="/add-group" className="btn btn-light">
+          <i className="fas fa-users text-warning text-warning mr-1" />
+          Add Group
+        </Link>
+      </div>
+    
+   
+    );
+
     const { profile, loading } = this.props.profile;
     let profileContent;
 
@@ -39,21 +69,30 @@ class Profile extends Component {
             <div className="col-md-6" />
           </div>
           <ProfileHeader profile={profile} />
+           <div className="text-center">{editProfile}</div>
           <ProfileAbout profile={profile} />
+        
           <ProfileCreds
             education={profile.education}
             experience={profile.experience}
           />
         </div>
       );
+      
     }
+
+    let editProfile;
+
+   
 
     return (
       <div className="profile">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">{profileContent}</div>
+            <div className="col-md-12">  {profileContent}</div>
+         
           </div>
+          
         </div>
       </div>
     );
