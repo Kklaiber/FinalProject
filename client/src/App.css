@@ -39,6 +39,10 @@ nav li a:hover{
     padding: 1px;
 
   }
+  .edit-profile {
+    margin: 0px auto;
+    
+  }
 
   .card-title-text {
     color: rgb(255, 255, 255);

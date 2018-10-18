@@ -5,6 +5,7 @@ import Posts from "../posts/Posts"
 const ProfileActions = () => {
   return (
     <div><Posts/>
+
     <div className="btn-group mb-4" role="group">
       <Link to="/edit-profile" className="btn btn-light">
           <i className="fas fa-user-circle  text-warning mr-1" /> 
@@ -27,6 +28,7 @@ const ProfileActions = () => {
         Add Group
       </Link>
     </div>
+    
     </div>
   );
 };
