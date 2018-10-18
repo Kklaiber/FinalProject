@@ -27,6 +27,7 @@ import Groups from './components/groups/Groups';
 
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
+
 import Events from "./components/events/Events";
 import PostEvents from "./components/post-events/PostEvents";
 
@@ -112,7 +113,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute
                   exact
-                  path="/event/post/:id"
+                  path="/event/:id"
                   component={PostEvents}
                 />
               </Switch>
