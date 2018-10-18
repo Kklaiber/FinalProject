@@ -20,6 +20,7 @@ import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
+import AddInterests from "./components/add-credentials/AddInterests";
 import AddGroup from "./components/add-credentials/AddGroup";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
@@ -27,6 +28,7 @@ import Groups from './components/groups/Groups';
 
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
+
 import Events from "./components/events/Events";
 import PostEvents from "./components/post-events/PostEvents";
 
@@ -110,14 +112,30 @@ class App extends Component {
                 <PrivateRoute exact path="/events" component={Events} />
               </Switch>
 
+
               <Switch>
                 <PrivateRoute
                   exact
-                  path="/event/:id"
-                  component={PostEvents}
+                  path="/add-interests"
+                  component={AddInterests}
                 />
               </Switch>
-              
+      
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/events"
+                  component={Events}
+                />
+                  </Switch>
+
+              <Switch>
+                 <PrivateRoute
+                  path="/event/:id"
+                  component={PostEvents}
+                  />
+              </Switch>
+      
               <Switch>
                 <PrivateRoute
                   exact
@@ -125,7 +143,6 @@ class App extends Component {
                   component={PostsMissions}
                 />
               </Switch>
-
               <Switch>
                 <PrivateRoute
                   exact

@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 
 // Load Validation
-const validateProfileInput = require("../../validation/profile");
-const validateExperienceInput = require("../../validation/experience");
-const validateEducationInput = require("../../validation/education");
+const validateProfileInput = require('../../validation/profile');
+const validateExperienceInput = require('../../validation/experience');
+const validateEducationInput = require('../../validation/education');
+const validateInterestsInput = require('../../validation/interests');
 const validateGroupInput = require("../../validation/group");
 
 // Load Profile Model
@@ -239,6 +240,37 @@ router.post(
   }
 );
 
+// @route   POST api/profile/interests
+// @desc    Add interests to profile
+// @access  Private
+router.post(
+  '/interests',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateInterestsInput(req.body);
+    
+    // Check Validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      return res.status(400).json(errors);
+    }
+
+    const interestsFields = {};
+    interestsFields.user = req.user.id;
+    if (typeof req.body.interests !== 'undefined') {
+      interestsFields.interests = req.body.interests.split(',');
+    }
+
+    Profile.findOne({ user: req.user.id }).then(profile => {
+
+      // Add to int array
+      profile.interests = profile.interests.concat(interestsFields.interests);
+
+      profile.save().then(profile => res.json(profile));
+    });
+  }
+);
+
 // @route   POST api/profile/group
 // @desc    Add group to profile
 // @access  Private
@@ -253,7 +285,7 @@ router.post(
       // Return any errors with 400 status
       return res.status(400).json(errors);
     }
-
+      
     Profile.findOne({ user: req.user.id }).then(profile => {
       const newGroup = {
         title: req.body.title,
@@ -316,6 +348,30 @@ router.delete(
   }
 );
 
+// @route   DELETE api/profile/interests/:int_id
+// @desc    Delete interests from profile
+// @access  Private
+router.delete(
+  '/interests/:int_id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        // Get remove index
+        const removeIndex = profile.interests
+          .map(item => item.id)
+          .indexOf(req.params.int_id);
+
+        // Splice out of array
+        profile.interests.splice(removeIndex, 1);
+
+        // Save
+        profile.save().then(profile => res.json(profile));
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
 // @route   DELETE api/profile/group/:group_id
 // @desc    Delete group from profile
 // @access  Private
@@ -325,7 +381,6 @@ router.delete(
   (req, res) => {
     Profile.findOne({ user: req.user.id })
       .then(profile => {
-        // Get remove index
         const removeIndex = profile.group
           .map(item => item.id)
           .indexOf(req.params.group_id);

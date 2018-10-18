@@ -25,6 +25,16 @@ class ProfileAbout extends Component {
               )}
             </p>
             <hr />
+            <h3 className="text-center text-info">Interests</h3>
+            <ul className="list-group">
+              {profile.interests.slice(0, 5).map((interest, index) => (
+                <li key={index} className="list-group-item">
+                
+                  {interest}
+                </li>
+              ))}
+            </ul>
+            <hr />
             <h3 className="text-center text-info">Communities</h3>
             <div className="row">
               <div className="d-flex flex-wrap justify-content-center align-items-center">

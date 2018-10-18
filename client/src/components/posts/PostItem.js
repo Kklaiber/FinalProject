@@ -27,8 +27,12 @@ class PostItem extends Component {
     }
   }
 
+
+
   render() {
     const { post, auth, showActions } = this.props;
+  
+
 
     return (
       <div className="card card-body mb-3 post-card">
@@ -55,7 +59,7 @@ class PostItem extends Component {
                 >
                   <i
                     className={classnames('fas fa-thumbs-up', {
-                      'text-info': this.findUserLike(post.likes)
+                      'text-warning': this.findUserLike(post.likes)
                     })}
                   />
                   <span className="badge badge-light">{post.likes.length}</span>
@@ -67,16 +71,17 @@ class PostItem extends Component {
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
-                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
-                  Comments
+                
+                <Link to={`/post/${post._id}`} className="badge badge-light mr-1">
+                {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
+                    
                 {post.user === auth.user.id ? (
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="btn btn-danger mr-1"
-                  >
-                    <i className="fas fa-times" />
+                    className="badge badge-light mr-1">
+                  <span className="text-danger"> Delete Post </span>
                   </button>
                 ) : null}
               </span>
