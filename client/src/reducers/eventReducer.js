@@ -1,6 +1,7 @@
 import {
   ADD_EVENT,
   GET_EVENTS,
+  GET_EVENT,
   DELETE_EVENT,
   EVENT_LOADING
 } from "../actions/types";
@@ -24,6 +25,12 @@ export default function(state = initialState, action) {
         events: action.payload,
         loading: false
       };
+      case GET_EVENT:
+      return {
+        ...state,
+        event: action.payload,
+        loading: false
+      }
     case ADD_EVENT:
       return {
         ...state,

@@ -5,11 +5,14 @@ import {
   GET_ERRORS,
   GET_EVENTS,
   EVENT_LOADING,
-  DELETE_EVENT
+  DELETE_EVENT,
+  GET_EVENT,
+  CLEAR_ERRORS
 } from "./types";
 
 //ADD EVENT
 export const addEvent = eventData => dispatch => {
+  dispatch(clearErrors());
   axios
     .post("/api/events", eventData)
     .then(res =>
@@ -41,6 +44,26 @@ export const getEvents = () => dispatch => {
     .catch(err =>
       dispatch({
         type: GET_EVENTS,
+        payload: null
+      })
+    );
+};
+
+//GET EVENT
+export const getEvent = id => dispatch => {
+  dispatch(setEventLoading());
+
+  axios
+    .get(`/api/events/${id}`)
+    .then(res =>
+      dispatch({
+        type: GET_EVENT,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_EVENT,
         payload: null
       })
     );
@@ -90,9 +113,54 @@ export const interestedInEvent = id => dispatch => {
     );
 };
 
+//ADD COMMENT
+export const addComment = (eventId, commentData) => dispatch => {
+  dispatch(clearErrors());
+
+  axios
+    .post(`/api/events/comment/${eventId}`, commentData)
+    .then(res =>
+      dispatch({
+        type: GET_EVENT,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+//DELETE COMMENT
+export const deleteComment = (eventId, commentId) => dispatch => {
+  axios
+    .delete(`/api/events/comment/${eventId}/${commentId}`)
+    .then(res =>
+      dispatch({
+        type: GET_EVENT,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 //SET LOADING STATE
 export const setEventLoading = () => {
   return {
     type: EVENT_LOADING
+  };
+};
+
+//CLEAR ERRORS
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS
   };
 };

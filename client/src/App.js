@@ -109,11 +109,6 @@ class App extends Component {
                 />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/events" component={Events} />
-              </Switch>
-
-
-              <Switch>
                 <PrivateRoute
                   exact
                   path="/add-interests"
