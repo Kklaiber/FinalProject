@@ -67,9 +67,9 @@ class EventForm extends Component {
      // Select options for childcare
      const careOptions = [
       { label: 'Childcare Options', value: 0 },
-      { label: 'Childcare Is Provided', value: 'Yes' },
+      { label: 'Childcare Is Provided', value: 'Yes, Childcare Is Provided!' },
       { label: 'Childcare For Ages Over 3', value: 'Yes, ages 3+' },
-      { label: 'No Childcare Will Be Provided', value: 'No' },
+      { label: 'No Childcare Will Be Provided', value: 'No Childcare Will Be Provided' },
     ];
 
      // Select options for family friendly
@@ -77,7 +77,7 @@ class EventForm extends Component {
       { label: 'Family Friendly Options', value: 0 },
       { label: 'This Event Is For The Whole Family!', value: 'This Event Is For The Whole Family!' },
       { label: 'This Event Is For Young Adults', value: 'This Event Is For Young Adults' },
-      { label: 'This Event Is Not Recommended For Kids', value: 'This Event Is Not Recommended For Kids' },
+      { label: 'This Event Is Not Recommended For Kids', value: 'This Event Is Not Recommended For Children under 13' },
       { label: 'This Event Is For Teens', value: 'This Event Is For Teens' },
      
     ];
