@@ -30,14 +30,11 @@ const ProfileSchema = new Schema({
     type: String,
     required: true
   },
-  skills: {
-    type: [String],
-    required: true
-  },
+  // skills: {
+  //   type: [String],
+  //   required: true
+  // },
   bio: {
-    type: String
-  },
-  githubusername: {
     type: String
   },
   experience: [
@@ -99,6 +96,10 @@ const ProfileSchema = new Schema({
       }
     }
   ],
+  interests: {
+    type: [String],
+    required: true
+  },
   group: [
     {
       title: {

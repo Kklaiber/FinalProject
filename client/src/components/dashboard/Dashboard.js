@@ -38,6 +38,7 @@ class Dashboard extends Component {
             
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
+            
             <Group group={profile.group} />
             <div style={{ marginBottom: "60px" }} />
             <button
