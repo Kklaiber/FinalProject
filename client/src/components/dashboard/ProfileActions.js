@@ -11,7 +11,7 @@ const ProfileActions = () => {
           Edit Profile
       </Link>
       <Link to="/add-experience" className="btn btn-light">
-          <i className="fas fa-black-tie text-warning mr-1" /> 
+      <i className="fas fa-briefcase text-warning mr-1" />
           Add Experience
       </Link>
       <Link to="/add-education" className="btn btn-light">
@@ -19,7 +19,7 @@ const ProfileActions = () => {
           Add Education
       </Link> 
       <Link to="/add-interests" className="btn btn-light">
-          <i className="fas fa-graduation-cap text-warning mr-1" /> 
+      <i class="far fa-star text-warning mr-1"></i>
           Add Interests
       </Link>
       <Link to="/add-group" className="btn btn-light">

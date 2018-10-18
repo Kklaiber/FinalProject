@@ -126,9 +126,14 @@ class App extends Component {
                   exact
                   path="/events"
                   component={Events}
+                />
+                  </Switch>
+
+              <Switch>
+                 <PrivateRoute
                   path="/event/:id"
                   component={PostEvents}
-                />
+                  />
               </Switch>
       
               <Switch>

@@ -255,7 +255,7 @@ class CreateProfile extends Component {
                   info="Tell us a little about yourself"
                 />
               
-
+              
                 <div className="mb-3">
                   <button
                     type="button"
