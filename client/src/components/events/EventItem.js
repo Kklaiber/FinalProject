@@ -108,6 +108,7 @@ class EventItem extends Component {
            </span>}
             
             {showActions ? (
+              
               <span>
             
                 <button

@@ -53,7 +53,9 @@ class PostItem extends Component {
             <p className="text-center">{post.name}</p>
           </div>
           <div className="col-md-10">
-            <p className="lead">{post.text}</p>
+            <p className="lead post-text">{post.text}</p>
+            </div>
+            <div className="post-actions">
             {showActions ? (
               <span>
                 <button
@@ -93,9 +95,9 @@ class PostItem extends Component {
                 ) : null}
               </span>
             ) : null}
+            </div>
           </div>
         </div>
-      </div>
     </FadeIn>
     </div>
     );
