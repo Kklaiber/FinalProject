@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postActions';
+import FadeIn from 'react-fade-in/lib/FadeIn';
 
 class Posts extends Component {
   componentDidMount() {
@@ -26,7 +27,9 @@ class Posts extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-            <h3 className="text-center text-secondary">Snapshot</h3>
+            <FadeIn>
+            <h2 className="text-center thin-text text-secondary">Snapshot</h2>
+            </FadeIn>
               {postContent}
               <div className="row">
               <div className="col-2"></div>

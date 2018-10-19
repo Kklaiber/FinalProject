@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import FadeIn from "react-fade-in";
 
 class PostItem extends Component {
   onDeleteClick(id) {
@@ -35,7 +36,10 @@ class PostItem extends Component {
 
 
     return (
+     <div> 
+         <FadeIn>
       <div className="card card-body mb-3 post-card">
+    
         <div className="row">
           <div className="col-md-2">
             <a href="profile.html">
@@ -92,6 +96,8 @@ class PostItem extends Component {
           </div>
         </div>
       </div>
+    </FadeIn>
+    </div>
     );
   }
 }
