@@ -31,7 +31,9 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
-            <p className="lead text-muted">
+           
+            <p className="lead text-muted">  
+          
               Welcome <Link to={`/profile/${profile.handle}`}><span className="gold-text">{user.name}</span></Link>
             </p>
             <ProfileActions />

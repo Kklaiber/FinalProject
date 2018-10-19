@@ -81,11 +81,11 @@ class EventItem extends Component {
           <div className="col-md-10">
            {fullDescription ? (<span>
             <p className="lead">
-             <strong>Title: </strong>{event.title}
+              <strong>Title: </strong>{event.title}
               <br/>
-             <strong>Description: </strong> {event.description}
+              <strong>Description: </strong> {event.description}
               <br/>
-            <strong>Date:</strong> {event.when}
+              <strong>Date:</strong> {event.when}
               <br/>
               <strong> Time:</strong> {event.time}
               <br/>

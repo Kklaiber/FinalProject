@@ -55,7 +55,6 @@ class EventForm extends Component {
     this.setState({ childcare: "" });
     this.setState({ kidfriendly: "" });
 
-
   }
 
   onChange(e) {

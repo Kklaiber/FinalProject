@@ -24,29 +24,36 @@ class Profile extends Component {
   render() {
 
     editProfile = (
-    
-      <div className="row edit-profile">
       
+      <div className="row">
+      <div className="col-md-1"></div>
+      <div className="col-md-10">
         <Link to="/edit-profile" className="btn btn-light">
             <i className="fas fa-user-circle  text-warning mr-1" /> 
             Edit Profile
         </Link>
+     
         <Link to="/add-experience" className="btn btn-light">
         <i className="fas fa-briefcase text-warning mr-1" />
             Add Experience
         </Link>
+       
         <Link to="/add-education" className="btn btn-light">
             <i className="fas fa-graduation-cap text-warning mr-1" /> 
             Add Education
         </Link> 
+     
         <Link to="/add-interests" className="btn btn-light">
         <i className="far fa-star text-warning mr-1"></i>
             Add Interests
         </Link>
+       
         <Link to="/add-group" className="btn btn-light">
           <i className="fas fa-users text-warning text-warning mr-1" />
           Add Group
         </Link>
+        </div>
+        <div className="col-md-1"></div>
       </div>
     
    
@@ -69,7 +76,7 @@ class Profile extends Component {
             <div className="col-md-6" />
           </div>
           <ProfileHeader profile={profile} />
-           <div className="text-center">{editProfile}</div>
+           {editProfile}<br/>
           <ProfileAbout profile={profile} />
         
           <ProfileCreds

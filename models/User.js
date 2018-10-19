@@ -19,7 +19,6 @@ const UserSchema = new Schema({
     type: [String],
     required: false
   },
-  //remove avatar and do profile pic links
   avatar: {
     type:  Schema.Types.ObjectId,
     ref: 'profile'

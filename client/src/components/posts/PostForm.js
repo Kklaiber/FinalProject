@@ -9,11 +9,10 @@ class PostForm extends Component {
   constructor(props) {
     super(props);
 
-   
+
     this.state = {
       text: '',
       errors: {},
-      avatar: null,
       community: 'general'
     };
 
