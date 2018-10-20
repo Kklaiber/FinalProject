@@ -19,7 +19,6 @@ class CreateProfile extends Component {
       website: '',
       location: '',
       status: '',
-      skills: '',
       bio: '',
       twitter: '',
       facebook: '',
@@ -46,9 +45,6 @@ class CreateProfile extends Component {
     if(nextProps.profile.profile) {
         const profile = nextProps.profile.profile;
 
-        // Bring skills array back to CSV
-        const skillsCSV = profile.skills.join(',');
-
         // If profile field doesnt exist, make empty string
         profile.company = !isEmpty(profile.company) ? profile.company : '';
         profile.website = !isEmpty(profile.website) ? profile.website : '';
@@ -69,7 +65,6 @@ class CreateProfile extends Component {
             website: profile.website,
             location: profile.location,
             status: profile.status,
-            skills: skillsCSV,
             bio: profile.bio,
             twitter: profile.twitter,
             facebook: profile.facebook,
@@ -90,7 +85,6 @@ class CreateProfile extends Component {
       website: this.state.website,
       location: this.state.location,
       status: this.state.status,
-      skills: this.state.skills,
       bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
@@ -236,15 +230,7 @@ class CreateProfile extends Component {
                   error={errors.location}
                   info="City or city & state suggested (eg. Boston, MA)"
                 />
-                {/* <TextFieldGroup
-                  placeholder="* Skills"
-                  name="skills"
-                  value={this.state.skills}
-                  onChange={this.onChange}
-                  error={errors.skills}
-                  info="Please use comma separated values (eg.
-                    HTML,CSS,JavaScript,PHP"
-                /> */}
+              
 
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
