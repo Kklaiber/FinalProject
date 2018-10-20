@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Caveat|Montserrat:300');
+@import url("https://fonts.googleapis.com/css?family=Caveat|Montserrat:300");
 /* 
 font-family: 'Caveat', cursive;
 font-family: 'Montserrat', sans-serif;
@@ -6,132 +6,115 @@ font-family: 'Montserrat', sans-serif;
 */
 
 img {
-    width: 100%;
-  }
+  width: 100%;
+}
 
-nav li a:hover{
-  color:#DCAE1D !important;
+nav li a:hover {
+  color: #dcae1d !important;
   transition: cubic-bezier(1, 0, 0, 1), 1s;
 }
 
-  .navbar-color {
-    background-color: rgba(17, 17, 17, 0.801);
-  }
-  .login {
-    height: 100vh;
-  }
+.navbar-color {
+  background-color: rgba(17, 17, 17, 0.801);
+}
+.login {
+  height: 100vh;
+}
 
-  .register {
-    height: 100vh;
-  }
+.register {
+  height: 100vh;
+}
 
-  .landing {
-    position: relative;
-    background: url('https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    margin-top: -24px;
-    margin-bottom: -50px; 
-  }
+.landing {
+  position: relative;
+  background: url("https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
+}
 
-  .community-card {
-    box-shadow: 2px 5px 10px rgb(146, 146, 146);
-    margin: 10px 0px 10px 0px;
-    padding: 1px;
+.community-card {
+  box-shadow: 2px 5px 10px rgb(146, 146, 146);
+  margin: 10px 0px 10px 0px;
+  padding: 1px;
+}
+.edit-profile {
+  margin: 0px auto;
+}
 
-  }
-  .edit-profile {
-    margin: 0px auto;
-    
-  }
-  .event-title {
-    font-weight: 600;
-    color: rgba(40, 107, 146, 0.795)
-  }
-  .event-box {
-    background-color: white;
-  }
+.card-title-text {
+  color: rgb(255, 255, 255);
+  font-size: 6vw;
+  opacity: 0.9;
+}
+.header-box {
+  background-image: linear-gradient(
+    rgba(40, 107, 146),
+    rgba(156, 156, 156, 0.753)
+  );
+  border: none;
+  box-shadow: none;
+}
 
-  .card-title-text {
-    color: rgb(255, 255, 255);
-    font-size: 6vw;
-    opacity: .9;
-  }  
-  .header-box {
-    background-image: linear-gradient(rgba(40, 107, 146), rgba(156, 156, 156, 0.753));
-    border: none;
-    box-shadow: none;
-  }
+.landing-inner {
+  padding-top: 80px;
+}
+.brand-text {
+  color: rgb(218, 175, 36);
+  font-size: 10vh;
+  font-family: "Caveat", cursive;
+  letter-spacing: 1px;
+}
+.gold-text {
+  color: rgb(230, 185, 39);
+}
 
-  .landing-inner {
-    padding-top: 80px;
-  }
-  .brand-text {
-    color: rgb(218, 175, 36);
-    font-size: 10vh;
-    font-family: 'Caveat', cursive;
-    letter-spacing: 1px;
-  }
-  .gold-text {
-    color: rgb(230, 185, 39);
-  }
-  
-  .dark-overlay {
-    background-color: rgba(26, 26, 26, 0.473);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .no-padding {
-    padding: 0px;
-  }
-  .card-form {
-    opacity: 0.9;
-  }
+.dark-overlay {
+  background-color: rgba(26, 26, 26, 0.473);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.no-padding {
+  padding: 0px;
+}
+.card-form {
+  opacity: 0.9;
+}
+.post-text {
+  background-color: rgba(221, 221, 221, 0.459);
+  border-radius: 20px;
+  padding: 1.3%;
+  margin: 0px 0px 20px 0px;
+}
+.post-actions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 
-  
-  .post-text {
-    background-color: rgba(221, 221, 221, 0.459);
-    border-radius: 20px;
-    padding: 1.3%;
-    margin: 0px 0px 20px 0px;
-  }
-  .post-actions {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  
-  .latest-profiles-img {
-    width: 40px;
-    height: 40px;
-  }
-  .thin-text {
-    font-family: 'Montserrat', sans-serif;
-  }
-  .deleteAccount {
-    height: 200px;
-    text-align: center;
-  }
-  .deleteAccount button {
-    margin: 40px 0px;
-    color: white;
-  }
-  
-  .form-control::placeholder {
-    color: #bbb !important;
-  }
-  .card-header {
-   background-color: rgba(40, 107, 146, 0.795);
-  }
-  .post-form {
-    background-color: rgb(204, 204, 204);
-  }
- 
-  .post-card {
-    background-color: rgb(250, 250, 250);
-  }
-  
+.latest-profiles-img {
+  width: 40px;
+  height: 40px;
+}
+.thin-text {
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-control::placeholder {
+  color: #bbb !important;
+}
+.card-header {
+  background-color: rgba(40, 107, 146, 0.795);
+}
+.post-form {
+  background-color: rgb(204, 204, 204);
+}
+
+.post-card {
+  background-color: rgb(247, 247, 247);
+}
