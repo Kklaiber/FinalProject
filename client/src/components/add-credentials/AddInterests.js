@@ -77,6 +77,7 @@ class AddInterests extends Component {
                                  error={errors.more}
                                  info="Tell us about why this interests you!"
                             /> */}
+                            
                             <input 
                                 type="submit" 
                                 value="Submit" 

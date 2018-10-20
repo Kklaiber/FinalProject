@@ -14,7 +14,7 @@ class Navbar extends Component {
   
   render() {
     const { isAuthenticated, 
-    //user 
+    user 
     } = this.props.auth;
     
     const authLinks = (
@@ -55,7 +55,7 @@ class Navbar extends Component {
       </ul>
     );
     
-    const friendLinks = (
+    const friendLink = (
      
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
@@ -69,7 +69,7 @@ class Navbar extends Component {
       </ul>
    
     );
-
+ 
 
     const guestLinks = (
       <ul className="navbar-nav ml-auto">
@@ -101,7 +101,7 @@ class Navbar extends Component {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="mobile-nav">
-            {isAuthenticated ? friendLinks : null}
+            {isAuthenticated ? friendLink : null}
             {isAuthenticated ? authLinks : guestLinks}
         </div>
         </div>

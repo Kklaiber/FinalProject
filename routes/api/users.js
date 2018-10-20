@@ -33,14 +33,12 @@ router.post('/register', (req, res) => {
       errors.email = 'Email already exists';
       return res.status(400).json(errors);
     } 
-    const avatar = '';
+   
     
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        avatar,
         password: req.body.password, 
-       
       });
 
       bcrypt.genSalt(10, (err, salt) => {
