@@ -8,14 +8,14 @@ import { addPost } from '../../actions/postActions';
 class PostForm extends Component {
   constructor(props) {
     super(props);
-
+   
 
     this.state = {
       text: '',
       errors: {},
       community: 'general'
     };
-
+ 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -28,7 +28,7 @@ class PostForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
+  
     const { user } = this.props.auth;
 
     const newPost = {

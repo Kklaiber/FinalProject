@@ -9,7 +9,7 @@ const ProfileActions = () => {
 <br/>
   
 <div className="row">
-      <div className="col-md-1"></div>
+      <div className="col-md-2"></div>
       <div className="col-md-10">
         <Link to="/edit-profile" className="btn btn-light">
             <i className="fas fa-user-circle  text-warning mr-1" /> 
@@ -33,7 +33,7 @@ const ProfileActions = () => {
        
         <Link to="/add-group" className="btn btn-light">
           <i className="fas fa-users text-warning text-warning mr-1" />
-          Add Group
+            Add Group
         </Link>
         </div>
         <div className="col-md-1"></div>

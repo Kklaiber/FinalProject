@@ -38,7 +38,7 @@ class Login extends Component {
 
     const userData = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password 
     };
 
     this.props.loginUser(userData);
@@ -58,7 +58,7 @@ class Login extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">
-                Sign in to your DevConnector account
+                Sign in to your Collective account
               </p>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
