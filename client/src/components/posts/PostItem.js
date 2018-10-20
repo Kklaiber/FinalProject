@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import Moment from 'react-moment';
 
 class PostItem extends Component {
   onDeleteClick(id) {
@@ -32,6 +33,19 @@ class PostItem extends Component {
   render() {
     const { post, auth, showActions } = this.props;
 
+     const fromNow = (
+      <Moment fromNow className="text-secondary small"
+             date={post.date}/>
+    );
+    const showDate = (
+      <Moment className="text-secondary small"
+            format="MM/DD/YYYY HH:mm"
+             date={post.date}/>
+    );
+    const todaysDate = (
+      // <Moment from date={new Date()}/>
+      <Moment subtract={{ hours: 24 }}>{new Date()}</Moment>
+    );
 
     return (
       <div className="card card-body mb-3 post-card">
@@ -45,9 +59,15 @@ class PostItem extends Component {
               />
             </a>
             <br />
-            <p className="text-center">{post.name}</p>
-          </div>
+            <p className="text-center">{post.name}
+            <br/>
 
+             {/* {todaysDate} */}
+        {(post.date > todaysDate) ? showDate : fromNow}
+           </p>
+
+      </div> 
+          
           <div className="col-md-10">
             <p className="lead post-text">{post.text}</p>
             </div>
