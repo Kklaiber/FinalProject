@@ -57,6 +57,18 @@ nav li a:hover {
   border: none;
   box-shadow: none;
 }
+  
+  .edit-profile {
+    margin: 0px auto;
+    
+  }
+  .event-title {
+    font-weight: 600;
+    color: rgba(40, 107, 146, 0.795)
+  }
+  .event-box {
+    background-color: white;
+  }
 
 .landing-inner {
   padding-top: 80px;
@@ -131,6 +143,6 @@ nav li a:hover {
   }
  
   .post-card {
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(250, 250, 250);
   }
   
