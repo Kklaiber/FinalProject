@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addComment } from '../../actions/postActions';
+import { getCurrentProfile } from '../../actions/profileActions';
 
 class CommentForm extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
       text: '',
-      errors: {}
+      errors: {},
+      // avatar: profile.avatar
     };
 
     this.onChange = this.onChange.bind(this);
@@ -48,7 +51,7 @@ class CommentForm extends Component {
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">
+          <div className="card-header text-white">
             Make a comment...
           </div>
           <div className="card-body">

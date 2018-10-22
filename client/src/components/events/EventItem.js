@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { deletePost, addLike, removeLike } from "../../actions/postActions";
 import classnames from "classnames";
+import Moment from 'react-moment';
 
 import {
   deleteEvent,
@@ -65,7 +66,7 @@ class EventItem extends Component {
     const { event, auth, showActions, fullDescription } = this.props;
 
     return (
-      <div className="card card-body mb-3">
+      <div className="card card-body event-box mb-3">
         <div className="row">
           <div className="col-md-2">
             <a href="profile.html">
@@ -79,15 +80,16 @@ class EventItem extends Component {
             <p className="text-center">{event.name}</p>
           </div>
           <div className="col-md-10">
+
            {fullDescription ? (<span>
             <p className="lead">
               <strong>Title: </strong>{event.title}
               <br/>
               <strong>Description: </strong> {event.description}
               <br/>
-              <strong>Date:</strong> {event.when}
+              <strong>Date: </strong> <Moment format="D MMM YYYY" withTitle> {event.when}</Moment>
               <br/>
-              <strong> Time:</strong> {event.time}
+              <strong> Time: </strong> {event.time}
               <br/>
               <strong>Location: </strong>{event.where}
               <br/>
@@ -95,13 +97,15 @@ class EventItem extends Component {
               <br/>
               <strong>Ages: </strong>{event.kidfriendly}
               </p>
-           </span>) : <span>
+           </span>) 
+                                 : 
+           <span>
            <p className="lead">
-           <strong>Title: </strong>{event.title}
+           <span className="event-title">{event.title}</span>
               <br/>
               <strong>Description: </strong> {event.description}
               <br/>
-              <strong>Date:</strong> {event.when}
+              <strong>Date:</strong> <Moment format="D MMM YYYY" withTitle>{event.when}</Moment>
               <br/>
               <strong> Time:</strong> {event.time}
               </p>
@@ -138,7 +142,7 @@ class EventItem extends Component {
                     })}
                   />
                   <span className="badge badge-light">
-                    {event.interested.length}
+                  {event.interested.length}
                   </span>
                 </button>
 

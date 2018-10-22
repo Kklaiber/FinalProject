@@ -81,6 +81,7 @@ class AddInterests extends Component {
                                  error={errors.more}
                                  info="Tell us about why this interests you!"
                             /> */}
+<<<<<<< HEAD
 
                   <input
                     type="submit"
@@ -89,6 +90,18 @@ class AddInterests extends Component {
                   />
                 </form>
               
+=======
+                            
+                            <input 
+                                type="submit" 
+                                value="Submit" 
+                                className="btn btn-info btn-block mt-4"
+                            />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> 429b7c3ec75dbee55e1bf2c52cd455c83881553a
             </div>
           </div>
         </div>
