@@ -73,25 +73,6 @@ class AddInterests extends Component {
                     error={errors.interests}
                     info="Cooking, Music, Hiking..."
                   />
-                  {/* <TextAreaFieldGroup
-                                placeholder="Tell us more!"
-                                name="more"
-                                 value={this.state.more}
-                                 onChange={this.onChange}
-                                 error={errors.more}
-                                 info="Tell us about why this interests you!"
-                            /> */}
-<<<<<<< HEAD
-
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="btn btn-info btn-block mt-4"
-                  />
-                </form>
-              
-=======
-                            
                             <input 
                                 type="submit" 
                                 value="Submit" 
@@ -101,11 +82,8 @@ class AddInterests extends Component {
                         </div>
                     </div>
                 </div>
->>>>>>> 429b7c3ec75dbee55e1bf2c52cd455c83881553a
             </div>
-          </div>
-        </div>
-      </div>
+
     );
   }
 }
