@@ -90,6 +90,7 @@ export const addEducation = (eduData, history) => dispatch => {
 export const addInterests = (intData, history) => dispatch => {
   axios
     .post("/api/profile/interests", intData)
+    //here is where youd get the profile by handle
     .then(res => history.push('/profiles')) // here is where one can re-route.  
     .catch(err =>
       console.log(err)
