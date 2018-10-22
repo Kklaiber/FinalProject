@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { deletePost, addLike, removeLike } from "../../actions/postActions";
 import classnames from "classnames";
+import Moment from 'react-moment';
 
 import {
   deleteEvent,
@@ -86,9 +87,9 @@ class EventItem extends Component {
               <br/>
               <strong>Description: </strong> {event.description}
               <br/>
-              <strong>Date:</strong> {event.when}
+              <strong>Date: </strong> <Moment format="D MMM YYYY" withTitle> {event.when}</Moment>
               <br/>
-              <strong> Time:</strong> {event.time}
+              <strong> Time: </strong> {event.time}
               <br/>
               <strong>Location: </strong>{event.where}
               <br/>
@@ -104,7 +105,7 @@ class EventItem extends Component {
               <br/>
               <strong>Description: </strong> {event.description}
               <br/>
-              <strong>Date:</strong> {event.when}
+              <strong>Date:</strong> <Moment format="D MMM YYYY" withTitle>{event.when}</Moment>
               <br/>
               <strong> Time:</strong> {event.time}
               </p>
