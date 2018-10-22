@@ -24,7 +24,7 @@ import AddInterests from "./components/add-credentials/AddInterests";
 import AddGroup from "./components/add-credentials/AddGroup";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
-import Groups from './components/Groups/Groups';
+import Groups from './components/groups/Groups';
 
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
