@@ -1,83 +1,78 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import TextFieldGroup from '../common/TextFieldGroup';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { addInterests } from '../../actions/profileActions';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import TextFieldGroup from "../common/TextFieldGroup";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addInterests } from "../../actions/profileActions";
 
 class AddInterests extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            interests: '',
-            errors: {},
-            disabled: false
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      interests: "",
+      errors: {},
+      disabled: false
+    };
 
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onCheck = this.onCheck.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onCheck = this.onCheck.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
     }
+  }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.errors) {
-            this.setState({ errors: nextProps.errors });
-        }
-    }
+  onSubmit(e) {
+    e.preventDefault();
 
-    onSubmit(e) {
-        e.preventDefault();
+    const intData = {
+      interests: this.state.interests
+    };
 
-        const intData = {
-            interests: this.state.interests
-        };
- 
-        this.props.addInterests(intData, this.props.history);
-    }
+    this.props.addInterests(intData, this.props.history);
+    
+  }
 
-    onChange(e) {
-        this.setState({[e.target.name]: e.target.value});
-    }
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
-    onCheck(e) {
-        this.setState({
-            disabled: !this.state.disabled,
-            current: !this.state.current
-        });
-    }
+  onCheck(e) {
+    this.setState({
+      disabled: !this.state.disabled,
+      current: !this.state.current
+    });
+  }
 
-    render() {
-        const { errors } = this.state;
+  render() {
+    const { errors } = this.state;
 
-        return (
-            <div className="add-interests">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <Link to="/dashboard" className="btn btn-light">
-                                Go Back
-                            </Link>
-                            <h1 className="display-4 text-center">Add Interests</h1>
-                            <p className="lead text-center">Share a bit about your interests!</p>
-                            <small className="d-block pb-3">* = required fields</small>
-                            <form onSubmit={this.onSubmit}>
-                            <TextFieldGroup
-                                placeholder="* Interests"
-                                name="interests"
-                                value={this.state.interests}
-                                onChange={this.onChange}
-                                error={errors.interests}
-                                info="Cooking, Music, Hiking..."
-                            />
-                            {/* <TextAreaFieldGroup
-                                placeholder="Tell us more!"
-                                name="more"
-                                 value={this.state.more}
-                                 onChange={this.onChange}
-                                 error={errors.more}
-                                 info="Tell us about why this interests you!"
-                            /> */}
-                            
+    return (
+      <div className="add-interests">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <Link to="/dashboard" className="btn btn-light">
+                Go Back
+              </Link>
+              <h1 className="display-4 text-center">Add Interests</h1>
+              <p className="lead text-center">
+                Share a bit about your interests!
+              </p>
+              <small className="d-block pb-3">* = required fields</small>
+              
+                <form onSubmit={this.onSubmit}>
+                  <TextFieldGroup
+                    placeholder="* Interests"
+                    name="interests"
+                    value={this.state.interests}
+                    onChange={this.onChange}
+                    error={errors.interests}
+                    info="Cooking, Music, Hiking..."
+                  />
                             <input 
                                 type="submit" 
                                 value="Submit" 
@@ -88,19 +83,23 @@ class AddInterests extends Component {
                     </div>
                 </div>
             </div>
-        );
-    }
+
+    );
+  }
 }
 
 AddInterests.propTypes = {
-    addInterests: PropTypes.func.isRequired,
-    profile: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-}
+  addInterests: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
-    profile: state.profile,
-    errors: state.errors
+  profile: state.profile,
+  errors: state.errors
 });
 
-export default connect(mapStateToProps, { addInterests })(withRouter(AddInterests));
+export default connect(
+  mapStateToProps,
+  { addInterests }
+)(withRouter(AddInterests));
