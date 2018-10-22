@@ -18,7 +18,8 @@ const PostSchema = new Schema({
     type: String
   },
   avatar: {
-    type: String
+    type: Schema.Types.ObjectId,
+    ref: 'profile'
   },
   likes: [
     {
@@ -46,7 +47,8 @@ const PostSchema = new Schema({
         type: String
       },
       avatar: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: 'profile'
       },
       date: {
         type: Date,
