@@ -10,6 +10,7 @@ import { createProfile, getCurrentProfile, deleteAccount, getProfileByHandle } f
 import isEmpty from '../../validation/is-empty';
 
 class CreateProfile extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -105,7 +106,7 @@ class CreateProfile extends Component {
   }
 
   render() {
-    const { errors, displaySocialInputs } = this.state;
+    const { errors, displaySocialInputs, handle } = this.state;
 
     let socialInputs;
 
@@ -265,11 +266,13 @@ class CreateProfile extends Component {
                   <span className="text-muted">Optional</span>
                 </div>
                 {socialInputs}
+                <Link to={`profile/${handle}`}>
                 <input
                   type="submit"
                   value="Submit"
                   className="btn btn-warning btn-block mt-4"
                 />
+                </Link>
               </form>
             </div>
           </div>
@@ -281,12 +284,14 @@ class CreateProfile extends Component {
         <h4>Delete Your Account</h4>
         <br/>
         <p>If you wish to delete your account with Collective, you may do so below. <br/>We bless you on your way out! Thank you, from the team over at Collective.</p>
+        <Link>
         <button
               onClick={this.onDeleteClick.bind(this)}
               className="btn btn-danger mb-3"
               >
               Delete My Account 
               </button>
+        </Link>
         </div>
        <hr/>
       </div>
