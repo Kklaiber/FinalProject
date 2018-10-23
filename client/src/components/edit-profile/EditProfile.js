@@ -284,7 +284,7 @@ class CreateProfile extends Component {
         <h4>Delete Your Account</h4>
         <br/>
         <p>If you wish to delete your account with Collective, you may do so below. <br/>We bless you on your way out! Thank you, from the team over at Collective.</p>
-        <Link>
+        <Link to="/">
         <button
               onClick={this.onDeleteClick.bind(this)}
               className="btn btn-danger mb-3"
