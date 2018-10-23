@@ -21,10 +21,6 @@ class Profile extends Component {
     }
   }
 
-  onDeleteClick(e) {
-    this.props.deleteAccount();
-  }
-
   render() {
 
     editProfile = (
@@ -76,12 +72,7 @@ class Profile extends Component {
               <Link to="/profiles" className="btn btn-light mb-3 float-left">
                 Back To Profiles
               </Link>
-              <button
-              onClick={this.onDeleteClick.bind(this)}
-              className="btn btn-danger mb-3 float-right"
-              >
-              Delete My Account 
-              </button>
+          
             </div>
             <div className="col-md-6" />
           </div>

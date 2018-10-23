@@ -12,9 +12,10 @@ class Navbar extends Component {
     this.props.logoutUser();
   }
   
+  
   render() {
     const { isAuthenticated, 
-    user 
+    // user 
     } = this.props.auth;
     
     const authLinks = (
@@ -47,6 +48,7 @@ class Navbar extends Component {
             href=""
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
+            
           >
           
           <i className="fas fa-sign-out-alt"></i>
@@ -60,7 +62,7 @@ class Navbar extends Component {
     const friendLink = (
      
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
+        <li className="nav-item" >
           <Link className="nav-link" to="/profiles">
           
             {' '}

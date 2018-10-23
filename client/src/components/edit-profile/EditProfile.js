@@ -6,7 +6,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
-import { createProfile, getCurrentProfile } from '../../actions/profileActions';
+import { createProfile, getCurrentProfile, deleteAccount, getProfileByHandle } from '../../actions/profileActions';
 import isEmpty from '../../validation/is-empty';
 
 class CreateProfile extends Component {
@@ -100,6 +100,9 @@ class CreateProfile extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+  onDeleteClick(e) {
+    this.props.deleteAccount();
+  }
 
   render() {
     const { errors, displaySocialInputs } = this.state;
@@ -159,14 +162,19 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: '* Select Professional Status', value: 0 },
+      { label: '* Select Career Type', value: 0 },
       { label: 'Developer', value: 'Developer' },
-      { label: 'Junior Developer', value: 'Junior Developer' },
-      { label: 'Senior Developer', value: 'Senior Developer' },
-      { label: 'Manager', value: 'Manager' },
-      { label: 'Student or Learning', value: 'Student or Learning' },
+      { label: 'Sales', value: 'Sales' },
+      { label: 'Doctor', value: 'Doctor' },
+      { label: 'Nurse', value: 'Nurse' },
+      { label: 'Medicine', value: 'Medicine' },
+      { label: 'Service', value: 'Service' },
+      { label: 'Management', value: 'Manager' },
+      { label: 'Student', value: 'Student' },
       { label: 'Teacher', value: 'Teacher' },
       { label: 'Intern', value: 'Intern' },
+      { label: 'Mother', value: 'Mother' },
+      { label: 'Looking for work', value: 'Looking for work' },
       { label: 'Other', value: 'Other' }
     ];
 
@@ -260,12 +268,27 @@ class CreateProfile extends Component {
                 <input
                   type="submit"
                   value="Submit"
-                  className="btn btn-info btn-block mt-4"
+                  className="btn btn-warning btn-block mt-4"
                 />
               </form>
             </div>
           </div>
         </div>
+        <br/>
+        <hr /> 
+
+        <div className="deleteAccount">
+        <h4>Delete Your Account</h4>
+        <br/>
+        <p>If you wish to delete your account with Collective, you may do so below. <br/>We bless you on your way out! Thank you, from the team over at Collective.</p>
+        <button
+              onClick={this.onDeleteClick.bind(this)}
+              className="btn btn-danger mb-3"
+              >
+              Delete My Account 
+              </button>
+        </div>
+       <hr/>
       </div>
     );
   }
@@ -283,6 +306,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+export default connect(mapStateToProps, { deleteAccount, createProfile, getCurrentProfile })(
   withRouter(CreateProfile)
 );

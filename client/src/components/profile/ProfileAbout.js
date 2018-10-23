@@ -28,7 +28,7 @@ class ProfileAbout extends Component {
             <h3 className="text-center text-info">Interests</h3> 
          
             <ul className="list-group">
-              {profile.interests.slice(0, 2).map((interest, index) => (
+              {profile.interests.slice(0, 4).map((interest, index) => (
                 
                 <li key={index} className="list-group-item">
                 
