@@ -26,7 +26,7 @@ mongoose
     db,
     { useNewUrlParser: true }
   )
-  .then(() => console.log("***Have you ever heard the tragedy of Darth Mongus DeBius?***"))
+  .then(() => console.log("***Code strong and make America Great Again***"))
   .catch(err => console.log(err, "The database is unable to connect"));
 
 // Passport middleware

@@ -90,13 +90,13 @@ export const addEducation = (eduData, history) => dispatch => {
 export const addInterests = (intData, history) => dispatch => {
   axios
     .post("/api/profile/interests", intData)
-    .then(res => history.push("/dashboard"))
+    //here is where youd get the profile by handle
+    .then(res => history.push('/profile')) 
     .catch(err =>
-      console.log(err)
-      // dispatch({
-      //   type: GET_ERRORS,
-      //   payload: err
-      // })
+       dispatch({
+        type: GET_ERRORS,
+        payload: err
+       })
     );
 };
 
@@ -222,7 +222,7 @@ export const deleteAccount = () => dispatch => {
   if (window.confirm("Are you sure? This can NOT be undone!")) {
     axios
       .delete("/api/profile")
-      .then(res =>
+      .then(res => 
         dispatch({
           type: SET_CURRENT_USER,
           payload: {}

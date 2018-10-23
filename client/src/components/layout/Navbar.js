@@ -12,18 +12,20 @@ class Navbar extends Component {
     this.props.logoutUser();
   }
   
+  
   render() {
     const { isAuthenticated, 
-    user 
+    // user 
     } = this.props.auth;
     
     const authLinks = (
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/feed">
-          Posts
+      <li className="nav-item">
+          <Link className="nav-link" to="/dashboard">
+          Dashboard
           </Link>
         </li>
+       
         <li className="nav-item">
           <Link className="nav-link" to="/communities">
           Communities
@@ -34,17 +36,19 @@ class Navbar extends Component {
            Events
           </Link>
           </li>
-       
+
         <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
+          <Link className="nav-link" to="/profile/:handle">
+          Profile
           </Link>
         </li>
+        
         <li className="nav-item">
           <a
             href=""
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
+            
           >
           
           <i className="fas fa-sign-out-alt"></i>
@@ -58,7 +62,7 @@ class Navbar extends Component {
     const friendLink = (
      
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
+        <li className="nav-item" >
           <Link className="nav-link" to="/profiles">
           
             {' '}
@@ -67,7 +71,7 @@ class Navbar extends Component {
           
         </li>
       </ul>
-   
+
     );
  
 
