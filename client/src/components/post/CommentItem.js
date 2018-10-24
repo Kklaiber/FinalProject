@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteComment } from '../../actions/postActions';
+import { 
+  deleteComment, 
+  addLike, 
+  addCommentLike, 
+  removeLike,
+  removeCommentLike
+ } from '../../actions/postActions';
+
 
 class CommentItem extends Component {
   onDeleteClick(postId, commentId) {
     this.props.deleteComment(postId, commentId);
+  }
+
+  onLikeClick(id) {
+    this.props.addCommentLike(id);
+  }
+
+  onUnlikeClick(id) {
+    this.props.removeCommentLike(id)
   }
 
   render() {
@@ -27,6 +42,14 @@ class CommentItem extends Component {
           </div>
           <div className="col-md-10">
             <p className="lead">{comment.text}</p>
+            <button onClick={this.onLikeClick.bind(this, comment._id)} type="button" className="btn btn-light me-1">
+              <i className="text-info fas fa-thumbs-up" />
+              <span className=" badge badge-light">{comment.likes.length}</span>
+            </button>
+            <button onClick={this.onUnlikeClick.bind(this, comment._id)} type="button" className="btn btn-light me-1">
+              <i className="text-secondary fas fa-thumbs-down" />
+              <span className=" badge badge-light">{comment.likes.length}</span>
+            </button>
             {comment.user === auth.user.id ? (
               <button
                 onClick={this.onDeleteClick.bind(this, postId, comment._id)}
@@ -45,6 +68,10 @@ class CommentItem extends Component {
 
 CommentItem.propTypes = {
   deleteComment: PropTypes.func.isRequired,
+  addLike: PropTypes.func.isRequired,
+  removeLike: PropTypes.func.isRequired,
+  addCommentLike: PropTypes.func.isRequired,
+  removeCommentLike: PropTypes.func.isRequired,
   comment: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,
   auth: PropTypes.object.isRequired
@@ -54,4 +81,10 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { deleteComment })(CommentItem);
+export default connect(mapStateToProps, { 
+  deleteComment, 
+  addLike, 
+  removeLike,
+  addCommentLike,
+  removeCommentLike
+ })(CommentItem);

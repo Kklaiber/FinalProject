@@ -107,6 +107,36 @@ router.post(
   }
 );
 
+// @route    POST api/notGoing/:id
+// @desc     Signify You're not going to event
+// @access   Private
+router.post(
+  "/notGoing/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      Event.findById(req.params.id)
+        .then(event => {
+          if (
+            event.notGoing.filter(notGoing => notGoing.user.toString() === req.user.id)
+              .length > 0
+          ) {
+            return res
+              .status(400)
+              .json({ notgoing: "User is not going to event" });
+          }
+          //If user hasnt clicked not going yet, this will add user to not going array
+          event.notGoing.unshift({ user: req.user.id });
+
+          event.save().then(event => res.json(event));
+        })
+        .catch(err =>
+          res.status(404).json({ eventnotsssfound: "Sorry! No Event Found" })
+        );
+    });
+  }
+);
+
 // @route    POST api/interested/:id
 // @desc     Signify You're interested to event
 // @access   Private

@@ -111,6 +111,32 @@ export const removeLike = id => dispatch => {
     );
 };
 
+// Add Comment Like
+export const addCommentLike = id => dispatch => {
+  axios
+    .post(`/api/posts/comment/like/${id}`)
+    .then(res => dispatch(getPosts()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Remove Comment Like
+export const removeCommentLike = id => dispatch => {
+  axios
+    .post(`/api/posts/comment/unlike/${id}`)
+    .then(res => dispatch(getPosts()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Add Comment
 export const addComment = (postId, commentData) => dispatch => {
   dispatch(clearErrors());

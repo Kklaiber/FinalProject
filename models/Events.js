@@ -58,6 +58,14 @@ const EventsSchema = new Schema({
       }
     }
   ],
+  notGoing: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: "users"
+      }
+    }
+  ],
   interested: [
     {
       user: {

@@ -9,6 +9,7 @@ import Moment from 'react-moment';
 import {
   deleteEvent,
   goingToEvent,
+  notGoingToEvent,
   interestedInEvent
 } from "../../actions/eventActions";
 import Events from "./Events";
@@ -20,6 +21,9 @@ class EventItem extends Component {
 
   onGoingClick(id) {
     this.props.goingToEvent(id);
+  }
+  onNotGoingClick(id) {
+    this.props.notGoingToEvent(id);
   }
   onInterestedClick(id) {
     this.props.interestedInEvent(id);
@@ -35,6 +39,15 @@ class EventItem extends Component {
   findUserGoing(going) {
     const { auth } = this.props;
     if (going.filter(going => going.user === auth.user.id).length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  findUserNotGoing(notGoing) {
+    const { auth } = this.props;
+    if (notGoing.filter(notGoing => notGoing.user === auth.user.id).length > 0) {
       return true;
     } else {
       return false;
@@ -145,6 +158,20 @@ class EventItem extends Component {
                   {event.interested.length}
                   </span>
                 </button>
+                <button
+                  onClick={this.onNotGoingClick.bind(this, event._id)}
+                  type="button"
+                  className="btn btn-light mr-1"
+                >
+                  <i
+                    className={classnames("fas fa-times", {
+                      "text-info": this.findUserNotGoing(event.notGoing)
+                    })}
+                  />
+                  <span className="badge badge-light">
+                    {event.notGoing.length}
+                  </span>
+                </button>
 
                 <Link to={`/event/${event._id}`} className="badge badge-light mr-1">
                 {event.comments.length} {(event.comments.length === 1) ? "Comment" : "Comments"}
@@ -178,6 +205,7 @@ EventItem.defaultProps = {
 EventItem.propTypes = {
   deleteEvent: PropTypes.func.isRequired,
   goingToEvent: PropTypes.func.isRequired,
+  notGoingToEvent: PropTypes.func.isRequired,
   interestedInEvent: PropTypes.func.isRequired,
   event: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
@@ -189,5 +217,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addLike, removeLike, deleteEvent, goingToEvent, interestedInEvent }
+  { addLike, removeLike, deleteEvent, goingToEvent, notGoingToEvent, interestedInEvent }
 )(EventItem);
