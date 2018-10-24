@@ -42,6 +42,7 @@ import PostOutdoors from "./components/post-outdoors/PostOutdoors";
 import NotFound from "./components/not-found/NotFound";
 
 import "./App.css";
+// import EditPostForm from "./components/edit-posts/EditPostForm";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -170,6 +171,9 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
+              {/* <Switch>
+                <PrivateRoute exact path="/edit-post/:id" component={EditPostForm} />
+              </Switch> */}
               <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />
