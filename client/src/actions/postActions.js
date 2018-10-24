@@ -112,9 +112,9 @@ export const removeLike = id => dispatch => {
 };
 
 // Add Comment Like
-export const addCommentLike = id => dispatch => {
+export const addCommentLike = (postId, id) => dispatch => {
   axios
-    .post(`/api/posts/comment/like/${id}`)
+    .post(`/api/posts/${postId}/like/${id}`)
     .then(res => dispatch(getPosts()))
     .catch(err =>
       dispatch({
@@ -125,9 +125,9 @@ export const addCommentLike = id => dispatch => {
 };
 
 // Remove Comment Like
-export const removeCommentLike = id => dispatch => {
+export const removeCommentLike = (postId, id) => dispatch => {
   axios
-    .post(`/api/posts/comment/unlike/${id}`)
+    .post(`/api/posts/${postId}/unlike/${id}`)
     .then(res => dispatch(getPosts()))
     .catch(err =>
       dispatch({

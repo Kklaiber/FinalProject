@@ -219,7 +219,7 @@ router.post(
 // @desc    Comment post
 // @access  Private
 router.post(
-  '/comment/like/:id',
+  '/comment/:id/like/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Profile.findOne({ user: req.user.id }).then(profile => {
@@ -248,7 +248,7 @@ router.post(
 // @desc    Unlike comment
 // @access  Private
 router.post(
-  '/comment/unlike/:id',
+  '/comment/:id/unlike/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Profile.findOne({ user: req.user.id }).then(profile => {
