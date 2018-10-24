@@ -17,6 +17,7 @@ class CreateProfile extends Component {
       company: '',
       website: '',
       location: '',
+      relationship: '',
       status: '',
       bio: '',
       twitter: '',
@@ -46,6 +47,7 @@ class CreateProfile extends Component {
       company: this.state.company,
       website: this.state.website,
       location: this.state.location,
+      relationship: this.state.relationship,
       status: this.state.status,
       bio: this.state.bio,
       twitter: this.state.twitter,
@@ -137,6 +139,13 @@ class CreateProfile extends Component {
       { label: 'Other', value: 'Other' }
     ];
 
+    const dtr = [
+      { label: '* Select Relationship Status', value: 0 },
+      { label: 'Married', value: 'Married' },
+      { label: 'Single', value: 'Single' },
+      { label: 'Celibate', value: 'Celibate' }
+    ]
+
     return (
       <div className="create-profile">
         <div className="container">
@@ -163,6 +172,16 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.avatar}
                   info="Paste your profile image link here"
+                />
+
+                <SelectListGroup
+                  placeholder="Relationship Status"
+                  name="relationship"
+                  value={this.state.relationship}
+                  onChange={this.onChange}
+                  options={dtr}
+                  error={errors.relationship}
+                  info="Feel free to share a bit of your personal life"
                 />
                     
                 <SelectListGroup

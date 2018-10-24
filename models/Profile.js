@@ -25,6 +25,9 @@ const ProfileSchema = new Schema({
   location: {
     type: String
   },
+  relationship: {
+    type: String
+  },
   status: {
     type: String,
     required: true
