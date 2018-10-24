@@ -112,6 +112,14 @@ nav li a:hover{
   .thin-text {
     font-family: 'Montserrat', sans-serif;
   }
+  .deleteAccount {
+    height: 200px;
+    text-align: center;
+  }
+  .deleteAccount button {
+    margin: 40px 0px;
+    color: white;
+  }
   
   .form-control::placeholder {
     color: #bbb !important;

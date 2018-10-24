@@ -16,7 +16,7 @@ class ProfileAbout extends Component {
       <div className="row">
         <div className="col-md-12">
           <div className="card card-body bg-light mb-3">
-            <h3 className="text-center text-info">{firstName}'s Bio</h3>
+            <h3 className="text-center text-warning">{firstName}'s Bio</h3>
             <p className="lead">
               {isEmpty(profile.bio) ? (
                 <span>{firstName} has not added a bio yet.</span>
@@ -25,10 +25,10 @@ class ProfileAbout extends Component {
               )}
             </p>
             <hr />
-            <h3 className="text-center text-info">Interests</h3> 
+            <h3 className="text-center text-warning">Interests</h3> 
          
             <ul className="list-group">
-              {profile.interests.slice(0, 2).map((interest, index) => (
+              {profile.interests.slice(0, 4).map((interest, index) => (
                 
                 <li key={index} className="list-group-item">
                 
@@ -38,7 +38,7 @@ class ProfileAbout extends Component {
             </ul>
         
             <hr />
-            <h3 className="text-center text-info">Communities</h3>
+            <h3 className="text-center text-warning">Communities</h3>
             <div className="row">
               <div className="d-flex flex-wrap justify-content-center align-items-center">
            

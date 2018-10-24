@@ -6,7 +6,7 @@ import ProfileHeader from './ProfileHeader';
 import ProfileAbout from './ProfileAbout';
 import ProfileCreds from './ProfileCreds';
 import Spinner from '../common/Spinner';
-import { getProfileByHandle } from '../../actions/profileActions';
+import { getProfileByHandle, deleteAccount } from '../../actions/profileActions';
 
 class Profile extends Component {
   componentDidMount() {
@@ -72,6 +72,7 @@ class Profile extends Component {
               <Link to="/profiles" className="btn btn-light mb-3 float-left">
                 Back To Profiles
               </Link>
+          
             </div>
             <div className="col-md-6" />
           </div>
@@ -108,11 +109,14 @@ class Profile extends Component {
 
 Profile.propTypes = {
   getProfileByHandle: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profile: state.profile,
+  auth: state.auth
 });
 
-export default connect(mapStateToProps, { getProfileByHandle })(Profile);
+export default connect(mapStateToProps, { getProfileByHandle, deleteAccount })(Profile);

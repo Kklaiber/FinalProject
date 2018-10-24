@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
-import { clearCurrentProfile } from '../../actions/profileActions';
+import { clearCurrentProfile, getProfileByHandle, getCurrentProfile } from '../../actions/profileActions';
 
 class Navbar extends Component {
+
+ componentDidMount(){
+   this.props.getProfileByHandle();
+ }
+
   onLogoutClick(e) {
     e.preventDefault();
     this.props.clearCurrentProfile();
     this.props.logoutUser();
+    
   }
+  
   
   render() {
     const { isAuthenticated, 
-    user 
+    //user 
     } = this.props.auth;
-    
+    const handle = this.props.profile;
+
     const authLinks = (
       <ul className="navbar-nav ml-auto">
       <li className="nav-item">
@@ -37,22 +45,24 @@ class Navbar extends Component {
           </li>
 
         <li className="nav-item">
-          <Link className="nav-link" to="/profile/:handle">
+        <Link className="nav-link" to={`/edit-profile`}>
           Profile
           </Link>
         </li>
-        
+      
         <li className="nav-item">
-          <a
-            href=""
+        <Redirect to="/"/>
+            <a
+            href="/"
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
           >
-          
+        
           <i className="fas fa-sign-out-alt"></i>
             {'  '}
             Logout
           </a>
+        
         </li>
       </ul>
     );
@@ -60,7 +70,7 @@ class Navbar extends Component {
     const friendLink = (
      
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
+        <li className="nav-item" >
           <Link className="nav-link" to="/profiles">
           
             {' '}
@@ -113,14 +123,16 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  getCurrentProfile: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
+  profile: state.profile,
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(
+export default connect(mapStateToProps, { getProfileByHandle, getCurrentProfile, logoutUser, clearCurrentProfile })(
   Navbar
 );

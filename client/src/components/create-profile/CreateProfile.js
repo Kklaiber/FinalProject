@@ -121,14 +121,19 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: '* Select Professional Status', value: 0 },
+      { label: '* Select Career Type', value: 0 },
       { label: 'Developer', value: 'Developer' },
-      { label: 'Junior Developer', value: 'Junior Developer' },
-      { label: 'Senior Developer', value: 'Senior Developer' },
-      { label: 'Manager', value: 'Manager' },
-      { label: 'Student or Learning', value: 'Student or Learning' },
-      { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
+      { label: 'Sales', value: 'Sales' },
+      { label: 'Doctor', value: 'Doctor' },
+      { label: 'Nurse', value: 'Nurse' },
+      { label: 'Medicine', value: 'Medicine' },
+      { label: 'Service', value: 'Service' },
+      { label: 'Management', value: 'Manager' },
+      { label: 'Student', value: 'Student' },
+      { label: 'Teacher', value: 'Teacher' },
       { label: 'Intern', value: 'Intern' },
+      { label: 'Mother', value: 'Mother' },
+      { label: 'Looking for work', value: 'Looking for work' },
       { label: 'Other', value: 'Other' }
     ];
 
@@ -221,7 +226,7 @@ class CreateProfile extends Component {
                 <input
                   type="submit"
                   value="Submit"
-                  className="btn btn-info btn-block mt-4"
+                  className="btn btn-warning btn-block mt-4"
                 />
               </form>
             </div>
