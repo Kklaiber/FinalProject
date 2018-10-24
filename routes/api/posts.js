@@ -127,7 +127,7 @@ router.delete(
 //@desc Edit and update post
 //@access Private
 
-router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.put('/posts/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
   //chekc validation
   const { errors, isValid } = validatePostInput(req.body);
 
