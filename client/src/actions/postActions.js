@@ -136,6 +136,32 @@ export const removeLike = id => dispatch => {
     );
 };
 
+// Add Comment Like
+export const addCommentLike = (postId, id) => dispatch => {
+  axios
+    .post(`/api/posts/${postId}/like/${id}`)
+    .then(res => dispatch(getPosts()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Remove Comment Like
+export const removeCommentLike = (postId, id) => dispatch => {
+  axios
+    .post(`/api/posts/${postId}/unlike/${id}`)
+    .then(res => dispatch(getPosts()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Add Comment
 export const addComment = (postId, commentData) => dispatch => {
   dispatch(clearErrors());

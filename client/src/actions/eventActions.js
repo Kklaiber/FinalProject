@@ -100,6 +100,19 @@ export const goingToEvent = id => dispatch => {
     );
 };
 
+//ADD "NOT GOING" TO EVENT
+export const notGoingToEvent = id => dispatch => {
+  axios
+    .post(`/api/events/notGoing/${id}`)
+    .then(res => dispatch(getEvents()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 //ADD "INTERESTED" IN EVENT
 export const interestedInEvent = id => dispatch => {
   axios
