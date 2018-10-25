@@ -22,6 +22,8 @@ const PopupModal = () => (
           <br/>
           To get started go ahead and create your own profile. You can link your
           Facebook, Twitter, LinkedIn, and GitHub accounts!
+          <br/>
+          For help finding your way around click the "Help" button at the bottom of the Dashboard.
         </div>
         {/* <div className="actions">
           <Popup
@@ -54,6 +56,9 @@ const PopupModal = () => (
     )}
   </Popup>
 )
+
+
+
 export default PopupModal;
 
 
