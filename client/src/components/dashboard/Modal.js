@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Popup from 'reactjs-popup';
+import FadeIn from 'react-fade-in';
 
 const PopupModal = () => (
-  
-  <Popup trigger={<button className="button"> About The Collective </button>} modal>
+
+  <Popup trigger={<button className="button btn btn-secondary"> About The Collective </button>} modal>
   
     {close => (
+      <FadeIn>
       <div>
         <a className="close" onClick={close}>
           &times;
         </a>
-        <div className="modalStyle">
-        <div className="backdropStyle">
-        
-        <div className="modalStyle"> Welcome! </div>
-        <div className="modalStyle">
+
+        <div className="modalStyle"> Welcome!
+        <div className="container modaltext">
           {' '}
           The Collective is designed to help you connect to other amazing people in your 
           area through shared interests, events, and community groups!<br/>
@@ -23,34 +23,21 @@ const PopupModal = () => (
           To get started go ahead and create your own profile. You can link your
           Facebook, Twitter, LinkedIn, and GitHub accounts!
         </div>
-        {/* <div className="actions">
-          <Popup
-            trigger={<button className="button"> Trigger </button>}
-            position="top center"
-            closeOnDocumentClick
-          >
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-              magni omnis delectus nemo, maxime molestiae dolorem numquam
-              mollitia, voluptate ea, accusamus excepturi deleniti ratione
-              sapiente! Laudantium, aperiam doloribus. Odit, aut.
-            </span>
-          </Popup> */}
           <div>
           <button
-            className="modalbutton"
+            className="modalbutton btn btn-warning"
             onClick={() => {
-              console.log('modal closed ')
+              console.log('modal closed')
               close()
             }}
           >
             Close
           </button>
+          </div>
         </div>
-      </div>
+        </div>
       
-      </div>
-      </div>
+      </FadeIn>
     )}
   </Popup>
 )

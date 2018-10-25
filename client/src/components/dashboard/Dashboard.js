@@ -53,13 +53,14 @@ class Dashboard extends Component {
       } else {
         // User is logged in but has no profile
         dashboardContent = (
-          <div>
+          <div className="welcome-page">
             <p className="lead text-muted">Welcome {user.name}</p>
             <p>Before you get started click below!</p>
             <PopupModal />
+            <br/><br/>
             <p>You have not yet setup a profile, please add some info</p>
             
-            <Link to="/create-profile" className="btn btn-lg btn-warning">
+            <Link to="/create-profile" className="btn btn-warning">
               Create Profile
             </Link>
           </div>

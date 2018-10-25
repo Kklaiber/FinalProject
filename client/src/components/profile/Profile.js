@@ -77,7 +77,7 @@ class Profile extends Component {
             <div className="col-md-6" />
           </div>
           <ProfileHeader profile={profile} />
-           {editProfile}<br/>
+           {/* {editProfile}<br/> */}
           <ProfileAbout profile={profile} />
         
           <ProfileCreds

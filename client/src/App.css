@@ -20,7 +20,9 @@ nav li a:hover {
 .login {
   height: 100vh;
 }
-
+.welcome-page {
+  height: 100vh;
+}
 .register {
   height: 100vh;
 }
@@ -127,20 +129,22 @@ nav li a:hover {
   left: 0;
   right: 0;
   background: white;
-  padding: 50;
-  border-radius: 25%;
+  
 }
-
 .modalStyle {
-  background: white;
-  border-radius: 20%;
-  max-width: 500;
-  min-height: 500;
-  margin: 0 auto;
-  padding: 300;
+  margin: 0px;
+  padding: 10%;
+}
+.modeltext {
+  padding: 10vw;
 }
 
 .modalbutton{
-  float:right;
- 
+  float: right;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    padding:2%;
+  }
 }
