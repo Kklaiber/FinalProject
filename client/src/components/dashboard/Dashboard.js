@@ -9,6 +9,7 @@ import Experience from "./Experience";
 import Education from "./Education";
 import Group from "./Group";
 import PopupModal from './Modal';
+import HelpModal from './HelpModal';
 
 
 
@@ -47,6 +48,7 @@ class Dashboard extends Component {
             <Education education={profile.education} />
             
             <Group group={profile.group} />
+            <HelpModal />
             <div style={{ marginBottom: "60px" }} />
           </div>
         );
