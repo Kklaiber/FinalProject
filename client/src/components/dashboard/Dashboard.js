@@ -42,6 +42,7 @@ class Dashboard extends Component {
             </p>
             <ProfileActions />
             
+            
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
             
@@ -54,7 +55,10 @@ class Dashboard extends Component {
         dashboardContent = (
           <div>
             <p className="lead text-muted">Welcome {user.name}</p>
+            <p>Before you get started click below!</p>
+            <PopupModal />
             <p>You have not yet setup a profile, please add some info</p>
+            
             <Link to="/create-profile" className="btn btn-lg btn-warning">
               Create Profile
             </Link>
@@ -69,7 +73,7 @@ class Dashboard extends Component {
           <div className="row">
             <div className="col-md-12">
               <h1 className="display-4">Dashboard</h1>
-              {dashboardContent}{PopupModal}
+              {dashboardContent}
             </div>
           </div>
         </div>
