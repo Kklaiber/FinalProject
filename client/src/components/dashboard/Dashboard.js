@@ -44,10 +44,9 @@ class Dashboard extends Component {
             <ProfileActions />
             
             
-            <Experience experience={profile.experience} />
+            {/* <Experience experience={profile.experience} />
             <Education education={profile.education} />
-            
-            <Group group={profile.group} />
+            <Group group={profile.group} /> */}
             <HelpModal />
             <div style={{ marginBottom: "60px" }} />
           </div>

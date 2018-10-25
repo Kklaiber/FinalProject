@@ -143,7 +143,7 @@ nav li a:hover {
   float: right;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
   .container {
     padding:2%;
   }
