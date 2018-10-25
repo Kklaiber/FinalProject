@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import { deletePost, addLike, removeLike, addCommentLike, removeCommentLike } from '../../actions/postActions';
 import Moment from 'react-moment';
 
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
