@@ -8,6 +8,9 @@ import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import Group from "./Group";
+import PopupModal from './Modal';
+
+
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -19,6 +22,11 @@ class Dashboard extends Component {
     const { profile, loading } = this.props.profile;
 
     let dashboardContent;
+
+  
+      
+    
+
 
     if (profile === null || loading) {
       dashboardContent = <Spinner />;
@@ -61,7 +69,7 @@ class Dashboard extends Component {
           <div className="row">
             <div className="col-md-12">
               <h1 className="display-4">Dashboard</h1>
-              {dashboardContent}
+              {dashboardContent}{PopupModal}
             </div>
           </div>
         </div>
@@ -74,6 +82,7 @@ Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
+  
 };
 
 const mapStateToProps = state => ({
