@@ -1,32 +1,37 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import InputGroup from '../common/InputGroup';
-import SelectListGroup from '../common/SelectListGroup';
-import { createProfile, getCurrentProfile, deleteAccount, getProfileByHandle } from '../../actions/profileActions';
-import isEmpty from '../../validation/is-empty';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import TextFieldGroup from "../common/TextFieldGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import InputGroup from "../common/InputGroup";
+import SelectListGroup from "../common/SelectListGroup";
+import {
+  createProfile,
+  getCurrentProfile,
+  deleteAccount,
+  getProfileByHandle
+} from "../../actions/profileActions";
+import isEmpty from "../../validation/is-empty";
 
 class CreateProfile extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       displaySocialInputs: false,
-      handle: '',
-      company: '',
-      website: '',
-      location: '',
-      status: '',
-      bio: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      instagram: '',
-      avatar: '',
+      handle: "",
+      company: "",
+      website: "",
+      location: "",
+      relationship: "",
+      status: "",
+      bio: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+      youtube: "",
+      instagram: "",
+      avatar: "",
       errors: {}
     };
 
@@ -35,7 +40,7 @@ class CreateProfile extends Component {
   }
 
   componentDidMount() {
-      this.props.getCurrentProfile();
+    this.props.getCurrentProfile();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,37 +48,48 @@ class CreateProfile extends Component {
       this.setState({ errors: nextProps.errors });
     }
 
-    if(nextProps.profile.profile) {
-        const profile = nextProps.profile.profile;
+    if (nextProps.profile.profile) {
+      const profile = nextProps.profile.profile;
 
-        // If profile field doesnt exist, make empty string
-        profile.company = !isEmpty(profile.company) ? profile.company : '';
-        profile.website = !isEmpty(profile.website) ? profile.website : '';
-        profile.location = !isEmpty(profile.location) ? profile.location : '';
-        profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
-        profile.social = !isEmpty(profile.social) ? profile.social : {};
-        profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : '';
-        profile.facebook = !isEmpty(profile.social.facebook) ? profile.social.facebook : '';
-        profile.linkedin = !isEmpty(profile.social.linkedin) ? profile.social.linkedin : '';
-        profile.youtube = !isEmpty(profile.social.youtube) ? profile.social.youtube : '';
-        profile.instagram = !isEmpty(profile.social.instagram) ? profile.social.instagram : '';
-        profile.avatar = !isEmpty(profile.avatar) ? profile.avatar : '';
+      // If profile field doesnt exist, make empty string
+      profile.company = !isEmpty(profile.company) ? profile.company : "";
+      profile.website = !isEmpty(profile.website) ? profile.website : "";
+      profile.location = !isEmpty(profile.location) ? profile.location : "";
+      profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+      profile.social = !isEmpty(profile.social) ? profile.social : {};
+      profile.twitter = !isEmpty(profile.social.twitter)
+        ? profile.social.twitter
+        : "";
+      profile.facebook = !isEmpty(profile.social.facebook)
+        ? profile.social.facebook
+        : "";
+      profile.linkedin = !isEmpty(profile.social.linkedin)
+        ? profile.social.linkedin
+        : "";
+      profile.youtube = !isEmpty(profile.social.youtube)
+        ? profile.social.youtube
+        : "";
+      profile.instagram = !isEmpty(profile.social.instagram)
+        ? profile.social.instagram
+        : "";
+      profile.avatar = !isEmpty(profile.avatar) ? profile.avatar : "";
 
-        // Set component fields state
-        this.setState({
-            handle: profile.handle,
-            company: profile.company,
-            website: profile.website,
-            location: profile.location,
-            status: profile.status,
-            bio: profile.bio,
-            twitter: profile.twitter,
-            facebook: profile.facebook,
-            linkedin: profile.linkedin,
-            youtube: profile.youtube,
-            instagram: profile.instagram,
-            avatar: profile.avatar
-        });
+      // Set component fields state
+      this.setState({
+        handle: profile.handle,
+        company: profile.company,
+        website: profile.website,
+        location: profile.location,
+        relationship: profile.relationship,
+        status: profile.status,
+        bio: profile.bio,
+        twitter: profile.twitter,
+        facebook: profile.facebook,
+        linkedin: profile.linkedin,
+        youtube: profile.youtube,
+        instagram: profile.instagram,
+        avatar: profile.avatar
+      });
     }
   }
 
@@ -85,6 +101,7 @@ class CreateProfile extends Component {
       company: this.state.company,
       website: this.state.website,
       location: this.state.location,
+      relationship: this.state.relationship,
       status: this.state.status,
       bio: this.state.bio,
       twitter: this.state.twitter,
@@ -163,20 +180,27 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: '* Select Career Type', value: 0 },
-      { label: 'Developer', value: 'Developer' },
-      { label: 'Sales', value: 'Sales' },
-      { label: 'Doctor', value: 'Doctor' },
-      { label: 'Nurse', value: 'Nurse' },
-      { label: 'Medicine', value: 'Medicine' },
-      { label: 'Service', value: 'Service' },
-      { label: 'Management', value: 'Manager' },
-      { label: 'Student', value: 'Student' },
-      { label: 'Teacher', value: 'Teacher' },
-      { label: 'Intern', value: 'Intern' },
-      { label: 'Mother', value: 'Mother' },
-      { label: 'Looking for work', value: 'Looking for work' },
-      { label: 'Other', value: 'Other' }
+      { label: "* Select Career Type", value: 0 },
+      { label: "Developer", value: "Developer" },
+      { label: "Sales", value: "Sales" },
+      { label: "Doctor", value: "Doctor" },
+      { label: "Nurse", value: "Nurse" },
+      { label: "Medicine", value: "Medicine" },
+      { label: "Service", value: "Service" },
+      { label: "Management", value: "Manager" },
+      { label: "Student", value: "Student" },
+      { label: "Teacher", value: "Teacher" },
+      { label: "Intern", value: "Intern" },
+      { label: "Mother", value: "Mother" },
+      { label: "Looking for work", value: "Looking for work" },
+      { label: "Other", value: "Other" }
+    ];
+
+    const dtr = [
+      { label: "* Select Relationship Status", value: 0 },
+      { label: "Married", value: "Married" },
+      { label: "Single", value: "Single" },
+      { label: "Celibate", value: "Celibate" }
     ];
 
     return (
@@ -184,9 +208,9 @@ class CreateProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-            <Link to="/dashboard" className="btn btn-light">
-              Go Back
-            </Link>
+              <Link to="/dashboard" className="btn btn-light">
+                Go Back
+              </Link>
               <h1 className="display-4 text-center">Edit Profile</h1>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
@@ -198,7 +222,7 @@ class CreateProfile extends Component {
                   error={errors.handle}
                   info="This could be your username, common handle, or nickname"
                 />
-               <TextFieldGroup
+                <TextFieldGroup
                   placeholder="Profile Picture URL"
                   name="avatar"
                   value={this.state.avatar}
@@ -215,6 +239,17 @@ class CreateProfile extends Component {
                   error={errors.status}
                   info="Give us an idea of where you are at in your career"
                 />
+
+                <SelectListGroup
+                  placeholder="Relationship Status"
+                  name="relationship"
+                  value={this.state.relationship}
+                  onChange={this.onChange}
+                  options={dtr}
+                  error={errors.relationship}
+                  info="Share a little about your personal life so others know what level of friendliness to extend ;)"
+                />
+
                 <TextFieldGroup
                   placeholder="Company"
                   name="company"
@@ -237,9 +272,8 @@ class CreateProfile extends Component {
                   value={this.state.location}
                   onChange={this.onChange}
                   error={errors.location}
-                  info="City or city & state suggested (eg. Boston, MA)"
+                  info="City or city & state suggested (eg. Redding, CA)"
                 />
-              
 
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
@@ -249,8 +283,7 @@ class CreateProfile extends Component {
                   error={errors.bio}
                   info="Tell us a little about yourself"
                 />
-              
-              
+
                 <div className="mb-3">
                   <button
                     type="button"
@@ -275,33 +308,38 @@ class CreateProfile extends Component {
             </div>
           </div>
         </div>
-        <br/>
-        <hr /> 
+        <br />
+        <hr />
 
         <div className="deleteAccount">
-        <h4>Delete Your Account</h4>
-        <br/>
-        <p>If you wish to delete your account with Collective, you may do so below. <br/>We bless you on your way out! Thank you, from the team over at Collective.</p>
-        <Link to="/">
-        <button
+          <h4>Delete Your Account</h4>
+          <br />
+          <p>
+            If you wish to delete your account with Collective, you may do so
+            below. <br />
+            We bless you on your way out! Thank you, from the team over at
+            Collective.
+          </p>
+          <Link to="/">
+            <button
               onClick={this.onDeleteClick.bind(this)}
               className="btn btn-danger mb-3"
-              >
-              Delete My Account 
-              </button>
-        </Link>
+            >
+              Delete My Account
+            </button>
+          </Link>
         </div>
-       <hr/>
+        <hr />
       </div>
     );
   }
 }
 
 CreateProfile.propTypes = {
-    createProfile: PropTypes.func.isRequired,
-    getCurrentProfile: PropTypes.func.isRequired,
-    profile: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -309,6 +347,7 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { deleteAccount, createProfile, getCurrentProfile })(
-  withRouter(CreateProfile)
-);
+export default connect(
+  mapStateToProps,
+  { deleteAccount, createProfile, getCurrentProfile }
+)(withRouter(CreateProfile));
