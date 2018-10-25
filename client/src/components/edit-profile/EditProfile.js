@@ -266,13 +266,11 @@ class CreateProfile extends Component {
                   <span className="text-muted">Optional</span>
                 </div>
                 {socialInputs}
-                <Link to={`profile/${handle}`}>
                 <input
                   type="submit"
                   value="Submit"
                   className="btn btn-warning btn-block mt-4"
                 />
-                </Link>
               </form>
             </div>
           </div>
