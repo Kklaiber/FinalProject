@@ -24,7 +24,7 @@ import AddInterests from "./components/add-credentials/AddInterests";
 import AddGroup from "./components/add-credentials/AddGroup";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
-import Groups from './components/groups/Groups';
+import Groups from "./components/groups/Groups";
 
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
@@ -73,9 +73,10 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
             <div className="container">
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
+            
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
               <Switch>
@@ -116,22 +117,15 @@ class App extends Component {
                   component={AddInterests}
                 />
               </Switch>
-      
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/events"
-                  component={Events}
-                />
-                  </Switch>
 
               <Switch>
-                 <PrivateRoute
-                  path="/event/:id"
-                  component={PostEvents}
-                  />
+                <PrivateRoute exact path="/events" component={Events} />
               </Switch>
-      
+
+              <Switch>
+                <PrivateRoute path="/event/:id" component={PostEvents} />
+              </Switch>
+
               <Switch>
                 <PrivateRoute
                   exact

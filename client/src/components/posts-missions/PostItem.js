@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
@@ -6,7 +6,14 @@ import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postMissionsActions';
 import Moment from 'react-moment';
 
+import EditPostForm from '../edit-posts-missions/EditPostForm';
+
 class PostItem extends Component {
+
+  state = {
+    isEditting: false, 
+   }
+
   onDeleteClick(id) {
     this.props.deletePost(id);
   }
@@ -26,6 +33,17 @@ class PostItem extends Component {
     } else {
       return false;
     }
+  }
+ 
+
+  onEditClick = () => {
+    this.setState({ isEditting: !this.state.isEditting });
+  }
+
+  renderText = () => {
+    const { post } = this.props;
+    const { isEditting } = this.state;
+    return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }
 
   render() {
@@ -67,7 +85,7 @@ class PostItem extends Component {
 
           </div>
           <div className="col-md-10">
-            <p className="lead post-text">{post.text}</p>
+          {this.renderText()}
             </div>
             <div className="post-actions">
             {showActions ? (
@@ -96,12 +114,22 @@ class PostItem extends Component {
                 {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
                 {post.user === auth.user.id ? (
-                  <button
-                  onClick={this.onDeleteClick.bind(this, post._id)}
-                  type="button"
-                  className="badge badge-light mr-1">
-                <span className="text-danger"> Delete Post </span>
-                </button>
+                   <Fragment>
+                   <button
+                     onClick={this.onDeleteClick.bind(this, post._id)}
+                     type="button"
+                     className="badge badge-light mr-1"
+                   >
+                   <span className="text-danger"> Delete Post </span>
+                   </button>
+                   <button 
+                     onClick={ this.onEditClick }
+                     type = "button"
+                     className = "badge badge-light mr-1"
+                   >
+                     <span> Edit Post</span>
+                   </button>
+                 </Fragment>
                 ) : null}
               </span>
             ) : null}

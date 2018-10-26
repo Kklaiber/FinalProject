@@ -8,6 +8,10 @@ import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import Group from "./Group";
+import PopupModal from './Modal';
+import HelpModal from './HelpModal';
+
+
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -19,6 +23,11 @@ class Dashboard extends Component {
     const { profile, loading } = this.props.profile;
 
     let dashboardContent;
+
+  
+      
+    
+
 
     if (profile === null || loading) {
       dashboardContent = <Spinner />;
@@ -34,20 +43,25 @@ class Dashboard extends Component {
             </p>
             <ProfileActions />
             
-            <Experience experience={profile.experience} />
-            <Education education={profile.education} />
             
-            <Group group={profile.group} />
+            {/* <Experience experience={profile.experience} />
+            <Education education={profile.education} />
+            <Group group={profile.group} /> */}
+            <HelpModal />
             <div style={{ marginBottom: "60px" }} />
           </div>
         );
       } else {
         // User is logged in but has no profile
         dashboardContent = (
-          <div>
+          <div className="welcome-page">
             <p className="lead text-muted">Welcome {user.name}</p>
+            <p>Before you get started click below!</p>
+            <PopupModal />
+            <br/><br/>
             <p>You have not yet setup a profile, please add some info</p>
-            <Link to="/create-profile" className="btn btn-lg btn-warning">
+            
+            <Link to="/create-profile" className="btn btn-warning">
               Create Profile
             </Link>
           </div>
@@ -74,6 +88,7 @@ Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
+  
 };
 
 const mapStateToProps = state => ({

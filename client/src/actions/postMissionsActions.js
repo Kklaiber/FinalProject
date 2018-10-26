@@ -7,7 +7,8 @@ import {
   GET_POSTS,
   GET_POST,
   POST_LOADING,
-  DELETE_POST
+  DELETE_POST,
+  EDIT_POST
 } from "./types";
 
 // Add Post
@@ -146,6 +147,31 @@ export const deleteComment = (postId, commentId) => dispatch => {
         payload: err.response.data
       })
     );
+};
+
+
+//Edit Post new work
+export const editPost = (post, updatedText) => dispatch => {
+ // console.log('post', post);
+ // console.log('updateText', updatedText);
+  axios
+    .put(`/api/posts-missions/${post._id}`, {
+      text: updatedText,
+    })
+    .then(res => {
+     // console.log('resp', res);
+      dispatch({
+        type: EDIT_POST,
+        payload: ''
+      });
+    })
+    .catch(err => {
+      console.log('err', err);
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    });
 };
 
 // Set loading state

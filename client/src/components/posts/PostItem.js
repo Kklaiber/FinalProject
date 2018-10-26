@@ -54,6 +54,9 @@ class PostItem extends Component {
       </button>
     </form>
   }
+  onEditClick = () => {
+    this.setState({ isEditting: !this.state.isEditting });
+  }
 
   renderText = () => {
     const { post } = this.props;

@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
-import TextFieldGroup from "../common/TextFieldGroup";
-import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
-import InputGroup from "../common/InputGroup";
-import SelectListGroup from "../common/SelectListGroup";
-import { createProfile } from "../../actions/profileActions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import TextFieldGroup from '../common/TextFieldGroup';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import InputGroup from '../common/InputGroup';
+import SelectListGroup from '../common/SelectListGroup';
+import { createProfile } from '../../actions/profileActions';
+import PopupModal from '../dashboard/Modal';
+// test commit 
 
-// test commit
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -40,6 +41,8 @@ class CreateProfile extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
+
+ 
 
   onSubmit(e) {
     e.preventDefault();

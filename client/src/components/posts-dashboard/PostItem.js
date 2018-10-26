@@ -7,7 +7,6 @@ import { deletePost, addLike, removeLike } from '../../actions/postActions';
 import FadeIn from "react-fade-in";
 import Moment from 'react-moment';
 
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import EditPostForm from '../edit-posts/EditPostForm';
 
 class PostItem extends Component {
