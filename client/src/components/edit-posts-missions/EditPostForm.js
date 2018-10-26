@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { editPost } from '../../actions/postActions';
+import { editPost } from '../../actions/postMissionsActions';
 
 class EditPostForm extends Component {
   constructor(props) {

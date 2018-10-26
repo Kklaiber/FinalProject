@@ -88,8 +88,8 @@ export const deletePost = id => dispatch => {
 
 //Edit Post new work
 export const editPost = (post, updatedText) => dispatch => {
-  console.log('post', post);
-  console.log('updateText', updatedText);
+  //console.log('post', post);
+ // console.log('updateText', updatedText);
   axios
     .put(`/api/posts/${post._id}`, {
       text: updatedText,

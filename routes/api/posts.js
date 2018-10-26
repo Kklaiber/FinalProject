@@ -91,7 +91,7 @@ router.put(
           { $set: postFields },
           { new: true }
         ).then(post => res.json(post));
-        console.log(post);
+        //console.log(post);
       }
     });
   }
