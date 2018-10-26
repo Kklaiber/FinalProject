@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
+import FadeIn from 'react-fade-in';
 
 class Login extends Component {
   constructor() {
@@ -54,8 +55,12 @@ class Login extends Component {
     return (
       <div className="login">
         <div className="container">
+        <FadeIn>
+        <div className="login-box">
           <div className="row">
+   
             <div className="col-md-8 m-auto">
+           
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">
                 Sign in to your Collective account
@@ -82,6 +87,8 @@ class Login extends Component {
               </form>
             </div>
           </div>
+         </div>
+         </FadeIn>
         </div>
       </div>
     );

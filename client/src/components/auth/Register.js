@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
+import FadeIn from 'react-fade-in';
 
 class Register extends Component {
   constructor() {
@@ -55,8 +56,12 @@ class Register extends Component {
     return (
       <div className="register">
         <div className="container">
+        <FadeIn>
+        <div className="signup-box">
           <div className="row">
+
             <div className="col-md-8 m-auto">
+            
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">
                 Create your Collective account
@@ -98,6 +103,8 @@ class Register extends Component {
               </form>
             </div>
           </div>
+          </div>
+          </FadeIn>
         </div>
       </div>
     );
