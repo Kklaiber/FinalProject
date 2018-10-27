@@ -148,7 +148,9 @@ class CreateProfile extends Component {
       { label: "* Select Relationship Status", value: 0 },
       { label: "Married", value: "Married" },
       { label: "Single", value: "Single" },
-      { label: "Celibate", value: "Celibate" }
+      { label: "Celibate", value: "Celibate" },
+      { label: "In a Relationship", value: "In a Relationship" },
+      { label: "Engaged", value: "Engaged" }
     ];
 
     return (
