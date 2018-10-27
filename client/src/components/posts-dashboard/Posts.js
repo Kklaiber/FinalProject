@@ -6,7 +6,6 @@ import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postActions';
 import FadeIn from 'react-fade-in/lib/FadeIn';
-
 class Posts extends Component {
   componentDidMount() {
     this.props.getPosts();

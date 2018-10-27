@@ -143,6 +143,7 @@ class AddEducation extends Component {
                         </div>
                     </div>
                 </div>
+                <div style={{ marginBottom: "50px" }} />
             </div>
         );
     }

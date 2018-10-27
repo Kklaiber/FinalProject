@@ -5,11 +5,13 @@ import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
-import Experience from "./Experience";
-import Education from "./Education";
-import Group from "./Group";
-import PopupModal from "./Modal";
-import HelpModal from "./HelpModal";
+// import Experience from "./Experience";
+// import Education from "./Education";
+// import Group from "./Group";
+import PopupModal from './Modal';
+import HelpModal from './HelpModal';
+
+
 
 class Dashboard extends Component {
   componentDidMount() {

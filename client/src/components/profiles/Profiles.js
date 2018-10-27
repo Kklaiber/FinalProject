@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Spinner from '../common/Spinner';
 import ProfileItem from './ProfileItem';
 import { getProfiles } from '../../actions/profileActions';
+import HelpModal from '../dashboard/HelpModal';
 
 class Profiles extends Component {
   componentDidMount() {
@@ -39,6 +40,8 @@ class Profiles extends Component {
             </div>
           </div>
         </div>
+        <HelpModal />
+        <div style={{ marginBottom: "50px" }} />
       </div>
     );
   }

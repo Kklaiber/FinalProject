@@ -10,9 +10,9 @@ import {
   createProfile,
   getCurrentProfile,
   deleteAccount,
-  getProfileByHandle
 } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
+import HelpModal from '../dashboard/HelpModal';
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -330,6 +330,8 @@ class CreateProfile extends Component {
           </Link>
         </div>
         <hr />
+        <HelpModal />
+        <div style={{ marginBottom: "50px" }} />
       </div>
     );
   }
