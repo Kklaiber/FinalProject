@@ -5,6 +5,7 @@ import PostForm from './PostForm';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postMissionsActions';
+import HelpModal from '../dashboard/HelpModal';
 
 class Posts extends Component {
   componentDidMount() {
@@ -33,6 +34,8 @@ class Posts extends Component {
             </div>
           </div>
         </div>
+        <HelpModal />
+        <div style={{ marginBottom: "50px" }} />
       </div>
     );
   }

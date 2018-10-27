@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from "react-fade-in";
+import HelpModal from '../dashboard/HelpModal';
 
 
  class Groups extends Component {
@@ -119,6 +120,8 @@ import FadeIn from "react-fade-in";
 
 </div>
 </FadeIn>
+    <HelpModal />
+    <div style={{ marginBottom: "50px" }} />
 </div>
 
     )

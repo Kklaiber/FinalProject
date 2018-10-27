@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import EventForm from "./EventForm";
 import EventFeed from "./EventFeed"
 import Spinner from "../common/Spinner";
-import { getEvents } from "../../actions/eventActions"
+import HelpModal from '../dashboard/HelpModal';
+import { getEvents } from "../../actions/eventActions";
 
 class Events extends Component {
     componentDidMount(){
@@ -30,6 +31,8 @@ class Events extends Component {
             </div>
           </div>
         </div>
+        <HelpModal />
+        <div style={{ marginBottom: "50px" }} />
       </div>
     );
   }
