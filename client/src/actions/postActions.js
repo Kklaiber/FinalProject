@@ -110,7 +110,7 @@ export const editPost = (post, updatedText) => dispatch => {
     });
 };
 
-// Add Like
+// Add Like 
 export const addLike = id => dispatch => {
   axios
     .post(`/api/posts/like/${id}`)
@@ -147,6 +147,19 @@ export const addComment = (postId, commentData) => dispatch => {
         payload: res.data
       })
     )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Add Like to Comment
+export const addLikeComment = postId => dispatch => {
+  axios
+    .post(`/api/posts/comment/like/${postId}`)
+    .then(res => dispatch(getPosts()))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

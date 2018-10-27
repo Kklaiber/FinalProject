@@ -215,34 +215,7 @@ router.post(
   }
 );
 
-// // @route   POST api/posts/comment/like/:id
-// // @desc    Comment post
-// // @access  Private
-// router.post(
-//   '/comment/like/:id',
-//   passport.authenticate('jwt', { session: false }),
-//   (req, res) => {
-//     Profile.findOne({ user: req.user.id }).then(profile => {
-//       Post.findById(req.params.id)
-//         .then(comment => {
-//           if (
-//             comment.likes.filter(like => like.user.toString() === req.user.id)
-//               .length > 0
-//           ) {
-//             return res
-//               .status(400)
-//               .json({ alreadyliked: 'User already liked this comment' });
-//           }
 
-//           // Add user id to likes array
-//           comment.likes.unshift({ user: req.user.id });
-
-//           comment.save().then(comment => res.json(comment));
-//         })
-//         .catch(err => res.status(404).json({ commentnotfound: 'No comment found' }));
-//     });
-//   }
-// );
 
 // // @route   POST api/posts/comment/unlike/:id
 // // @desc    Unlike comment
@@ -310,6 +283,35 @@ router.post(
         post.save().then(post => res.json(post));
       })
       // .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
+  }
+);
+
+// @route   POST api/posts/comment/like/:id
+// @desc    Comment post
+// @access  Private
+router.post(
+  '/comment/like/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      Post.findById(req.params.id)
+        .then(comment => {
+          if (
+            comment.likes.filter(like => like.user.toString() === req.user.id)
+              .length > 0
+          ) {
+            return res
+              .status(400)
+              .json({ alreadyliked: 'User already liked this comment' });
+          }
+
+          // Add user id to likes array
+          comment.likes.unshift({ user: req.user.id });
+
+          comment.save().then(comment => res.json(comment));
+        })
+        .catch(err => res.status(404).json({ commentnotfound: 'No comment found' }));
+    });
   }
 );
 
