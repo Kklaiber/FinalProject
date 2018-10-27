@@ -8,10 +8,8 @@ import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import Group from "./Group";
-import PopupModal from './Modal';
-import HelpModal from './HelpModal';
-
-
+import PopupModal from "./Modal";
+import HelpModal from "./HelpModal";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -24,11 +22,6 @@ class Dashboard extends Component {
 
     let dashboardContent;
 
-  
-      
-    
-
-
     if (profile === null || loading) {
       dashboardContent = <Spinner />;
     } else {
@@ -36,14 +29,15 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
-            <hr className="no-padding"/>
-            <p className="lead text-muted">  
-          
-              Welcome <Link to={`/profile/${profile.handle}`}><span className="gold-text">{user.name}</span></Link>
+            <hr className="no-padding" />
+            <p className="lead text-muted">
+              Welcome{" "}
+              <Link to={`/profile/${profile.handle}`}>
+                <span className="gold-text">{user.name}</span>
+              </Link>
             </p>
             <ProfileActions />
-            
-            
+
             {/* <Experience experience={profile.experience} />
             <Education education={profile.education} />
             <Group group={profile.group} /> */}
@@ -58,9 +52,10 @@ class Dashboard extends Component {
             <p className="lead text-muted">Welcome {user.name}</p>
             <p>Before you get started click below!</p>
             <PopupModal />
-            <br/><br/>
+            <br />
+            <br />
             <p>You have not yet setup a profile, please add some info</p>
-            
+
             <Link to="/create-profile" className="btn btn-warning">
               Create Profile
             </Link>
@@ -88,7 +83,6 @@ Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
-  
 };
 
 const mapStateToProps = state => ({
