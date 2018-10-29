@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentProfile, getProfileByHandle, getCurrentProfile } from '../../actions/profileActions';
+//import ProfileAvatar from '../profile/ProfileAvatar';
 
 class Navbar extends Component {
 
