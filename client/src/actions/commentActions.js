@@ -7,27 +7,9 @@ import {
   GET_COMMENTS,
   GET_COMMENT,
   COMMENT_LOADING,
-  DELETE_COMMENT
+  DELETE_COMMENT,
+  EDIT_COMMENT
 } from "./types";
-
-// Add Comment
-export const addComment = postData => dispatch => {
-  dispatch(clearErrors());
-  axios
-    .post("/api/posts", postData)
-    .then(res =>
-      dispatch({
-        type: ADD_COMMENT,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
 
 // Get Comments
 export const getComments = () => dispatch => {
@@ -67,23 +49,6 @@ export const getComment = id => dispatch => {
     );
 };
 
-// Delete Comment
-export const deleteComment = id => dispatch => {
-  axios
-    .delete(`/api/posts/${id}`)
-    .then(res =>
-      dispatch({
-        type: DELETE_COMMENT,
-        payload: id
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
 
 // Add Comment
 export const addComment = (postId, commentData) => dispatch => {
@@ -120,6 +85,29 @@ export const deleteComment = (postId, commentId) => dispatch => {
         payload: err.response.data
       })
     );
+};
+
+// Edit Comment new work
+export const editComment = (postId, commentId, updatedComment) => dispatch => {
+
+  axios
+  .put(`/api/posts/comment/${postId}/${commentId}`, {
+    text: updatedComment,
+  })
+  .then(res => {
+    console.log('resp', res);
+    dispatch({
+      type: EDIT_COMMENT,
+      payload: ''
+    });
+  })
+  .catch(err => {
+    console.log('err', err);
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    })
+  });
 };
 
 // Set loading state

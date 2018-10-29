@@ -366,30 +366,16 @@ router.put(
   (req, res) => {
     console.log('req.params', req.params)
     const { errors, isValid } = validatePostInput(req.body);
-    Post.findByIdAndUpdate(req.params.id)
+    Post.findById(req.params.id)
       .then(post => {
-        console.log('post', post );
-        const updateComment = {
-          text: req.body.text,
-          name: req.body.name,
-          avatar: req.body.avatar,
-          user: req.user.id
-        };
+        if(post.comments.filter(comment => comment._id.toString() === req.params.comment_id).length === 0) {
+          return res.statusMessage(404).json({commentnotexist: 'Comment does not exist'});
+        }
+        const editCommentIndex = post.comments.map(comment => comment._id.toString()).indexOf(req.params.comment_id);
 
-    // Check if comment exists
-    const updateIndex = post.comments
-   .map(item => item._id.toString())
-   .indexOf(req.params.comment_id);
- if (updateIndex < 0) {
-   return res
-     .status(404)
-     .json({ commentnotexists: "Comment askd does not exist" + JSON.stringify(req.params) });
- }
-
-    
-
-        // Update
-        post.update(updateComment).then(res => console.log('res', res));
+        if (req.body.text) {
+          post.comments[editCommentIndex].text = req.body.text;
+        }    
 
         // Save Update Comment
         post.save().then(post => res.json(post));
