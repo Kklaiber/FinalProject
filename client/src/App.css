@@ -122,6 +122,9 @@ nav li a:hover {
   padding: 1.7%;
   margin: 0px 0px 20px 0px;
 }
+.edit-profile-img {
+  width: 22vw;
+}
 .post-actions {
   position: absolute;
   bottom: 0;
