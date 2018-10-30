@@ -182,10 +182,13 @@ nav li a:hover {
   float: right;
 }
 
+<<<<<<< HEAD
+=======
 .modalWrapper {
   height: 400px;
 }
 
+>>>>>>> d4cf015cb4f1cf8e9e0279819df4e98bc6bf24aa
 @media (max-width: 700px) {
   .container {
     padding: 0 2%;
