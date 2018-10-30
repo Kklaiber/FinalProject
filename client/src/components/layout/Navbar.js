@@ -10,6 +10,7 @@ import {
 } from "../../actions/profileActions";
 import ProfileItem from "../profiles/ProfileItem";
 import ProfilePicture from "../../components/profile/ProfileHeader";
+import ProfileAvatar from "../profile/ProfileAvatar";
 
 class Navbar extends Component {
   //  componentDidMount(){
@@ -38,11 +39,13 @@ class Navbar extends Component {
     let profileLink = "";
     if(Object.keys(profile || {}).length > 0) {
       profileLink = (
-        <li className="nav-item">
-          <Link className="nav-link" to={`/profile/${profile.handle}`}>
-         Profile
+        <li className="rounded-circle"
+        style={{ width: '25px', marginTop: '7px' }}
+        >
+          <Link className="nav-avatar" to={`/profile/${profile.handle}`}>
+          <ProfileAvatar />
           </Link>
-          {/* <ProfilePicture />  */}
+          
         </li>)
      }
 
@@ -65,7 +68,7 @@ class Navbar extends Component {
         </li>
         {profileLink}
         <li className="nav-item">
-          <Redirect to="/" />
+          {/* <Redirect to="/" /> */}
           <a
             href="/"
             onClick={this.onLogoutClick.bind(this)}
