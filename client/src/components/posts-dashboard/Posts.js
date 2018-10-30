@@ -32,11 +32,12 @@ class Posts extends Component {
               {postContent}
               <div className="row">
               <div className="col-2"></div>
-              <div className="badge badge-light col-md-8">
-             <Link to='/feed'><h4 className="text-secondary">More Posts</h4></Link>
+              <div className="badge card-header col-md-8 md-auto">
+             <Link to='/feed'><h4 className="text-white">More Posts</h4></Link>
              </div>
              <div className="col-2"></div>
              </div>
+             <hr />
              <br/>
             </div>
           </div>
