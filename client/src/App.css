@@ -22,6 +22,10 @@ nav li a:hover {
 .navbar-color {
   background-color: rgba(17, 17, 17, 0.801);
 }
+.avatar-nav {
+  margin: 7px 8px 0px 8px;
+}
+
 
 .login {
   background-image: url("https://images.pexels.com/photos/277559/pexels-photo-277559.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
@@ -47,6 +51,18 @@ nav li a:hover {
   padding-top: 3%;
 }
 
+.dashboard {
+  margin-top: 20px;
+}
+
+.profile {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.profiles {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .signup-box {
   background-color: rgba(255, 255, 255, 0.658);
   border-radius: 8px;
@@ -58,7 +74,16 @@ nav li a:hover {
 .welcome-page {
   height: 100vh;
 }
-
+.edit-profile {
+  margin-top: 20px;
+  margin: 0px auto;
+}
+.groups {
+  margin-top: 20px;
+}
+.feed {
+  margin-top: 20px;
+}
 .landing {
   position: relative;
   background: url("https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
@@ -72,9 +97,7 @@ nav li a:hover {
   margin: 10px 0px 10px 0px;
   padding: 1px;
 }
-.edit-profile {
-  margin: 0px auto;
-}
+
 
 .card-title-text {
   color: rgb(255, 255, 255);
@@ -182,13 +205,10 @@ nav li a:hover {
   float: right;
 }
 
-<<<<<<< HEAD
-=======
 .modalWrapper {
   height: 400px;
 }
 
->>>>>>> d4cf015cb4f1cf8e9e0279819df4e98bc6bf24aa
 @media (max-width: 700px) {
   .container {
     padding: 0 2%;
@@ -206,4 +226,8 @@ nav li a:hover {
   .events-dashboard {
     margin-top: 30px;
   }
+  .avatar-nav {
+    margin: 7px 0px;
+  }
+  
 }

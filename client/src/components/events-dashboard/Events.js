@@ -20,15 +20,17 @@ class Events extends Component {
     }
 
     return (
-      <div className="feed">
-        <div className="container">
-        <h4 className="thin-text text-center text-secondary">Whats Happening?</h4>
-          <div className="row">
+      <div>
+        <div className="row">
+          <div className="col-md-12">
+          <h4 className="thin-text text-center text-secondary">What's Happening?</h4>
+          </div>
+          <br/><br/>
             <div className="col-md-12">
               {eventContent}
             </div>
           </div>
-        </div>
+       
         <div style={{ marginBottom: "50px" }} />
       </div>
     );

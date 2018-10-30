@@ -56,7 +56,7 @@ class CommentItem extends Component {
               <button
                 onClick={this.onDeleteClick.bind(this, postId, commentId)}
                 type="button"
-                className="btn btn-danger mr-1"
+                className="btn btn-danger mr-1 float-left"
               >
                 <i className="fas fa-times" />
               </button>

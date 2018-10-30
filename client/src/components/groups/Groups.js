@@ -8,7 +8,7 @@ import HelpModal from "../dashboard/HelpModal";
 class Groups extends Component {
   render() {
     return (
-      <div>
+      <div className="groups">
         <FadeIn>
           <div className="row">
             <div className="card community-card col-md-5">

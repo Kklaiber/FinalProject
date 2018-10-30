@@ -5,14 +5,13 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentProfile, getProfileByHandle, getCurrentProfile } from '../../actions/profileActions';
 import { Navbar, Nav } from 'react-bootstrap';
+import ProfileAvatar from '../profile/ProfileAvatar';
 
-//import ProfileAvatar from '../profile/ProfileAvatar';
 
 class NavbarMain extends Component {
-
- componentDidMount(){
-   this.props.getProfileByHandle();
- }
+  componentDidMount() {
+    this.props.getCurrentProfile();
+  }
 
   onLogoutClick(e) {
     e.preventDefault();
@@ -27,6 +26,21 @@ class NavbarMain extends Component {
     //user 
     } = this.props.auth;
     const handle = this.props.profile;
+
+    const { profile, loading } = this.props.profile;
+
+    let profileLink = "";
+    if(Object.keys(profile || {}).length > 0) {
+      profileLink = (
+        <li className="rounded-circle avatar-nav"
+        style={{ width: '25px', marginTop: '7px' }}
+        >
+          <Link className="nav-avatar" to={`/profile/${profile.handle}`}>
+          <ProfileAvatar />
+          </Link>
+          
+        </li>)
+     }
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
@@ -43,7 +57,7 @@ class NavbarMain extends Component {
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link className="dropdown-item" to="/communities">Communities</Link>
             <div class="dropdown-divider"></div>
-            <Link className="dropdown-item" to="/feed">Feed</Link>
+            <Link className="dropdown-item" to="/feed">Collective</Link>
             <Link className="dropdown-item" to="/missions">Missions</Link>
             <Link className="dropdown-item" to="/outdoors">Outdoors</Link>
           </div>
