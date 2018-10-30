@@ -13,9 +13,6 @@ import ProfilePicture from "../../components/profile/ProfileHeader";
 import ProfileAvatar from "../profile/ProfileAvatar";
 
 class Navbar extends Component {
-  //  componentDidMount(){
-  //    this.props.getProfileByHandle();
-  //  }
   componentDidMount() {
     this.props.getCurrentProfile();
   }
@@ -64,7 +61,7 @@ class Navbar extends Component {
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link className="dropdown-item" to="/communities">Communities</Link>
             <div class="dropdown-divider"></div>
-            <Link className="dropdown-item" to="/feed">Feed</Link>
+            <Link className="dropdown-item" to="/feed">Collective</Link>
             <Link className="dropdown-item" to="/missions">Missions</Link>
             <Link className="dropdown-item" to="/outdoors">Outdoors</Link>
           </div>
