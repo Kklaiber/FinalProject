@@ -40,7 +40,7 @@ class Navbar extends Component {
     if(Object.keys(profile || {}).length > 0) {
       profileLink = (
         <li className="rounded-circle"
-        style={{ width: '25px', marginTop: '7px' }}
+        style={{ width: '25px', marginTop: '7px', marginLeft: '5px', marginRight: '5px'}}
         >
           <Link className="nav-avatar" to={`/profile/${profile.handle}`}>
           <ProfileAvatar />
@@ -64,7 +64,7 @@ class Navbar extends Component {
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link className="dropdown-item" to="/communities">Communities</Link>
             <div className="dropdown-divider"></div>
-            <Link className="dropdown-item" to="/feed">Feed</Link>
+            <Link className="dropdown-item" to="/feed">Posts</Link>
             <Link className="dropdown-item" to="/missions">Missions</Link>
             <Link className="dropdown-item" to="/outdoors">Outdoors</Link>
           </div>
