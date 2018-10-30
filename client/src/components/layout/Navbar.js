@@ -28,22 +28,31 @@ class Navbar extends Component {
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
-      <li className="nav-item">
+        <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
-          Dashboard
+            Dashboard
           </Link>
         </li>
        
-        <li className="nav-item">
-          <Link className="nav-link" to="/communities">
-          Communities
+        <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" to="/communities" id="navbarDropdown" role="button" data-toggle="dropdown">
+            Communities
           </Link>
-          </li>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <Link className="dropdown-item" to="/communities">Communities</Link>
+            <div class="dropdown-divider"></div>
+            <Link className="dropdown-item" to="/feed">Feed</Link>
+            <Link className="dropdown-item" to="/missions">Missions</Link>
+            <Link className="dropdown-item" to="/outdoors">Outdoors</Link>
+          </div>
+        </li>
+
+
         <li className="nav-item">
          <Link className="nav-link" to="/events">
            Events
           </Link>
-          </li>
+        </li>
 
         <li className="nav-item">
         <Link className="nav-link" to={`/edit-profile`}>
