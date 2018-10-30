@@ -40,9 +40,9 @@ class PostItem extends Component {
     this.setState({ isEditting: !this.state.isEditting });
   }
 
-
   renderText = () => {
     const { post } = this.props;
+    console.log('post', post);
     const { isEditting } = this.state;
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }
@@ -133,7 +133,7 @@ class PostItem extends Component {
                     type = "button"
                     className = "badge badge-light mr-1"
                   >
-                    <span> Edit Post</span>
+                    <span>Edit Post</span>
                   </button>
                 </Fragment>
                 ) : null}

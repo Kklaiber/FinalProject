@@ -8,7 +8,8 @@ import {
   GET_POST,
   POST_LOADING,
   DELETE_POST,
-  EDIT_POST
+  EDIT_POST,
+  EDIT_COMMENT
 } from "./types";
 
 // Add Post
@@ -86,7 +87,7 @@ export const deletePost = id => dispatch => {
     );
 };
 
-//Edit Post new work
+//Edit Post 
 export const editPost = (post, updatedText) => dispatch => {
   //console.log('post', post);
  // console.log('updateText', updatedText);
@@ -185,6 +186,8 @@ export const deleteComment = (postId, commentId) => dispatch => {
       })
     );
 };
+
+
 
 // Set loading state
 export const setPostLoading = () => {

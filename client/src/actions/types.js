@@ -17,3 +17,7 @@ export const GET_EVENT = "GET_EVENT";
 export const ADD_EVENT = "ADD_EVENT";
 export const DELETE_EVENT = "DELETE_EVENT";
 export const EDIT_POST = "EDIT_POST";
+export const EDIT_COMMENT = "EDIT_COMMENT";
+export const COMMENT_LOADING = "COMMENT_LOADING";
+export const GET_COMMENT = "GET_COMMENT";
+export const GET_COMMENTS = "GET_COMMENTS";

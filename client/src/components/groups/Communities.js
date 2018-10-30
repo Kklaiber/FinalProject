@@ -76,7 +76,7 @@ import HelpModal from '../dashboard/HelpModal';
         
           <Link to="/feed">
           <a href="" className="btn btn-secondary">
-          Not Working
+          Make a difference
           </a>
           </Link>
         </div>  
@@ -95,7 +95,7 @@ import HelpModal from '../dashboard/HelpModal';
         
           <Link to="/feed">
           <a href="" className="btn btn-secondary">
-          Not Working
+          Seal the Deal
           </a>
           </Link>
         </div>  
@@ -112,7 +112,7 @@ import HelpModal from '../dashboard/HelpModal';
         
           <Link to="/feed">
           <a href="" className="btn btn-secondary">
-          Not Working
+          Get Connected
           </a>
           </Link>
         </div>  

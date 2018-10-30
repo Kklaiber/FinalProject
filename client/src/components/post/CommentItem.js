@@ -1,31 +1,34 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import { deleteComment, addLikeComment, removeLike } from "../../actions/postActions";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { deleteComment, addLike, removeLike } from '../../actions/postActions';
+
+import EditCommentForm from '../edit-comments/EditComments';
+
+
 
 class CommentItem extends Component {
+  
+  state = {
+    isEditting: false, 
+}
+
   onDeleteClick(postId, commentId) {
     this.props.deleteComment(postId, commentId);
   }
 
-  onLikeClick(id) {
-    this.props.addLikeComment(id);
+  renderText = () => {
+    const { comment, postId } = this.props;
+    const { isEditting } = this.state;
+    return isEditting ? <EditCommentForm comment={comment} postId={postId} /> : <p className="lead post-text">{comment.text}</p>;
   }
 
-  onUnlikeClick(id) {
-    this.props.removeLike(id);
+  onEditClick = () => {
+    console.log("edit");
+    this.setState({ isEditting: !this.state.isEditting });
   }
 
-  findUserLike(likes) {
-    const { auth } = this.props;
-    if (likes.filter(like => like.user === auth.user.id).length > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
+//work above here
   render() {
     const { comment, postId, commentId, auth } = this.props;
 
@@ -45,27 +48,11 @@ class CommentItem extends Component {
           </div>
 
           <div className="col-md-10">
-            <p className="lead">{comment.text}</p>
-            <button
-              onClick={this.onLikeClick.bind(this, comment._id)}
-              type="button"
-              className="btn btn-light mr-1"
-            >
-              <i
-                className={classnames("fas fa-thumbs-up", {
-                  "text-warning": this.findUserLike(comment.likes)
-                })}
-              />
-              <span className="badge badge-light">{comment.likes.length}</span>
-            </button>
-            <button
-              onClick={this.onUnlikeClick.bind(this, comment._id)}
-              type="button"
-              className="btn btn-light mr-1"
-            >
-              <i className="text-secondary fas fa-thumbs-down" />
-            </button>
+            {this.renderText()}
+            </div>
+          <div className="col-md-10">
             {comment.user === auth.user.id ? (
+              <Fragment>
               <button
                 onClick={this.onDeleteClick.bind(this, postId, commentId)}
                 type="button"
@@ -73,6 +60,14 @@ class CommentItem extends Component {
               >
                 <i className="fas fa-times" />
               </button>
+              <button 
+                    onClick={ this.onEditClick }
+                    type = "button"
+                    className = "badge badge-light mr-1"
+                  >
+                    <span>Edit Comment</span>
+                  </button>
+              </Fragment>
             ) : null}
           </div>
         </div>
@@ -88,18 +83,20 @@ CommentItem.propTypes = {
   comment: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,
   commentId: PropTypes.string.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  EditComment: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    deleteComment,
-    addLikeComment,
-    removeLike
-  }
-)(CommentItem);
+export default connect(mapStateToProps, { 
+  deleteComment, 
+  addLike, 
+  removeLike,
+ })(CommentItem);
+
+//  Add the Edit Logic like we did for a post
+//  Import your edit comment form in here
+//  <EditCommentForm comment={comment} postId={postId} />
