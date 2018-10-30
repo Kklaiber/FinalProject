@@ -46,6 +46,7 @@ class CommentItem extends Component {
             <br />
             <p className="text-center">{comment.name}</p>
           </div>
+
           <div className="col-md-10">
             {this.renderText()}
             </div>
@@ -77,7 +78,7 @@ class CommentItem extends Component {
 
 CommentItem.propTypes = {
   deleteComment: PropTypes.func.isRequired,
-  addLike: PropTypes.func.isRequired,
+  addLikeComment: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   comment: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,

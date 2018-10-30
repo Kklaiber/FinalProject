@@ -46,9 +46,9 @@ const ProfileActions = () => {
         </Link>
         </div>
         </div> 
-      
-         <div className="events-dashboard">
         <div className="col-md-6">
+         <div className="events-dashboard">
+      
         <Events />
         </div>
         </div>

@@ -9,8 +9,9 @@ class ProfilePicture extends Component {
     
                   <img
                     className="rounded-circle"
-                    src={profile.avatar}
-                    alt={profile.name}
+                    src={profile}
+                    alt={profile}
+                    style={{ width: '25px', marginRight: '5px' }}
                   />
     
       );
