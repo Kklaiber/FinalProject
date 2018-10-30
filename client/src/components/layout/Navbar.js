@@ -39,8 +39,8 @@ class Navbar extends Component {
     let profileLink = "";
     if(Object.keys(profile || {}).length > 0) {
       profileLink = (
-        <li className="rounded-circle"
-        style={{ width: '25px', marginTop: '7px', marginLeft: '5px', marginRight: '5px'}}
+        <li className="rounded-circle avatar-nav"
+        style={{ width: '25px', marginTop: '7px' }}
         >
           <Link className="nav-avatar" to={`/profile/${profile.handle}`}>
           <ProfileAvatar />

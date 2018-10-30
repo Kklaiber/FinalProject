@@ -96,14 +96,14 @@ export const editPost = (post, updatedText) => dispatch => {
       text: updatedText,
     })
     .then(res => {
-      console.log('resp', res);
+    ///  console.log('resp', res);
       dispatch({
         type: EDIT_POST,
         payload: ''
       });
     })
     .catch(err => {
-      console.log('err', err);
+     console.log('err', err);
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
