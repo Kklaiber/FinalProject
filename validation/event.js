@@ -12,8 +12,8 @@ module.exports = function validateEventInput(data) {
   data.childcare = !isEmpty(data.childcare) ? data.childcare : "";
   data.kidfriendly = !isEmpty(data.kidfriendly) ? data.kidfriendly : "";
 
-  if (!Validator.isLength(data.description, { min: 10, max: 1000 })) {
-    errors.description = "Description must be between 10 and 1000 characters";
+  if (!Validator.isLength(data.description, { min: 1, max: 10000 })) {
+    errors.description = "Description must be between 1 and 10000 characters";
   }
 
   if (Validator.isEmpty(data.title)) {

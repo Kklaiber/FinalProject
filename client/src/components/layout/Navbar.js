@@ -1,88 +1,93 @@
-import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/authActions';
-import { clearCurrentProfile, getProfileByHandle, getCurrentProfile } from '../../actions/profileActions';
-//import ProfileAvatar from '../profile/ProfileAvatar';
+import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
+import {
+  clearCurrentProfile,
+  getProfileByHandle,
+  getCurrentProfile
+} from "../../actions/profileActions";
+import ProfileItem from "../profiles/ProfileItem";
+import ProfilePicture from "../../components/profile/ProfileHeader";
 
 class Navbar extends Component {
-
- componentDidMount(){
-   this.props.getProfileByHandle();
- }
+  //  componentDidMount(){
+  //    this.props.getProfileByHandle();
+  //  }
+  componentDidMount() {
+    this.props.getCurrentProfile();
+  }
 
   onLogoutClick(e) {
     e.preventDefault();
     this.props.clearCurrentProfile();
     this.props.logoutUser();
-    
   }
-  
-  
+
   render() {
-    const { isAuthenticated, 
-    //user 
+    const { user } = this.props.auth;
+
+    const {
+      isAuthenticated
+      //user
     } = this.props.auth;
-    const handle = this.props.profile;
+
+    const { profile, loading } = this.props.profile;
+
+    let profileLink = "";
+    if(Object.keys(profile || {}).length > 0) {
+      profileLink = (
+        <li className="nav-item">
+          <Link className="nav-link" to={`/profile/${profile.handle}`}>
+         Profile
+          </Link>
+          {/* <ProfilePicture />  */}
+        </li>)
+     }
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
-      <li className="nav-item">
+        <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
-          Dashboard
+            Dashboard
           </Link>
         </li>
-       
         <li className="nav-item">
           <Link className="nav-link" to="/communities">
-          Communities
-          </Link>
-          </li>
-        <li className="nav-item">
-         <Link className="nav-link" to="/events">
-           Events
-          </Link>
-          </li>
-
-        <li className="nav-item">
-        <Link className="nav-link" to={`/edit-profile`}>
-          Profile
+            Communities
           </Link>
         </li>
-      
         <li className="nav-item">
-        <Redirect to="/"/>
-            <a
+          <Link className="nav-link" to="/events">
+            Events
+          </Link>
+        </li>
+        {profileLink}
+        <li className="nav-item">
+          <Redirect to="/" />
+          <a
             href="/"
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
           >
-        
-          <i className="fas fa-sign-out-alt"></i>
-            {'  '}
+            <i className="fas fa-sign-out-alt" />
+            {"  "}
             Logout
           </a>
-        
         </li>
       </ul>
     );
-    
     const friendLink = (
-     
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item" >
+        <li className="nav-item">
           <Link className="nav-link" to="/profiles">
-          
-            {' '}
+            {" "}
             Friends
           </Link>
-          
         </li>
       </ul>
-
     );
- 
 
     const guestLinks = (
       <ul className="navbar-nav ml-auto">
@@ -126,7 +131,9 @@ class Navbar extends Component {
 Navbar.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  getProfileByHandle: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -134,6 +141,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { getProfileByHandle, getCurrentProfile, logoutUser, clearCurrentProfile })(
-  Navbar
-);
+export default connect(
+  mapStateToProps,
+  { getProfileByHandle, getCurrentProfile, logoutUser, clearCurrentProfile }
+)(Navbar);
