@@ -318,7 +318,7 @@ class CreateProfile extends Component {
         <br />
         <hr />
 
-        <div className="deleteAccount">
+        <div className="deleteAccount text-center">
           <h4>Delete Your Account</h4>
           <br />
           <p>
