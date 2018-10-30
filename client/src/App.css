@@ -136,6 +136,11 @@ nav li a:hover {
   width: 40px;
   height: 40px;
 }
+
+.event-title {
+  color: rgba(40, 107, 146, 0.795);
+}
+
 .thin-text {
   font-family: "Montserrat", sans-serif;
 }
