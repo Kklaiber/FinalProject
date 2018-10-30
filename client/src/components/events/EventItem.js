@@ -132,6 +132,7 @@ class EventItem extends Component {
                   onClick={this.onGoingClick.bind(this, event._id)}
                   type="button"
                   className="btn btn-light mr-1"
+                  title="Count me in!"
                 >
                   <i
                     className={classnames("fas fa-user-plus", {
@@ -146,6 +147,7 @@ class EventItem extends Component {
                   onClick={this.onInterestedClick.bind(this, event._id)}
                   type="button"
                   className="btn btn-light mr-1"
+                  title="Interested"
                 >
                   <i
                     className={classnames("text-secondary far fa-calendar", {
@@ -162,6 +164,7 @@ class EventItem extends Component {
                   onClick={this.onNotGoingClick.bind(this, event._id)}
                   type="button"
                   className="btn btn-light mr-1"
+                  title="Can't go"
                 >
                   <i
                     className={classnames("fas fa-times", {

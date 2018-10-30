@@ -5,7 +5,8 @@ font-family: 'Montserrat', sans-serif;
 
 */
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border: 1.25px solid #dcae1d !important;
 }
 
@@ -43,7 +44,7 @@ nav li a:hover {
   background-size: cover;
   background-position: center;
   height: 120vh;
-  padding-top: 3%; 
+  padding-top: 3%;
 }
 
 .signup-box {
@@ -161,20 +162,24 @@ nav li a:hover {
   left: 0;
   right: 0;
   background: white;
-  
 }
 .modalStyle {
   margin: 0px;
   padding: 10%;
+  overflow: scroll;
 }
 .modeltext {
   padding: 10vw;
+  overflow: scroll;
 }
 
-.modalbutton{
+.modalbutton {
   float: right;
 }
 
+.modalWrapper {
+  height: 400px;
+}
 
 @media (max-width: 700px) {
   .container {
@@ -194,5 +199,3 @@ nav li a:hover {
     margin-top: 30px;
   }
 }
-
-

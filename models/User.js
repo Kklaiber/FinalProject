@@ -22,6 +22,8 @@ const UserSchema = new Schema({
   avatar: {
     type:  Schema.Types.ObjectId,
     ref: 'profile'
+    // type:String,
+    // required: true
   },
   date: {
     type: Date,
