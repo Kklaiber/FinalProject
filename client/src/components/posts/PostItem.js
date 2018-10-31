@@ -42,7 +42,7 @@ class PostItem extends Component {
           placeholder="Edit a post"
           name="text"
           value={''}
-          onChange={() => console.log('eidtting')}
+          onChange={() => console.log('editing')}
           // error={}
         />           
       </div>
