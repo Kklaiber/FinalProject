@@ -14,6 +14,8 @@ img {
   width: 100%;
 }
 
+
+
 nav li a:hover {
   color: #dcae1d !important;
   transition: cubic-bezier(1, 0, 0, 1), 1s;
@@ -21,6 +23,17 @@ nav li a:hover {
 
 .navbar-color {
   background-color: rgba(17, 17, 17, 0.801);
+}
+.avatar-nav {
+  margin: 7px 8px 0px 8px;
+}
+
+.post {
+  margin-top: 20px;
+}
+
+.event {
+  margin-top: 20px;
 }
 
 .login {
@@ -47,6 +60,18 @@ nav li a:hover {
   padding-top: 3%;
 }
 
+.dashboard {
+  margin-top: 20px;
+}
+
+.profile {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.profiles {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .signup-box {
   background-color: rgba(255, 255, 255, 0.658);
   border-radius: 8px;
@@ -58,7 +83,17 @@ nav li a:hover {
 .welcome-page {
   height: 100vh;
 }
+.edit-profile {
+  margin-top: 20px;
+  margin: 0px auto;
+}
+.groups {
+  margin-top: 20px;
+}
 
+.feed {
+  margin-top: 20px;
+}
 .landing {
   position: relative;
   background: url("https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
@@ -72,9 +107,7 @@ nav li a:hover {
   margin: 10px 0px 10px 0px;
   padding: 1px;
 }
-.edit-profile {
-  margin: 0px auto;
-}
+
 
 .card-title-text {
   color: rgb(255, 255, 255);
@@ -136,6 +169,11 @@ nav li a:hover {
   width: 40px;
   height: 40px;
 }
+
+.event-title {
+  color: rgba(40, 107, 146, 0.795);
+}
+
 .thin-text {
   font-family: "Montserrat", sans-serif;
 }
@@ -152,6 +190,7 @@ nav li a:hover {
 
 .post-card {
   background-color: rgb(247, 247, 247);
+  border-radius: 0px;
 }
 
 /*POPUP MODAL STYLING*/
@@ -198,4 +237,8 @@ nav li a:hover {
   .events-dashboard {
     margin-top: 30px;
   }
+  .avatar-nav {
+    margin: 7px 0px;
+  }
+  
 }
