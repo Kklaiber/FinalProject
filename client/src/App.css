@@ -14,6 +14,8 @@ img {
   width: 100%;
 }
 
+
+
 nav li a:hover {
   color: #dcae1d !important;
   transition: cubic-bezier(1, 0, 0, 1), 1s;
@@ -26,6 +28,13 @@ nav li a:hover {
   margin: 7px 8px 0px 8px;
 }
 
+.post {
+  margin-top: 20px;
+}
+
+.event {
+  margin-top: 20px;
+}
 
 .login {
   background-image: url("https://images.pexels.com/photos/277559/pexels-photo-277559.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
@@ -81,6 +90,7 @@ nav li a:hover {
 .groups {
   margin-top: 20px;
 }
+
 .feed {
   margin-top: 20px;
 }
@@ -180,6 +190,7 @@ nav li a:hover {
 
 .post-card {
   background-color: rgb(247, 247, 247);
+  border-radius: 0px;
 }
 
 /*POPUP MODAL STYLING*/
