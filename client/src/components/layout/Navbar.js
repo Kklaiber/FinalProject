@@ -54,7 +54,7 @@ class NavbarMain extends Component {
           <Link className="nav-link dropdown-toggle" to="/communities" id="navbarDropdown" role="button" data-toggle="dropdown">
             Communities
           </Link>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div className="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link className="dropdown-item" to="/communities">Communities</Link>
             <div class="dropdown-divider"></div>
             <Link className="dropdown-item" to="/feed">Collective</Link>
