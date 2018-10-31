@@ -11,9 +11,11 @@ const ProfileActions = () => {
         
       <h4 className="thin-text text-center text-secondary">Your Profile.</h4>
       <br/>
-      <div className="col-6 col-md-6 m-auto"> 
-          <ProfileAvatar />
-     </div>
+      <div className="col-6 col-md-6 m-auto">
+      
+      <ProfileAvatar />
+     
+      </div>
       <br/>
       <div className="col-sm-12">
         <Link to="/edit-profile" className="btn btn-block btn-light">

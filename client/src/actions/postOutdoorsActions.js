@@ -149,6 +149,30 @@ export const deleteComment = (postId, commentId) => dispatch => {
     );
 };
 
+//Edit Post new work
+export const editPost = (post, updatedText) => dispatch => {
+  // console.log('post', post);
+  // console.log('updateText', updatedText);
+   axios
+     .put(`/api/posts-outdoors/${post._id}`, {
+       text: updatedText,
+     })
+     .then(res => {
+      // console.log('resp', res);
+       dispatch({
+         type: EDIT_POST,
+         payload: ''
+       });
+     })
+     .catch(err => {
+       console.log('err', err);
+       dispatch({
+         type: GET_ERRORS,
+         payload: err.response.data
+       })
+     });
+ };
+
 // Set loading state
 export const setPostLoading = () => {
   return {
