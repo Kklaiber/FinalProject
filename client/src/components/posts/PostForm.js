@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { addPost } from '../../actions/postActions';
-
+import { addPost, editPost } from '../../actions/postActions';
+// import { Link, withRouter } from 'react-router-dom';
+import EditPostForm from '../edit-posts/EditPostForm';
 
 class PostForm extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class PostForm extends Component {
   }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value,  });
   }
 
   render() {
@@ -55,7 +56,7 @@ class PostForm extends Component {
         <img className="card-img-top" src="https://images.pexels.com/photos/134062/pexels-photo-134062.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card cap"/>
           <div className="card-header text-white">Share your story...</div>
           <div className="card-body">
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit}> 
               <div className="form-group">
 
                 <TextAreaFieldGroup
@@ -70,11 +71,11 @@ class PostForm extends Component {
               You are posting to the Collective Community
               </small>
                
-      </div>
+              </div>
               <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>500 Character Limit</h6>
 
               <button type="submit" className="btn btn-dark">
-                Submit
+                 Submit
               </button>
             </form>
           </div>
@@ -87,7 +88,9 @@ class PostForm extends Component {
 PostForm.propTypes = {
   addPost: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
+  // editPost: PropTypes.object.isRequired,
+  // editPostForm: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -95,4 +98,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { addPost })(PostForm);
+export default connect(mapStateToProps, { addPost, editPost })(PostForm);

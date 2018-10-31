@@ -36,13 +36,13 @@ class PostItem extends Component {
     }
   }
 
-  onEditClick = () => {
+  onEditClick = (id) => {
     this.setState({ isEditting: !this.state.isEditting });
-  }
+  } //do I need to somhow make this accesable on postForm.js
 
   renderText = () => {
     const { post } = this.props;
-    console.log('post', post);
+
     const { isEditting } = this.state;
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }

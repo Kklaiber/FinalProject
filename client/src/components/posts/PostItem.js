@@ -7,6 +7,7 @@ import { deletePost, addLike, removeLike, addCommentLike, removeCommentLike } fr
 import Moment from 'react-moment';
 
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import EditPostForm from '../edit-posts/EditPostForm';
 
 class PostItem extends Component {
 
@@ -35,25 +36,6 @@ class PostItem extends Component {
     }
   }
 
-  renderEditForm = () => {
-    <form>
-      <div className="form-group">
-        <TextAreaFieldGroup
-          placeholder="Edit a post"
-          name="text"
-          value={''}
-          onChange={() => console.log('eidtting')}
-          // error={}
-        />           
-      </div>
-      <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>
-        500 Character Limit
-      </h6>
-      <button type="submit" className="btn btn-dark">
-        Submit
-      </button>
-    </form>
-  }
   onEditClick = () => {
     this.setState({ isEditting: !this.state.isEditting });
   }
@@ -61,7 +43,8 @@ class PostItem extends Component {
   renderText = () => {
     const { post } = this.props;
     const { isEditting } = this.state;
-    return isEditting ? this.renderEditForm : <p className="lead post-text">{post.text}</p>;
+
+    return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }
 
   render() {
@@ -142,6 +125,7 @@ class PostItem extends Component {
                     <span className="text-danger"> Delete Post </span>
                     </button>
                     <button 
+                      onClick={this.onEditClick}
                       type = "button"
                       className = "badge badge-light mr-1"
                     >
