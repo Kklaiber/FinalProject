@@ -140,6 +140,9 @@ nav li a:hover {
 .gold-text {
   color: rgb(230, 185, 39);
 }
+.responsive-header-text {
+  font-size: 2.5rem;
+}
 
 .dark-overlay {
   background-color: rgba(26, 26, 26, 0.473);

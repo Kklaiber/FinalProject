@@ -32,9 +32,9 @@ class Profiles extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="display-4 text-center">Your Collective Community</h1>
+              <h1 className="display-4 responsive-header-text text-center">Your Collective Community</h1>
               <p className="lead text-center">
-                Connect with your community!
+                Connect with your community.
               </p>
               {profileItems}
             </div>

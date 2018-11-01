@@ -37,7 +37,7 @@ const ProfileActions = () => {
      </div>
      <div className="col-sm-12">
         <Link to="/add-interests" className="btn btn-block btn-light">
-        <i className="far fa-star text-warning mr-1"></i>
+        <i className="fas fa-star text-warning mr-1"></i>
             Add Interests
         </Link>
         </div>
