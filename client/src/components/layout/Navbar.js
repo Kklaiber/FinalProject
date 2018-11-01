@@ -4,11 +4,33 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentProfile, getProfileByHandle, getCurrentProfile } from '../../actions/profileActions';
-import { Navbar, Nav } from 'react-bootstrap';
 import ProfileAvatar from '../profile/ProfileAvatar';
+import { Collapse, Container, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 
 
 class NavbarMain extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.closeNavbar = this.closeNavbar.bind(this);
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
+
+  closeNavbar() {
+    if (this.state.collapsed !== true) {
+      this.toggleNavbar();
+    }
+  }
+
   componentDidMount() {
     this.props.getCurrentProfile();
   }
@@ -56,7 +78,7 @@ class NavbarMain extends Component {
           </Link>
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link className="dropdown-item" to="/communities">Communities</Link>
-            <div class="dropdown-divider"></div>
+            <div className="dropdown-divider"></div>
             <Link className="dropdown-item" to="/feed">Collective</Link>
             <Link className="dropdown-item" to="/missions">Missions</Link>
             <Link className="dropdown-item" to="/outdoors">Outdoors</Link>
@@ -125,24 +147,23 @@ class NavbarMain extends Component {
     );
 
     return (
-      <Navbar className="navbar navbar-color sticky-top navbar-expand-sm navbar-dark">
-        <Navbar className="container">
-          <Link className="navbar-brand" to="/">
-            Collective
-          </Link>
-          <Nav
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mobile-nav"
-          >
-            <span className="navbar-toggler-icon" />
-          </Nav>
-          <Navbar.Collapse className="collapse navbar-collapse" id="mobile-nav">
-            {isAuthenticated ? friendLink : null}
-            {isAuthenticated ? authLinks : guestLinks}
-          </Navbar.Collapse>
-        </Navbar>
+      <Navbar className="navigation_navbar navbar-color sticky-top navbar-expand-sm navbar-dark">
+        <Container>
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.state.collapsed} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+              <Link className="navbar-brand" to="/">
+                Collective
+              </Link>
+              </NavItem>
+              <NavItem onClick={this.closeNavbar} className="nav-link navigation_navlinks" id="mobile-nav">
+                {isAuthenticated ? friendLink : null}
+                {isAuthenticated ? authLinks : guestLinks}
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Container>
       </Navbar>
     );
   }
