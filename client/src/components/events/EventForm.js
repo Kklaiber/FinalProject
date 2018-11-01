@@ -84,7 +84,7 @@ class EventForm extends Component {
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header text-white">Create An Event!</div>
+          <div className="card-header text-white"> Let's do! Let's go! Let's live!</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">

@@ -8,6 +8,7 @@ import CommentFeed from "./CommentFeed";
 import Spinner from "../common/Spinner";
 import { getPost } from "../../actions/postActions";
 import HelpModal from '../dashboard/HelpModal';
+import ProfileHeader from '../profile/ProfileHeader';
 
 class Post extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class Post extends Component {
   render() {
     const { post, loading } = this.props.post;
     let postContent;
+    // const { profile } = this.props;
 
     if (post === null || loading || Object.keys(post).length === 0) {
       postContent = <Spinner />;

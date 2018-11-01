@@ -1,18 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Posts from "../posts-dashboard/Posts"
 import Events from '../events-dashboard/Events';
+import ProfileAvatar from '../profile/ProfileAvatar';
 
 const ProfileActions = () => {
   return (
     <div>
-      <Posts />
-<br/>
-
 <div className="row"> 
       <div className="col-md-6">
+        
       <h4 className="thin-text text-center text-secondary">Your Profile.</h4>
-    
+      <br/>
+      <div className="col-6 col-md-6 m-auto">
+      
+      <ProfileAvatar />
+     
+      </div>
+      <br/>
       <div className="col-sm-12">
         <Link to="/edit-profile" className="btn btn-block btn-light">
             <i className="fas fa-user-circle  text-warning mr-1" /> 
@@ -44,9 +48,11 @@ const ProfileActions = () => {
         </Link>
         </div>
         </div> 
-         
         <div className="col-md-6">
+         <div className="events-dashboard">
+      
         <Events />
+        </div>
         </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ const HelpModal = () => (
     <Popup trigger={<button className="btn btn-info btn-lg"> Help </button>} modal>
     
       {close => (
-        <div>
+        <div className="modalWrapper">
           <a className="close" onClick={close}>
             &times;
           </a>

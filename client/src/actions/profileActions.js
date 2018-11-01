@@ -87,11 +87,12 @@ export const addEducation = (eduData, history) => dispatch => {
 };
 
 // Add interests
-export const addInterests = (intData, history) => dispatch => {
+export const addInterests = (intData, history, handle) => dispatch => {
   axios
+   
     .post("/api/profile/interests", intData)
     //here is where youd get the profile by handle
-    .then(res => history.push('/profile')) 
+    .then(res => history.push('/dashboard')) 
     .catch(err =>
        dispatch({
         type: GET_ERRORS,

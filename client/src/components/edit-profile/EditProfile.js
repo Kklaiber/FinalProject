@@ -13,6 +13,8 @@ import {
 } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
 import HelpModal from '../dashboard/HelpModal';
+import ProfileActions from "../dashboard/ProfileActions";
+import ProfileAvatar from "../profile/ProfileAvatar";
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -213,6 +215,9 @@ class CreateProfile extends Component {
               <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
+              <div className="edit-profile-img m-auto"> 
+            <img className="rounded-circle" src={this.state.avatar} />
+                </div> 
               <h1 className="display-4 text-center">Edit Profile</h1>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
@@ -313,7 +318,7 @@ class CreateProfile extends Component {
         <br />
         <hr />
 
-        <div className="deleteAccount">
+        <div className="deleteAccount text-center">
           <h4>Delete Your Account</h4>
           <br />
           <p>

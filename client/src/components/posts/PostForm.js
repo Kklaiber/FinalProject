@@ -70,7 +70,7 @@ class PostForm extends Component {
               You are posting to the Collective Community
               </small>
                
-      </div>
+            </div>
               <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>500 Character Limit</h6>
 
               <button type="submit" className="btn btn-dark">

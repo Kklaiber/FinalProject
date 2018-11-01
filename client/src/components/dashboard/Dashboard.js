@@ -10,7 +10,7 @@ import ProfileActions from "./ProfileActions";
 // import Group from "./Group";
 import PopupModal from './Modal';
 import HelpModal from './HelpModal';
-
+import Posts from "../posts-dashboard/Posts"
 
 
 class Dashboard extends Component {
@@ -20,8 +20,7 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
-    const { profile, loading } = this.props.profile;
-
+    const { profile, loading, handle } = this.props.profile;
     let dashboardContent;
 
     if (profile === null || loading) {
@@ -38,6 +37,8 @@ class Dashboard extends Component {
                 <span className="gold-text">{user.name}</span>
               </Link>
             </p>
+            <Posts />
+              <br/>
             <ProfileActions />
 
             {/* <Experience experience={profile.experience} />

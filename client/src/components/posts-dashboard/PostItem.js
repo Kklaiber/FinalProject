@@ -7,6 +7,8 @@ import { deletePost, addLike, removeLike } from '../../actions/postActions';
 import FadeIn from "react-fade-in";
 import Moment from 'react-moment';
 
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+
 import EditPostForm from '../edit-posts/EditPostForm';
 
 class PostItem extends Component {
@@ -47,6 +49,26 @@ class PostItem extends Component {
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }
 
+  
+  renderEditForm = () => {
+    <form>
+      <div className="form-group">
+        <TextAreaFieldGroup
+          placeholder="Edit a post"
+          name="text"
+          value={''}
+          onChange={() => console.log('eidtting')}
+          // error={}
+        />           
+      </div>
+      <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>
+        500 Character Limit
+      </h6>
+      <button type="submit" className="btn btn-dark">
+        Submit
+      </button>
+    </form>
+  }
   render() {
     const { post, auth, showActions } = this.props;
   
@@ -157,7 +179,8 @@ PostItem.propTypes = {
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  // profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

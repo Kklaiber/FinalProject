@@ -81,19 +81,9 @@ class EventItem extends Component {
     return (
       <div className="card card-body event-box mb-3">
         <div className="row">
-          <div className="col-md-2">
-            <a href="profile.html">
-              <img
-                className="rounded-circle d-none d-md-block"
-                src={event.avatar}
-                alt=""
-              />
-            </a>
-            <br />
-            <p className="text-center">{event.name}</p>
-          </div>
-          <div className="col-md-10">
-
+         
+          <div className="col-md-12">
+          <p className="text-center">{event.name}</p>
            {fullDescription ? (<span>
             <p className="lead">
               <strong>Title: </strong>{event.title}
@@ -118,8 +108,8 @@ class EventItem extends Component {
               <br/>
               <strong>Description: </strong> {event.description}
               <br/>
-              <strong>Date:</strong> <Moment format="D MMM YYYY" withTitle>{event.when}</Moment>
               <br/>
+              <strong>Date:</strong> <Moment format="D MMM YYYY" withTitle>{event.when}</Moment> // 
               <strong> Time:</strong>{event.time}
               </p>
            </span>}
