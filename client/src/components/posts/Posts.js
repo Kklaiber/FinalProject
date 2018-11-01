@@ -7,6 +7,7 @@ import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postActions';
 import HelpModal from '../dashboard/HelpModal';
 
+
 class Posts extends Component {
   componentDidMount() {
     this.props.getPosts();
@@ -28,8 +29,10 @@ class Posts extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
+          
               <PostForm />
-              {postContent}
+            
+             {postContent}
             </div>
           </div>
         </div>

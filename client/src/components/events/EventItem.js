@@ -13,6 +13,7 @@ import {
   interestedInEvent
 } from "../../actions/eventActions";
 import Events from "./Events";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 class EventItem extends Component {
   onDeleteClick(id) {
@@ -79,6 +80,7 @@ class EventItem extends Component {
     const { event, auth, showActions, fullDescription } = this.props;
 
     return (
+      <FadeIn>
       <div className="card card-body event-box mb-3">
         <div className="row">
           <div className="col-md-2">
@@ -196,6 +198,7 @@ class EventItem extends Component {
           </div>
         </div>
       </div>
+      </FadeIn>
     );
   }
 }

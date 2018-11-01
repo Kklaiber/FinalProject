@@ -4,7 +4,7 @@ import Popup from 'reactjs-popup';
 
 const HelpModal = () => (
   
-    <Popup trigger={<button className="btn btn-info btn-lg"> Help </button>} modal>
+    <Popup trigger={<button className="btn that-blue-color text-white float-right"> Help </button>} modal>
     
       {close => (
         <div className="modalWrapper">

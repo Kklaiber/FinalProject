@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postOutdoorsActions';
-
+import FadeIn from 'react-fade-in';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 
 import EditPostForm from '../edit-posts/EditPostForm';
@@ -87,6 +87,7 @@ class PostItem extends Component {
 
 
     return (
+      <FadeIn>
       <div className="card card-body mb-3 post-card">
         <div className="row">
           <div className="col-md-2">
@@ -158,6 +159,7 @@ class PostItem extends Component {
           </div>
         </div>
       </div>
+      </FadeIn>
     );
   }
 }
