@@ -42,33 +42,14 @@ class PostItem extends Component {
     this.setState({ isEditting: !this.state.isEditting });
   }
 
+
   renderText = () => {
     const { post } = this.props;
-    // console.log('post', post);
+  //  console.log('post', post);
     const { isEditting } = this.state;
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }
 
-  
-  renderEditForm = () => {
-    <form>
-      <div className="form-group">
-        <TextAreaFieldGroup
-          placeholder="Edit a post"
-          name="text"
-          value={''}
-          onChange={() => console.log('eidtting')}
-          // error={}
-        />           
-      </div>
-      <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>
-        500 Character Limit
-      </h6>
-      <button type="submit" className="btn btn-dark">
-        Submit
-      </button>
-    </form>
-  }
   render() {
     const { post, auth, showActions } = this.props;
   

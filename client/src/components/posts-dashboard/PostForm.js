@@ -41,7 +41,7 @@ class PostForm extends Component {
     this.props.addPost(newPost);
     this.setState({ text: '' });
   }
-
+  
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -50,36 +50,26 @@ class PostForm extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="post-form mb-3">
-        <div className="card card-info">
-        <img className="card-img-top" src="https://images.pexels.com/photos/134062/pexels-photo-134062.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card cap"/>
-          <div className="card-header text-white">Share your story...</div>
-          <div className="card-body">
-            <form onSubmit={this.onSubmit}>
+     
+          <div>
+             <form onSubmit={this.onSubmit}>
               <div className="form-group">
 
                 <TextAreaFieldGroup
-                  placeholder="Create a post"
+                  placeholder="Share a thought..."
                   name="text"
                   value={this.state.text}
                   onChange={this.onChange}
                   error={errors.text}
                 />
 
-              <small id="communityHelper" className="form-text text-muted">
-              You are posting to the Collective Community
-              </small>
-               
-            </div>
-              <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>500 Character Limit</h6>
-
-              <button type="submit" className="btn btn-dark">
-                Submit
+                </div>
+                <button type="submit" style={{marginBottom: '15px'}}className="btn btn-block that-blue-color text-white btn-sm">
+                Quick Post
               </button>
             </form>
           </div>
-        </div>
-      </div>
+      
     );
   }
 }

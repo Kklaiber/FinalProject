@@ -38,7 +38,7 @@ class ProfileAbout extends Component {
             </ul>
         
             <hr />
-            <h3 className="text-center text-warning">Communities</h3>
+            <h3 className="text-center text-warning">Groups</h3>
             <div className="row">
               <div className="d-flex flex-wrap justify-content-center align-items-center">
            
