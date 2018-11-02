@@ -8,7 +8,6 @@ import CommentFeed from "./CommentFeed";
 import Spinner from "../common/Spinner";
 import { getPost } from "../../actions/postActions";
 import HelpModal from '../dashboard/HelpModal';
-import ProfileHeader from '../profile/ProfileHeader';
 
 class Post extends Component {
   componentDidMount() {

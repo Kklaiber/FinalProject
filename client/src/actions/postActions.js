@@ -9,7 +9,7 @@ import {
   POST_LOADING,
   DELETE_POST,
   EDIT_POST,
-  EDIT_COMMENT
+  // EDIT_COMMENT
 } from "./types";
 
 // Add Post
