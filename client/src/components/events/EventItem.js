@@ -190,7 +190,7 @@ class EventItem extends Component {
                     type="button"
                     className="btn btn-danger mr-1 float-right"
                   >
-                    <i className="fas fa-archive" />
+                    <i className="fas fa-trash-alt" />
                   </button>
                 ) : null}
               </span>
