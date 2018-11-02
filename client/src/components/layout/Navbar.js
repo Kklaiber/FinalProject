@@ -44,8 +44,9 @@ class NavbarMain extends Component {
   
   
   render() {
-    const { isAuthenticated, 
-    //user 
+    const {
+      isAuthenticated,
+      //user
     } = this.props.auth;
     const handle = this.props.profile;
 

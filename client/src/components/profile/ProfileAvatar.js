@@ -10,7 +10,7 @@ class ProfileAvatar extends Component {
 
     return (
     
-      <img className="rounded-circle" src={profile.avatar} alt="" />    
+      <img className="rounded-circle" src={profile.user.avatar} alt="" />    
     
     );
   }
