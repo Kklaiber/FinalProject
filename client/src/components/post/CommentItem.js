@@ -63,9 +63,9 @@ class CommentItem extends Component {
               <button 
                 onClick={ this.onEditClick }
                 type = "button"
-                className = "badge badge-light mr-1"
+                className = "btn btn-info mr-1 float-left"
                 >
-                <span> Edit Post</span>
+                <i className="fas fa-edit" />
               </button>
             </Fragment>
             ) : null}
