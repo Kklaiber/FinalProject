@@ -65,6 +65,7 @@ class NavbarMain extends Component {
      }
 
     const authLinks = (
+      
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
@@ -92,11 +93,7 @@ class NavbarMain extends Component {
           </Link>
         </li>
 
-        <li className="nav-item">
-        <Link className="nav-link" to={`/edit-profile`}>
-          Profile
-          </Link>
-        </li>
+        {profileLink}
       
         <li className="nav-item">
         <Redirect to="/"/>
@@ -117,50 +114,52 @@ class NavbarMain extends Component {
     
     const friendLink = (
      
-      <ul className="navbar-nav mr-auto">
-        <li className="nav-item" >
+     <div>
+         <NavItem onClick={this.closeNavbar} className="nav-item">
           <Link className="nav-link" to="/profiles">
           
             {' '}
             Friends
           </Link>
           
-        </li>
-      </ul>
+        </NavItem>
+     </div>
 
     );
  
 
     const guestLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
+     <div>
+         <NavItem onClick={this.closeNavbar} className="nav-item">
           <Link className="nav-link" to="/register">
             Sign Up
           </Link>
-        </li>
-        <li className="nav-item">
+        </NavItem>
+        <NavItem onClick={this.closeNavbar} className="nav-item">
           <Link className="nav-link" to="/login">
             Login
           </Link>
-        </li>
-      </ul>
+        </NavItem>
+    </div>
     );
 
     return (
+      //this starts the whole navbar
       <Navbar className="navigation_navbar navbar-color sticky-top navbar-expand-sm navbar-dark">
         <Container>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
-            <Nav className="mr-auto" navbar>
+            <Nav className="ml-auto" navbar>
               <NavItem>
               <Link className="navbar-brand" to="/">
                 Collective
               </Link>
               </NavItem>
-              <NavItem onClick={this.closeNavbar} className="nav-link navigation_navlinks" id="mobile-nav">
+              
+              {/* <NavItem onClick={this.closeNavbar} className="nav-link navigation_navlinks" id="mobile-nav"> */}
                 {isAuthenticated ? friendLink : null}
                 {isAuthenticated ? authLinks : guestLinks}
-              </NavItem>
+              {/* </NavItem> */}
             </Nav>
           </Collapse>
         </Container>
