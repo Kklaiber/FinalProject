@@ -49,11 +49,8 @@ class CommentItem extends Component {
 
           <div className="col-md-10">
             {this.renderText()}
-            </div>
+          </div>
           <div className="col-md-10">
-            <p className = "lead">
-              { comment.text }
-            </p>
             {comment.user === auth.user.id ? (
               <Fragment>
               <button
@@ -61,16 +58,16 @@ class CommentItem extends Component {
                 type="button"
                 className="btn btn-danger mr-1 float-left"
               >
-                <i className="fas fa-times" />
+                <i className="fas fa-archive" />
               </button>
               <button 
-                    onClick={ this.onEditClick }
-                    type = "button"
-                    className = "badge badge-light mr-1"
-                  >
-                    <span>Edit Comment</span>
-                  </button>
-              </Fragment>
+                onClick={ this.onEditClick }
+                type = "button"
+                className = "badge badge-light mr-1"
+                >
+                <span> Edit Post</span>
+              </button>
+            </Fragment>
             ) : null}
           </div>
         </div>

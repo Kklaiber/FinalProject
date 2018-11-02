@@ -1,18 +1,36 @@
-import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
-import {
-  clearCurrentProfile,
-  getProfileByHandle,
-  getCurrentProfile
-} from "../../actions/profileActions";
-import ProfileItem from "../profiles/ProfileItem";
-import ProfilePicture from "../../components/profile/ProfileHeader";
-import ProfileAvatar from "../profile/ProfileAvatar";
+import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/authActions';
+import { clearCurrentProfile, getProfileByHandle, getCurrentProfile } from '../../actions/profileActions';
+import ProfileAvatar from '../profile/ProfileAvatar';
+import { Collapse, Container, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 
-class Navbar extends Component {
+
+class NavbarMain extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.closeNavbar = this.closeNavbar.bind(this);
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
+
+  closeNavbar() {
+    if (this.state.collapsed !== true) {
+      this.toggleNavbar();
+    }
+  }
+
   componentDidMount() {
     this.props.getCurrentProfile();
   }
@@ -21,13 +39,16 @@ class Navbar extends Component {
     e.preventDefault();
     this.props.clearCurrentProfile();
     this.props.logoutUser();
+    
   }
-
+  
+  
   render() {
     const {
       isAuthenticated,
       //user
     } = this.props.auth;
+    const handle = this.props.profile;
 
     const { profile, loading } = this.props.profile;
 
@@ -65,36 +86,51 @@ class Navbar extends Component {
           </div>
         </li>
 
+
         <li className="nav-item">
-          <Link className="nav-link" to="/events">
-            Events
+         <Link className="nav-link" to="/events">
+           Events
           </Link>
         </li>
-        {profileLink}
+
         <li className="nav-item">
-          {/* <Redirect to="/" /> */}
-          <a
+        <Link className="nav-link" to={`/edit-profile`}>
+          Profile
+          </Link>
+        </li>
+      
+        <li className="nav-item">
+        <Redirect to="/"/>
+            <a
             href="/"
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
           >
-            <i className="fas fa-sign-out-alt" />
-            {"  "}
+        
+          <i className="fas fa-sign-out-alt"></i>
+            {'  '}
             Logout
           </a>
+        
         </li>
       </ul>
     );
+    
     const friendLink = (
+     
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
+        <li className="nav-item" >
           <Link className="nav-link" to="/profiles">
-            {" "}
+          
+            {' '}
             Friends
           </Link>
+          
         </li>
       </ul>
+
     );
+ 
 
     const guestLinks = (
       <ul className="navbar-nav ml-auto">
@@ -112,35 +148,32 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-color sticky-top navbar-expand-sm navbar-dark">
-        <div className="container">
-          <Link className="navbar-brand" to="/">
-            Collective
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mobile-nav"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="mobile-nav">
-            {isAuthenticated ? friendLink : null}
-            {isAuthenticated ? authLinks : guestLinks}
-          </div>
-        </div>
-      </nav>
+      <Navbar className="navigation_navbar navbar-color sticky-top navbar-expand-sm navbar-dark">
+        <Container>
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.state.collapsed} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+              <Link className="navbar-brand" to="/">
+                Collective
+              </Link>
+              </NavItem>
+              <NavItem onClick={this.closeNavbar} className="nav-link navigation_navlinks" id="mobile-nav">
+                {isAuthenticated ? friendLink : null}
+                {isAuthenticated ? authLinks : guestLinks}
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Container>
+      </Navbar>
     );
   }
 }
 
-Navbar.propTypes = {
+NavbarMain.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired,
-  getProfileByHandle: PropTypes.func.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -148,7 +181,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { getProfileByHandle, getCurrentProfile, logoutUser, clearCurrentProfile }
-)(Navbar);
+export default connect(mapStateToProps, { getProfileByHandle, getCurrentProfile, logoutUser, clearCurrentProfile })(
+  NavbarMain
+);

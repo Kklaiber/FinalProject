@@ -42,9 +42,10 @@ class PostItem extends Component {
     this.setState({ isEditting: !this.state.isEditting });
   }
 
+
   renderText = () => {
     const { post } = this.props;
-    // console.log('post', post);
+  //  console.log('post', post);
     const { isEditting } = this.state;
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }

@@ -101,13 +101,18 @@ nav li a:hover {
   background-position: center;
   height: 100vh;
 }
+.create-profile {
+  margin-top: 20px;
+}
+.edit-profile {
+  margin-top: 20px;
+}
 
 .community-card {
   box-shadow: 2px 5px 10px rgb(146, 146, 146);
   margin: 10px 0px 10px 0px;
   padding: 1px;
 }
-
 
 .card-title-text {
   color: rgb(255, 255, 255);
@@ -134,6 +139,9 @@ nav li a:hover {
 }
 .gold-text {
   color: rgb(230, 185, 39);
+}
+.responsive-header-text {
+  font-size: 2.5rem;
 }
 
 .dark-overlay {
@@ -172,6 +180,9 @@ nav li a:hover {
 
 .event-title {
   color: rgba(40, 107, 146, 0.795);
+}
+.that-blue-color {
+  background-color: rgba(40, 107, 146, 0.795);
 }
 
 .thin-text {

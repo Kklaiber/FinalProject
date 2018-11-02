@@ -11,7 +11,7 @@ class CommentForm extends Component {
     this.state = {
       text: '',
       errors: {},
-      // avatar: profile.avatar
+      community: 'general'
     };
 
     this.onChange = this.onChange.bind(this);

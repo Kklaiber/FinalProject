@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postMissionsActions';
 import Moment from 'react-moment';
-
+import FadeIn from 'react-fade-in';
 import EditPostForm from '../edit-posts-missions/EditPostForm';
 
 class PostItem extends Component {
@@ -65,6 +65,7 @@ class PostItem extends Component {
 
 
     return (
+      <FadeIn>
       <div className="card card-body mb-3 post-card">
         <div className="row">
           <div className="col-md-2">
@@ -136,6 +137,7 @@ class PostItem extends Component {
           </div>
         </div>
       </div>
+      </FadeIn>
     );
   }
 }
