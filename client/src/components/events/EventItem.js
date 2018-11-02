@@ -84,13 +84,13 @@ class EventItem extends Component {
       <div className="card card-body event-box mb-3">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+           
               <img
-                className="rounded-circle d-none d-md-block"
+                className="rounded-circle post-avatar d-md-block"
                 src={event.avatar}
                 alt=""
               />
-            </a>
+           
             <br />
             <p className="text-center">{event.name}</p>
           </div>

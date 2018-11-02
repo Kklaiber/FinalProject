@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import { clearCurrentProfile, getProfileByHandle, getCurrentProfile } from '../../actions/profileActions';
 import ProfileAvatar from '../profile/ProfileAvatar';
-import { Collapse, Container, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
+import { Collapse, Container, Navbar, NavbarToggler, Nav, NavItem, NavbarBrand} from "reactstrap";
 
 
 class NavbarMain extends Component {
@@ -67,13 +67,13 @@ class NavbarMain extends Component {
 
     const authLinks = (
       
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
+      <Nav className="ml-auto" navbar>
+        <NavItem onClick={this.closeNavbar} className="nav-item">
           <Link className="nav-link" to="/dashboard">
             Dashboard
           </Link>
-        </li>
-       
+       </NavItem>
+       <NavItem onClick={this.closeNavbar} className="nav-item">
         <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" to="/communities" id="navbarDropdown" role="button" data-toggle="dropdown">
             Communities
@@ -86,16 +86,17 @@ class NavbarMain extends Component {
             <Link className="dropdown-item" to="/outdoors">Outdoors</Link>
           </div>
         </li>
+      </NavItem>
 
-
-        <li className="nav-item">
+         <NavItem onClick={this.closeNavbar} className="nav-item">
          <Link className="nav-link" to="/events">
            Events
           </Link>
-        </li>
+        </NavItem>
 
+       <NavItem onClick={this.closeNavbar} className="nav-item">
         {profileLink}
-      
+      </NavItem>
         <li className="nav-item">
         <Redirect to="/"/>
             <a
@@ -110,12 +111,12 @@ class NavbarMain extends Component {
           </a>
         
         </li>
-      </ul>
+   </Nav>
     );
     
     const friendLink = (
      
-     <div>
+      <Nav navbar>
          <NavItem onClick={this.closeNavbar} className="nav-item">
           <Link className="nav-link" to="/profiles">
           
@@ -124,44 +125,41 @@ class NavbarMain extends Component {
           </Link>
           
         </NavItem>
-     </div>
+    </Nav>
 
     );
  
 
     const guestLinks = (
-     <div>
+      <Nav className="ml-auto" navbar>
          <NavItem onClick={this.closeNavbar} className="nav-item">
           <Link className="nav-link" to="/register">
             Sign Up
           </Link>
         </NavItem>
+
         <NavItem onClick={this.closeNavbar} className="nav-item">
           <Link className="nav-link" to="/login">
             Login
           </Link>
         </NavItem>
-    </div>
+   </Nav>
     );
 
     return (
       //this starts the whole navbar
       <Navbar className="navigation_navbar navbar-color sticky-top navbar-expand-sm navbar-dark">
         <Container>
+        <NavbarBrand onClick={this.closeNavbar} className="mr-auto"><Link className="navbar-brand" to="/">Collective</Link></NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-              <Link className="navbar-brand" to="/">
-                Collective
-              </Link>
-              </NavItem>
-              
-              {/* <NavItem onClick={this.closeNavbar} className="nav-link navigation_navlinks" id="mobile-nav"> */}
+          
+        
                 {isAuthenticated ? friendLink : null}
+                
                 {isAuthenticated ? authLinks : guestLinks}
-              {/* </NavItem> */}
-            </Nav>
+       
+          
           </Collapse>
         </Container>
       </Navbar>

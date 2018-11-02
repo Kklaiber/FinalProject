@@ -251,5 +251,9 @@ nav li a:hover {
   .avatar-nav {
     margin: 7px 0px;
   }
+  .post-avatar {
+    height: 4.2rem;
+    width: 4.2rem;
+  }
   
 }

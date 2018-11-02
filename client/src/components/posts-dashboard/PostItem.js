@@ -97,15 +97,15 @@ class PostItem extends Component {
         <div className="row">
           <div className="col-md-2">
           
-            <a href="profile.html">
+          
               <img
-                className="rounded-circle d-none d-md-block"
+                className="rounded-circle post-avatar d-md-block"
                 src={post.user.avatar}
                 alt=""
               />
-            </a>
+           
             <br />
-            <p className="text-center">{post.name}
+            <p className="text-center">{post.user.name}
             <br/>
 
              {/* {todaysDate} */}
