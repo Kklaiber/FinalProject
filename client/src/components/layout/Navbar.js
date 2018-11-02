@@ -24,10 +24,8 @@ class Navbar extends Component {
   }
 
   render() {
-    const { user } = this.props.auth;
-
     const {
-      isAuthenticated
+      isAuthenticated,
       //user
     } = this.props.auth;
 
@@ -60,7 +58,7 @@ class Navbar extends Component {
           </Link>
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link className="dropdown-item" to="/communities">Communities</Link>
-            <div class="dropdown-divider"></div>
+            <div className="dropdown-divider"></div>
             <Link className="dropdown-item" to="/feed">Collective</Link>
             <Link className="dropdown-item" to="/missions">Missions</Link>
             <Link className="dropdown-item" to="/outdoors">Outdoors</Link>

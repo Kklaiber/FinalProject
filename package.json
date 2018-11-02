@@ -25,6 +25,7 @@
     "gravatar": "^1.6.0",
     "jsonwebtoken": "^8.2.0",
     "macaddress": "^0.2.9",
+    "merge": "^1.2.1",
     "moment": "^2.22.2",
     "mongoose": "^5.0.12",
     "node-emoji": "^1.8.1",

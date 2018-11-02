@@ -57,7 +57,7 @@ class PostItem extends Component {
           placeholder="Edit a post"
           name="text"
           value={''}
-          onChange={() => console.log('eidtting')}
+          onChange={() => console.log('editting')}
           // error={}
         />           
       </div>
@@ -95,10 +95,11 @@ class PostItem extends Component {
     
         <div className="row">
           <div className="col-md-2">
+          
             <a href="profile.html">
               <img
                 className="rounded-circle d-none d-md-block"
-                src={post.avatar}
+                src={post.user.avatar}
                 alt=""
               />
             </a>
@@ -140,8 +141,9 @@ class PostItem extends Component {
                 <Link to={`/post/${post._id}`} className="badge badge-light mr-1">
                 {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
+                 
                     
-                {post.user === auth.user.id ? (
+                {post.user._id === auth.user.id ? (
                   <Fragment>
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}

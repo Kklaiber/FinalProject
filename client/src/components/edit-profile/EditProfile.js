@@ -74,7 +74,7 @@ class CreateProfile extends Component {
       profile.instagram = !isEmpty(profile.social.instagram)
         ? profile.social.instagram
         : "";
-      profile.avatar = !isEmpty(profile.avatar) ? profile.avatar : "";
+      profile.avatar = !isEmpty(profile.user.avatar) ? profile.user.avatar : "";
 
       // Set component fields state
       this.setState({
@@ -90,7 +90,7 @@ class CreateProfile extends Component {
         linkedin: profile.linkedin,
         youtube: profile.youtube,
         instagram: profile.instagram,
-        avatar: profile.avatar
+        avatar: profile.user.avatar
       });
     }
   }

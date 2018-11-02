@@ -42,7 +42,7 @@ class PostItem extends Component {
   }
 
   renderText = () => {
-    const { post } = this.props;
+    const { post, profile } = this.props;
    // console.log('post', post);
     const { isEditting } = this.state;
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
@@ -93,12 +93,12 @@ class PostItem extends Component {
             <a href="profile.html">
               <img
                 className="rounded-circle d-none d-md-block"
-                src={post.avatar}
+                src={post.user.avatar}
                 alt=""
               />
             </a>
             <br />
-            <p className="text-center">{post.name}
+            <p className="text-center">{post.user.name}
             <br/>
 
              {/* {todaysDate} */}
@@ -137,7 +137,7 @@ class PostItem extends Component {
                 {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
                     
-                {post.user === auth.user.id ? (
+                {post.user._id === auth.user.id ? (
                   <Fragment>
                     <button
                       onClick={this.onDeleteClick.bind(this, post._id)}
