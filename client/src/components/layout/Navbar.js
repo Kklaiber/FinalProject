@@ -44,11 +44,10 @@ class NavbarMain extends Component {
   
   
   render() {
+    const { user } =this.props.auth;
     const { isAuthenticated, 
     //user 
     } = this.props.auth;
-    const handle = this.props.profile;
-
     const { profile, loading } = this.props.profile;
 
     let profileLink = "";
@@ -59,8 +58,7 @@ class NavbarMain extends Component {
         >
           <Link className="nav-avatar" to={`/profile/${profile.handle}`}>
           <ProfileAvatar />
-          </Link>
-          
+          </Link>        
         </li>)
      }
 
@@ -92,25 +90,18 @@ class NavbarMain extends Component {
           </Link>
         </li>
 
+        {profileLink}
         <li className="nav-item">
-        <Link className="nav-link" to={`/edit-profile`}>
-          Profile
-          </Link>
-        </li>
-      
-        <li className="nav-item">
-        <Redirect to="/"/>
-            <a
+          {/* <Redirect to="/" /> */}
+          <a
             href="/"
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
           >
-        
-          <i className="fas fa-sign-out-alt"></i>
-            {'  '}
+            <i className="fas fa-sign-out-alt" />
+            {"  "}
             Logout
           </a>
-        
         </li>
       </ul>
     );

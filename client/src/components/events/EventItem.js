@@ -12,7 +12,6 @@ import {
   notGoingToEvent,
   interestedInEvent
 } from "../../actions/eventActions";
-import Events from "./Events";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
 class EventItem extends Component {
@@ -104,7 +103,7 @@ class EventItem extends Component {
               <br/>
               <strong>Date: </strong> <Moment format="D MMM YYYY" withTitle>{event.when}</Moment>
               <br/>
-              <strong> Time: </strong> {event.time} 
+              <strong>Time: </strong> {event.time} 
               <br/>
               <strong>Location: </strong>{event.where}
               <br/>
@@ -122,7 +121,7 @@ class EventItem extends Component {
               <br/>
               <strong>Date:</strong> <Moment format="D MMM YYYY" withTitle>{event.when}</Moment>
               <br/>
-              <strong> Time:</strong>{event.time}
+              <strong>Time: </strong>{event.time}
               </p>
            </span>}
             
