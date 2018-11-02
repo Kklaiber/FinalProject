@@ -31,7 +31,7 @@ class CommentForm extends Component {
     const newComment = {
       text: this.state.text,
       name: user.name,
-      avatar: user.avatar
+      avatar: user._id
     };
 
     this.props.addComment(postId, newComment);
