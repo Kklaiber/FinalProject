@@ -1,4 +1,4 @@
-import React, { Component, Link } from "react";
+import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 class ProfileAvatar extends Component {

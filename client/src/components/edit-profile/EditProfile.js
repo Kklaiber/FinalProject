@@ -13,8 +13,7 @@ import {
 } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
 import HelpModal from '../dashboard/HelpModal';
-import ProfileActions from "../dashboard/ProfileActions";
-import ProfileAvatar from "../profile/ProfileAvatar";
+
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -125,7 +124,7 @@ class CreateProfile extends Component {
   }
 
   render() {
-    const { errors, displaySocialInputs, handle } = this.state;
+    const { errors, displaySocialInputs } = this.state;
 
     let socialInputs;
 

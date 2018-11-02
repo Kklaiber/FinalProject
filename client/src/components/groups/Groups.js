@@ -25,7 +25,7 @@ class Groups extends Component {
                   strengthen local fellowship."{" "}
                 </p>
                 <Link to="/feed">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Collective
                   </a>
                 </Link>
@@ -49,7 +49,7 @@ class Groups extends Component {
                 </p>
 
                 <Link to="/missions">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     GO
                   </a>
                 </Link>
@@ -75,7 +75,7 @@ class Groups extends Component {
                 </p>
 
                 <Link to="/outdoors">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Get Outside
                   </a>
                 </Link>
@@ -95,7 +95,7 @@ class Groups extends Component {
                 <p className="card-text"> Support || Joy || Purpose </p>
 
                 <Link to="/feed">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Make a difference
                   </a>
                 </Link>
@@ -121,7 +121,7 @@ class Groups extends Component {
                 </p>
 
                 <Link to="/feed">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Impact Culture
                   </a>
                 </Link>
@@ -144,7 +144,7 @@ class Groups extends Component {
                 </p>
 
                 <Link to="/feed">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Join a Family
                   </a>
                 </Link>
