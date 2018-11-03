@@ -20,8 +20,12 @@ const UserSchema = new Schema({
     required: false
   },
   avatar: {
-    type:  Schema.Types.ObjectId,
-    ref: 'profile'
+    // type:  Schema.Types.ObjectId,
+    // ref: 'profile'
+    type:String,
+    default: 'http://notdavidscott.com/images/collective/profilepicture.png'
+
+    
   },
   date: {
     type: Date,

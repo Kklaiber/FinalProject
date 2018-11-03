@@ -14,6 +14,7 @@ import {
 import isEmpty from "../../validation/is-empty";
 import HelpModal from '../dashboard/HelpModal';
 import ProfileActions from "../dashboard/ProfileActions";
+import ProfileAvatar from "../profile/ProfileAvatar";
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -73,7 +74,7 @@ class CreateProfile extends Component {
       profile.instagram = !isEmpty(profile.social.instagram)
         ? profile.social.instagram
         : "";
-      profile.avatar = !isEmpty(profile.avatar) ? profile.avatar : "";
+      profile.avatar = !isEmpty(profile.user.avatar) ? profile.user.avatar : "";
 
       // Set component fields state
       this.setState({
@@ -89,7 +90,7 @@ class CreateProfile extends Component {
         linkedin: profile.linkedin,
         youtube: profile.youtube,
         instagram: profile.instagram,
-        avatar: profile.avatar
+        avatar: profile.user.avatar
       });
     }
   }
@@ -214,8 +215,8 @@ class CreateProfile extends Component {
               <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <div> 
-            
+              <div className="edit-profile-img m-auto"> 
+            <img className="rounded-circle" src={this.state.avatar} />
                 </div> 
               <h1 className="display-4 text-center">Edit Profile</h1>
               <small className="d-block pb-3">* = required fields</small>
@@ -317,7 +318,7 @@ class CreateProfile extends Component {
         <br />
         <hr />
 
-        <div className="deleteAccount">
+        <div className="deleteAccount text-center">
           <h4>Delete Your Account</h4>
           <br />
           <p>

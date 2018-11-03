@@ -13,6 +13,7 @@ import {
   interestedInEvent
 } from "../../actions/eventActions";
 import Events from "./Events";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 class EventItem extends Component {
   onDeleteClick(id) {
@@ -79,16 +80,17 @@ class EventItem extends Component {
     const { event, auth, showActions, fullDescription } = this.props;
 
     return (
+      <FadeIn>
       <div className="card card-body event-box mb-3">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+           
               <img
-                className="rounded-circle d-none d-md-block"
+                className="rounded-circle post-avatar d-md-block"
                 src={event.avatar}
                 alt=""
               />
-            </a>
+           
             <br />
             <p className="text-center">{event.name}</p>
           </div>
@@ -132,6 +134,7 @@ class EventItem extends Component {
                   onClick={this.onGoingClick.bind(this, event._id)}
                   type="button"
                   className="btn btn-light mr-1"
+                  title="Count me in!"
                 >
                   <i
                     className={classnames("fas fa-user-plus", {
@@ -146,6 +149,7 @@ class EventItem extends Component {
                   onClick={this.onInterestedClick.bind(this, event._id)}
                   type="button"
                   className="btn btn-light mr-1"
+                  title="Interested"
                 >
                   <i
                     className={classnames("text-secondary far fa-calendar", {
@@ -162,6 +166,7 @@ class EventItem extends Component {
                   onClick={this.onNotGoingClick.bind(this, event._id)}
                   type="button"
                   className="btn btn-light mr-1"
+                  title="Can't go"
                 >
                   <i
                     className={classnames("fas fa-times", {
@@ -185,7 +190,7 @@ class EventItem extends Component {
                     type="button"
                     className="btn btn-danger mr-1 float-right"
                   >
-                    <i className="far fa-trash-alt" />
+                    <i className="fas fa-trash-alt" />
                   </button>
                 ) : null}
               </span>
@@ -193,6 +198,7 @@ class EventItem extends Component {
           </div>
         </div>
       </div>
+      </FadeIn>
     );
   }
 }

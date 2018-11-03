@@ -1,12 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postOutdoorsActions';
+import FadeIn from 'react-fade-in';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 
-import Moment from 'react-moment';
+import EditPostForm from '../edit-posts/EditPostForm';
+
 class PostItem extends Component {
+
+  state = {
+    isEditting: false, 
+   }
+
   onDeleteClick(id) {
     this.props.deletePost(id);
   }
@@ -27,7 +36,38 @@ class PostItem extends Component {
       return false;
     }
   }
+  onEditClick = () => {
+    this.setState({ isEditting: !this.state.isEditting });
+  }
 
+  renderText = () => {
+    const { post } = this.props;
+   //console.log('post', post);
+    const { isEditting } = this.state;
+    return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
+  }
+
+
+  renderEditForm = () => {
+    <form>
+      <div className="form-group">
+        <TextAreaFieldGroup
+          placeholder="Edit a post"
+          name="text"
+          value={''}
+          onChange={() => console.log('eidtting')}
+          // error={}
+        />           
+      </div>
+      <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>
+        500 Character Limit
+      </h6>
+      <button type="submit" className="btn btn-dark">
+        Submit
+      </button>
+    </form>
+  }
+ 
   render() {
     const { post, auth, showActions } = this.props;
 
@@ -47,16 +87,17 @@ class PostItem extends Component {
 
 
     return (
+      <FadeIn>
       <div className="card card-body mb-3 post-card">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+          
               <img
-                className="rounded-circle d-none d-md-block"
+                className="rounded-circle post-avatar d-md-block"
                 src={post.avatar}
                 alt=""
               />
-            </a>
+          
             <br />
             <p className="text-center">{post.name}
             <br/>
@@ -66,9 +107,10 @@ class PostItem extends Component {
            </p>
 
           </div>
-          <div className="col-md-10">
-            <p className="lead post-text">{post.text}</p>
-            </div>
+
+           <div className="col-md-10">
+            {this.renderText()}
+            </div>  
             <div className="post-actions">
             {showActions ? (
               <span>
@@ -95,18 +137,29 @@ class PostItem extends Component {
                 {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
                 {post.user === auth.user.id ? (
-                 <button
-                 onClick={this.onDeleteClick.bind(this, post._id)}
-                 type="button"
-                 className="badge badge-light mr-1">
-               <span className="text-danger"> Delete Post </span>
-               </button>
+                  <Fragment>
+                  <button
+                    onClick={this.onDeleteClick.bind(this, post._id)}
+                    type="button"
+                    className="badge badge-light mr-1"
+                  >
+                  <span className="text-danger"> Delete Post </span>
+                  </button>
+                  <button 
+                    onClick={ this.onEditClick }
+                    type = "button"
+                    className = "badge badge-light mr-1"
+                  >
+                    <span> Edit Post</span>
+                  </button>
+                </Fragment>
                 ) : null}
               </span>
             ) : null}
           </div>
         </div>
       </div>
+      </FadeIn>
     );
   }
 }

@@ -12,7 +12,9 @@ const ProfileActions = () => {
       <h4 className="thin-text text-center text-secondary">Your Profile.</h4>
       <br/>
       <div className="col-6 col-md-6 m-auto">
+      
       <ProfileAvatar />
+     
       </div>
       <br/>
       <div className="col-sm-12">
@@ -35,7 +37,7 @@ const ProfileActions = () => {
      </div>
      <div className="col-sm-12">
         <Link to="/add-interests" className="btn btn-block btn-light">
-        <i className="far fa-star text-warning mr-1"></i>
+        <i className="fas fa-star text-warning mr-1"></i>
             Add Interests
         </Link>
         </div>
@@ -46,9 +48,9 @@ const ProfileActions = () => {
         </Link>
         </div>
         </div> 
-      
-         <div className="events-dashboard">
         <div className="col-md-6">
+         <div className="events-dashboard">
+      
         <Events />
         </div>
         </div>

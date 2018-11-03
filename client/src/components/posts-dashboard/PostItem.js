@@ -7,6 +7,8 @@ import { deletePost, addLike, removeLike } from '../../actions/postActions';
 import FadeIn from "react-fade-in";
 import Moment from 'react-moment';
 
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+
 import EditPostForm from '../edit-posts/EditPostForm';
 
 class PostItem extends Component {
@@ -40,13 +42,34 @@ class PostItem extends Component {
     this.setState({ isEditting: !this.state.isEditting });
   } //do I need to somhow make this accesable on postForm.js
 
+
   renderText = () => {
     const { post } = this.props;
-
+  //  console.log('post', post);
     const { isEditting } = this.state;
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }
 
+  
+  renderEditForm = () => {
+    <form>
+      <div className="form-group">
+        <TextAreaFieldGroup
+          placeholder="Edit a post"
+          name="text"
+          value={''}
+          onChange={() => console.log('editting')}
+          // error={}
+        />           
+      </div>
+      <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>
+        500 Character Limit
+      </h6>
+      <button type="submit" className="btn btn-dark">
+        Submit
+      </button>
+    </form>
+  }
   render() {
     const { post, auth, showActions } = this.props;
   
@@ -73,15 +96,16 @@ class PostItem extends Component {
     
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+          
+          
               <img
-                className="rounded-circle d-none d-md-block"
-                src={post.avatar}
+                className="rounded-circle post-avatar d-md-block"
+                src={post.user.avatar}
                 alt=""
               />
-            </a>
+           
             <br />
-            <p className="text-center">{post.name}
+            <p className="text-center">{post.user.name}
             <br/>
 
              {/* {todaysDate} */}
@@ -118,22 +142,23 @@ class PostItem extends Component {
                 <Link to={`/post/${post._id}`} className="badge badge-light mr-1">
                 {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
+                 
                     
-                {post.user === auth.user.id ? (
+                {post.user._id === auth.user.id ? (
                   <Fragment>
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="badge badge-light mr-1"
+                    className="btn btn-danger mr-1 float-right"
                   >
-                  <span className="text-danger"> Delete Post </span>
+                    <i className="fas fa-trash-alt" />
                   </button>
                   <button 
                     onClick={ this.onEditClick }
                     type = "button"
                     className = "badge badge-light mr-1"
                   >
-                    <span>Edit Post</span>
+                   <i class="fas fa-edit"></i>
                   </button>
                 </Fragment>
                 ) : null}
@@ -157,7 +182,8 @@ PostItem.propTypes = {
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  // profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Link } from "react";
 import { connect } from 'react-redux';
 
 class ProfileAvatar extends Component {
@@ -7,13 +7,11 @@ class ProfileAvatar extends Component {
   render() {
 
     const { profile } = this.props.profile;
-
+ 
     return (
-     
-     
-                <img className="rounded-circle" src={profile.avatar} alt="" />
-        
-         
+    
+      <img className="rounded-circle" src={profile.user.avatar} alt="" />    
+    
     );
   }
 }

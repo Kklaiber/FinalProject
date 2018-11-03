@@ -9,7 +9,7 @@ const PopupModal = () => (
   
     {close => (
       <FadeIn>
-      <div>
+      <div className="modalWrapper">
         <a className="close" onClick={close}>
           &times;
         </a>

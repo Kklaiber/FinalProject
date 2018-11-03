@@ -46,27 +46,28 @@ class CommentItem extends Component {
             <br />
             <p className="text-center">{comment.name}</p>
           </div>
+
           <div className="col-md-10">
             {this.renderText()}
-            </div>
+          </div>
           <div className="col-md-10">
             {comment.user === auth.user.id ? (
               <Fragment>
               <button
-                onClick={this.onDeleteClick.bind(this, postId, commentId)}
+                onClick={this.onDeleteClick.bind(this, postId, comment._id)}
                 type="button"
-                className="btn btn-danger mr-1"
+                className="btn btn-danger mr-1 float-left"
               >
-                <i className="fas fa-times" />
+                <i className="fas fa-archive" />
               </button>
               <button 
-                    onClick={ this.onEditClick }
-                    type = "button"
-                    className = "badge badge-light mr-1"
-                  >
-                    <span>Edit Comment</span>
-                  </button>
-              </Fragment>
+                onClick={ this.onEditClick }
+                type = "button"
+                className = "badge badge-light mr-1"
+                >
+                <i class="fas fa-edit"></i>
+              </button>
+            </Fragment>
             ) : null}
           </div>
         </div>
@@ -77,7 +78,7 @@ class CommentItem extends Component {
 
 CommentItem.propTypes = {
   deleteComment: PropTypes.func.isRequired,
-  addLike: PropTypes.func.isRequired,
+  addLikeComment: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   comment: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,
@@ -96,6 +97,4 @@ export default connect(mapStateToProps, {
   removeLike,
  })(CommentItem);
 
-//  Add the Edit Logic like we did for a post
-//  Import your edit comment form in here
-//  <EditCommentForm comment={comment} postId={postId} />
+

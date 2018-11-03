@@ -11,7 +11,7 @@ class CommentForm extends Component {
     this.state = {
       text: '',
       errors: {},
-      // avatar: profile.avatar
+      community: 'general'
     };
 
     this.onChange = this.onChange.bind(this);
@@ -33,7 +33,7 @@ class CommentForm extends Component {
     const newComment = {
       text: this.state.text,
       name: user.name,
-      avatar: user.avatar
+      avatar: user._id
     };
 
     this.props.addComment(postId, newComment);

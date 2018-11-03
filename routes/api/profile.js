@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 
 // Load Validation
-const validateProfileInput = require('../../validation/profile');
-const validateExperienceInput = require('../../validation/experience');
-const validateEducationInput = require('../../validation/education');
-const validateInterestsInput = require('../../validation/interests');
+const validateProfileInput = require("../../validation/profile");
+const validateExperienceInput = require("../../validation/experience");
+const validateEducationInput = require("../../validation/education");
+const validateInterestsInput = require("../../validation/interests");
 const validateGroupInput = require("../../validation/group");
 
 // Load Profile Model
@@ -45,21 +45,25 @@ router.get(
 // @route   GET api/profile/all
 // @desc    Get all profiles
 // @access  Private (must be logged in)
-router.get("/all",  passport.authenticate("jwt", { session: false }), (req, res) => {
-  const errors = {};
+router.get(
+  "/all",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const errors = {};
 
-  Profile.find()
-    .populate("user", ["name", "avatar"])
-    .then(profiles => {
-      if (!profiles) {
-        errors.noprofile = "There are no profiles";
-        return res.status(404).json(errors);
-      }
+    Profile.find()
+      .populate("user", ["name", "avatar"])
+      .then(profiles => {
+        if (!profiles) {
+          errors.noprofile = "There are no profiles";
+          return res.status(404).json(errors);
+        }
 
-      res.json(profiles);
-    })
-    .catch(err => res.status(404).json({ profile: "There are no profiles" }));
-});
+        res.json(profiles);
+      })
+      .catch(err => res.status(404).json({ profile: "There are no profiles" }));
+  }
+);
 
 // @route   GET api/profile/handle/:handle
 // @desc    Get profile by handle
@@ -116,7 +120,7 @@ router.post(
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    
+
     // Get fields
     const profileFields = {};
     profileFields.user = req.user.id;
@@ -125,9 +129,9 @@ router.post(
     if (req.body.website) profileFields.website = req.body.website;
     if (req.body.location) profileFields.location = req.body.location;
     if (req.body.bio) profileFields.bio = req.body.bio;
-    if (req.body.relationship) profileFields.relationship = req.body.relationship;
+    if (req.body.relationship)
+      profileFields.relationship = req.body.relationship;
     if (req.body.status) profileFields.status = req.body.status;
-    if (req.body.avatar) profileFields.avatar = req.body.avatar;
     if (req.body.githubusername)
       profileFields.githubusername = req.body.githubusername;
     // Skills - Spilt into array
@@ -145,10 +149,17 @@ router.post(
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
+        console.log(req.body.avatar);
 
-        User.findOneAndUpdate(
-          { avatar: req.body.avatar }
-        )
+        User.findOne({ _id: req.user.id }).then(user => {
+          user.avatar = req.body.avatar;
+          console.log(user);
+
+          user.save();
+        });
+        //   { _id: req.user.id },
+        //   { $set: {avatar: req.body.avatar }}
+        // )
         // Update
         Profile.findOneAndUpdate(
           { user: req.user.id },
@@ -245,11 +256,11 @@ router.post(
 // @desc    Add interests to profile
 // @access  Private
 router.post(
-  '/interests',
-  passport.authenticate('jwt', { session: false }),
+  "/interests",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateInterestsInput(req.body);
-    
+
     // Check Validation
     if (!isValid) {
       // Return any errors with 400 status
@@ -258,12 +269,11 @@ router.post(
 
     const interestsFields = {};
     interestsFields.user = req.user.id;
-    if (typeof req.body.interests !== 'undefined') {
-      interestsFields.interests = req.body.interests.split(',');
+    if (typeof req.body.interests !== "undefined") {
+      interestsFields.interests = req.body.interests.split(",");
     }
 
     Profile.findOne({ user: req.user.id }).then(profile => {
-
       // Add to int array
       profile.interests = profile.interests.concat(interestsFields.interests);
 
@@ -286,7 +296,7 @@ router.post(
       // Return any errors with 400 status
       return res.status(400).json(errors);
     }
-      
+
     Profile.findOne({ user: req.user.id }).then(profile => {
       const newGroup = {
         title: req.body.title,
@@ -353,8 +363,8 @@ router.delete(
 // @desc    Delete interests from profile
 // @access  Private
 router.delete(
-  '/interests/:int_id',
-  passport.authenticate('jwt', { session: false }),
+  "/interests/:int_id",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Profile.findOne({ user: req.user.id })
       .then(profile => {
@@ -403,11 +413,13 @@ router.delete(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Profile.findOneAndDelete({ user: req.user.id }).then(() => {
-      User.findOneAndDelete({ _id: req.user.id }).then(() =>
-        res.json({ success: true })
-      );
-    }).catch(err => res.status(404).json(err));
+    Profile.findOneAndDelete({ user: req.user.id })
+      .then(() => {
+        User.findOneAndDelete({ _id: req.user.id }).then(() =>
+          res.json({ success: true })
+        );
+      })
+      .catch(err => res.status(404).json(err));
   }
 );
 

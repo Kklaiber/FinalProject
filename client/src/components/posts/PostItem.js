@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike, addCommentLike, removeCommentLike } from '../../actions/postActions';
-import Moment from 'react-moment';
 
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import FadeIn from 'react-fade-in';
 import EditPostForm from '../edit-posts/EditPostForm';
 
 class PostItem extends Component {
@@ -41,12 +42,33 @@ class PostItem extends Component {
   }
 
   renderText = () => {
-    const { post } = this.props;
+    const { post, profile } = this.props;
+   // console.log('post', post);
     const { isEditting } = this.state;
-
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }
 
+
+  renderEditForm = () => {
+    <form>
+      <div className="form-group">
+        <TextAreaFieldGroup
+          placeholder="Edit a post"
+          name="text"
+          value={''}
+          onChange={() => console.log('editing')}
+          // error={}
+        />           
+      </div>
+      <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>
+        500 Character Limit
+      </h6>
+      <button type="submit" className="btn btn-dark">
+        Submit
+      </button>
+    </form>
+  }
+ 
   render() {
     const { post, auth, showActions } = this.props;
 
@@ -65,18 +87,19 @@ class PostItem extends Component {
     );
 
     return (
+      <FadeIn>
       <div className="card card-body mb-3 post-card">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+          
               <img
-                className="rounded-circle d-none d-md-block"
-                src={post.avatar}
+                className="rounded-circle post-avatar d-md-block"
+                src={post.user.avatar}
                 alt=""
               />
-            </a>
+            
             <br />
-            <p className="text-center">{post.name}
+            <p className="text-center">{post.user.name}
             <br/>
 
              {/* {todaysDate} */}
@@ -115,20 +138,21 @@ class PostItem extends Component {
                 {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
                     
-                {post.user === auth.user.id ? (
+                {post.user._id === auth.user.id ? (
                   <Fragment>
                     <button
                       onClick={this.onDeleteClick.bind(this, post._id)}
                       type="button"
-                      className="badge badge-light mr-1"
-                    >
-                    <span className="text-danger"> Delete Post </span>
-                    </button>
+                className="btn btn-danger mr-1 float-left"
+              >
+                <i className="fas fa-archive" />
+              </button>
                     <button 
-                      onClick={this.onEditClick}
-                      type = "button"
-                      className = "badge badge-light mr-1"
+                      onClick={ this.onEditClick }
+                      type="button"
+                      className="btn btn-danger mr-1 float-left"
                     >
+                <i className="fas fa-archive" />
                       <span> Edit Post</span>
                     </button>
                   </Fragment>
@@ -140,6 +164,7 @@ class PostItem extends Component {
           </div>
         </div>
       </div>
+      </FadeIn>
     );
   }
 }
