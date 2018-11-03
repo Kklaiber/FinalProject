@@ -29,9 +29,9 @@ class CommentItem extends Component {
               <button
                 onClick={this.onDeleteClick.bind(this, eventId, comment._id)}
                 type="button"
-                className="btn btn-danger mr-1"
+                className="btn btn-danger mr-1 float-left"
               >
-                <i className="far fa-trash-alt" />
+               <i class="fas fa-trash-alt"></i>
               </button>
             ) : null}
           </div>

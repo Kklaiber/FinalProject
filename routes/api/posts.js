@@ -100,7 +100,6 @@ router.put(
           { $set: postFields },
           { new: true }
         ).then(post => res.json(post));
-        //console.log(post);
       }
     });
   }
@@ -290,7 +289,6 @@ router.post(
       post.comments.unshift(newComment);
 
       // Save
- 
       post.save().then(post => {
         Post.findById(post._id)
           .populate("user")
