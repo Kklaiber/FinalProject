@@ -141,17 +141,17 @@ class PostItem extends Component {
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="badge badge-light mr-1"
+                    className="btn btn-danger mr-1 float-right"
                   >
-                  <span className="text-danger"> Delete Post </span>
+                    <i className="fas fa-trash-alt" />
                   </button>
                   <button 
                     onClick={ this.onEditClick }
-                    type = "button"
-                    className = "badge badge-light mr-1"
-                  >
-                    <span> Edit Post</span>
-                  </button>
+                    type="button"
+                    >
+                <i className="fas fa-archive" />
+                      <span> Edit Post</span>
+                    </button>
                 </Fragment>
                 ) : null}
               </span>

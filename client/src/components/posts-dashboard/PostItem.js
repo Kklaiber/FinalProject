@@ -158,7 +158,8 @@ class PostItem extends Component {
                     type = "button"
                     className = "badge badge-light mr-1"
                   >
-                   <i class="fas fa-edit"></i>
+                  <i class="fas fa-edit"></i>
+                  <span> Edit Post</span>
                   </button>
                 </Fragment>
                 ) : null}
