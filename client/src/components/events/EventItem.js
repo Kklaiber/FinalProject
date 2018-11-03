@@ -103,7 +103,7 @@ class EventItem extends Component {
               <br/>
               <strong>Date: </strong> <Moment format="D MMM YYYY" withTitle>{event.when}</Moment>
               <br/>
-              <strong>Time: </strong> {event.time} 
+              <strong>Time: </strong>{event.time} 
               <br/>
               <strong>Location: </strong>{event.where}
               <br/>
