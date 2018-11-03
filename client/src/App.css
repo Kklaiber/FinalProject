@@ -140,6 +140,14 @@ nav li a:hover {
 .gold-text {
   color: rgb(230, 185, 39);
 }
+.red-button {
+  background-color: rgb(241, 86, 86);
+  color: white;
+}
+.gray-button {
+  background-color: rgb(173, 173, 173);
+  color: white;
+}
 .responsive-header-text {
   font-size: 2.5rem;
 }
@@ -171,6 +179,8 @@ nav li a:hover {
   position: absolute;
   bottom: 0;
   right: 0;
+  margin-top: 5px;
+  margin-bottom: 3px;
 }
 
 .latest-profiles-img {
@@ -254,6 +264,12 @@ nav li a:hover {
   .post-avatar {
     height: 4.2rem;
     width: 4.2rem;
+    margin: 0px 38%;
+  }
+  .event-avatar {
+    height: 4.2rem;
+    width: 4.2rem;
+    margin: 0px 40%;
   }
   
 }
