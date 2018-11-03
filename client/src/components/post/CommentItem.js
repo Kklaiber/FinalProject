@@ -50,20 +50,20 @@ class CommentItem extends Component {
           <div className="col-md-10">
             {this.renderText()}
           </div>
-          <div className="col-md-10">
+          <div className="col-md-12">
             {comment.user === auth.user.id ? (
               <Fragment>
               <button
                 onClick={this.onDeleteClick.bind(this, postId, comment._id)}
                 type="button"
-                className="btn btn-danger mr-1 float-left"
+                className="btn red-button btn-sm mr-1 float-right"
               >
                <i class="fas fa-trash-alt"></i>
               </button>
               <button 
                 onClick={ this.onEditClick }
                 type = "button"
-                className = "btn btn-info mr-1 float-left"
+                className = "btn gray-button mr-1 btn-sm float-right"
                 >
                 <i className="fas fa-edit" />
               </button>

@@ -26,12 +26,15 @@ class CommentItem extends Component {
             <p className="text-center">{comment.name}</p>
           </div>
           <div className="col-md-10">
-            <p className="lead">{comment.text}</p>
-            {comment.user === auth.user.id ? (
+            <p className="lead offset-1 post-text">{comment.text}</p>
+           
+          </div>
+          <div className="col-md-12">
+          {comment.user === auth.user.id ? (
               <button
                 onClick={this.onDeleteClick.bind(this, postId, comment._id)}
                 type="button"
-                className="btn btn-danger mr-1 float-left"
+                className="btn red-button btn-sm mr-1 float-right"
               >
                <i class="fas fa-trash-alt"></i>
               </button>

@@ -172,9 +172,6 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
-              {/* <Switch>
-                <PrivateRoute exact path="/edit-post/:id" component={EditPostForm} />
-              </Switch> */}
               <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />
