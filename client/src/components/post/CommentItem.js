@@ -58,7 +58,7 @@ class CommentItem extends Component {
                 type="button"
                 className="btn btn-danger mr-1 float-left"
               >
-                <i className="fas fa-archive" />
+               <i class="fas fa-trash-alt"></i>
               </button>
               <button 
                 onClick={ this.onEditClick }

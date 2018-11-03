@@ -145,16 +145,15 @@ class PostItem extends Component {
                       type="button"
                 className="btn btn-danger mr-1 float-right"
               >
-                <i className="fas fa-archive" />
+               <i class="fas fa-trash-alt"></i>
               </button>
                     <button 
                       onClick={ this.onEditClick }
                       type = "button"
-                      className = "badge badge-light mr-1"
-                    >
-                <i className="fas fa-archive" />
-                      <span> Edit Post</span>
-                    </button>
+                className = "btn btn-info mr-1 float-right"
+                >
+                <i className="fas fa-edit" />
+              </button>
                   </Fragment>
                   
                 ) : null}
