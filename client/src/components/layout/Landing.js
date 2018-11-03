@@ -5,12 +5,6 @@ import { connect } from "react-redux";
 import FadeIn from "react-fade-in";
 
 class Landing extends Component {
-  componentDidMount() {
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
-  }
-
   render() {
     return (
       <div className="landing">

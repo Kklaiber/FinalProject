@@ -3,12 +3,13 @@ import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postOutdoorsActions';
 import FadeIn from 'react-fade-in';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 
 import EditPostForm from '../edit-posts/EditPostForm';
+
 
 class PostItem extends Component {
 
@@ -36,13 +37,13 @@ class PostItem extends Component {
       return false;
     }
   }
-  onEditClick = () => {
+  onEditClick = (id) => {
     this.setState({ isEditting: !this.state.isEditting });
   }
 
   renderText = () => {
     const { post } = this.props;
-   //console.log('post', post);
+   console.log('post', post);
     const { isEditting } = this.state;
     return isEditting ? <EditPostForm post={post} /> : <p className="lead post-text">{post.text}</p>;
   }
@@ -149,7 +150,7 @@ class PostItem extends Component {
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
-                <Link to={`outdoors/post/${post._id}`} className="badge badge-light mr-1">
+                <Link to={`/outdoors/${post._id}`} className="badge badge-light mr-1">
                 {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
 
@@ -164,7 +165,7 @@ class PostItem extends Component {
                     <i className="fas fa-trash-alt" />
                   </button>
                   <button 
-                    onClick={ this.onEditClick }
+                    onClick={ this.onEditClick } 
                     type = "button"
                 className = "btn gray-button btn-sm mr-1 float-right"
                 >
