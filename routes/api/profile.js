@@ -107,6 +107,22 @@ router.get("/user/:user_id", (req, res) => {
     );
 });
 
+function updateUserAvatar(userId, imageURL) {
+  if (!userId || !imageURL) {
+    return;
+  }
+
+  User.findOne({ _id: userId }).then(user => {
+    if (!user) {
+      return;
+    }
+
+    user.avatar = imageURL;
+
+    user.save();
+  });
+}
+
 // @route   POST api/profile
 // @desc    Create or edit user profile
 // @access  Private
@@ -149,14 +165,8 @@ router.post(
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
-        console.log(req.body.avatar);
+        updateUserAvatar(req.user.id, req.body.avatar);
 
-        User.findOne({ _id: req.user.id }).then(user => {
-          user.avatar = req.body.avatar;
-          console.log(user);
-
-          user.save();
-        });
         //   { _id: req.user.id },
         //   { $set: {avatar: req.body.avatar }}
         // )
@@ -175,6 +185,8 @@ router.post(
             errors.handle = "That handle already exists";
             res.status(400).json(errors);
           }
+
+          updateUserAvatar(req.user.id, req.body.avatar);
 
           // Save Profile
           new Profile(profileFields).save().then(profile => res.json(profile));
