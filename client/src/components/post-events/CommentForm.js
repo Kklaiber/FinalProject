@@ -64,7 +64,7 @@ class CommentForm extends Component {
                 />
               </div>
 
-              <button type="submit" className="btn btn-dark">
+              <button type="submit" className="btn btn-dark btn-sm">
                 Submit
               </button>
             </form>

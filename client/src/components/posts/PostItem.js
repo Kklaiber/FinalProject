@@ -149,7 +149,8 @@ class PostItem extends Component {
               </button>
                     <button 
                       onClick={ this.onEditClick }
-                      type="button"
+                      type = "button"
+                      className = "badge badge-light mr-1"
                     >
                 <i className="fas fa-archive" />
                       <span> Edit Post</span>

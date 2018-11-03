@@ -182,7 +182,13 @@ router.post(
         post.comments.unshift(newComment);
 
         // Save
-        post.save().then(post => res.json(post));
+        post.save().then(post => {
+          Post.findById(post._id)
+            .populate("user")
+            .then(post => {
+              return res.json(post);
+            });
+        });
       })
       .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
   }

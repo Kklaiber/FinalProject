@@ -31,7 +31,7 @@ class CommentForm extends Component {
     const newComment = {
       text: this.state.text,
       name: user.name,
-      avatar: user.avatar
+      avatar: user._id
     };
 
     this.props.addComment(postId, newComment);
@@ -62,7 +62,7 @@ class CommentForm extends Component {
                   error={errors.text}
                 />
               </div>
-              <button type="submit" className="btn btn-dark">
+              <button type="submit" className="btn btn-dark btn-sm">
                 Submit
               </button>
             </form>

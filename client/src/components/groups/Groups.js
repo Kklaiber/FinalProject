@@ -75,7 +75,7 @@ class Groups extends Component {
                 </p>
 
                 <Link to="/outdoors">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Get Outside
                   </a>
                 </Link>
@@ -95,7 +95,7 @@ class Groups extends Component {
                 <p className="card-text"> Support || Joy || Purpose </p>
 
                 <Link to="/feed">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Make a difference
                   </a>
                 </Link>
@@ -144,7 +144,7 @@ class Groups extends Component {
                 </p>
 
                 <Link to="/feed">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Join a Family
                   </a>
                 </Link>

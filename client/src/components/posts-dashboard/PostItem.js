@@ -43,6 +43,7 @@ class PostItem extends Component {
   } //do I need to somhow make this accesable on postForm.js
 
 
+
   renderText = () => {
     const { post } = this.props;
   //  console.log('post', post);
