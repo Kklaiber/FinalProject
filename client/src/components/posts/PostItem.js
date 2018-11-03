@@ -90,6 +90,7 @@ class PostItem extends Component {
       <FadeIn>
       <div className="card card-body mb-3 post-card">
         <div className="row">
+
           <div className="col-md-2">
           
               <img

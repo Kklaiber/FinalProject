@@ -95,27 +95,43 @@ class PostItem extends Component {
       <div className="card card-body mb-3 post-card">
     
         <div className="row">
-          <div className="col-md-2">
-          
-          
-              <img
-                className="rounded-circle post-avatar d-md-block"
-                src={post.user.avatar}
-                alt=""
-              />
-           
-            <br />
-            <p className="text-center">{post.user.name}
-            <br/>
+        <div className="col-md-2">
 
-             {/* {todaysDate} */}
-        {(post.date > todaysDate) ? showDate : fromNow}
+        {/* small screens */}
+        <div className="d-md-none">
 
-           </p>
+              <div className="col-sm-12">
+                      <img
+                        className="rounded-circle post-avatar d-md-block"
+                        src={post.user.avatar}
+                        alt=""
+                      />
+              </div>
+              <p className="text-center">{post.user.name}
+                    {/* {todaysDate} */}<br/>
+                    {(post.date > todaysDate) ? showDate : fromNow}
+                    </p>
+            </div>
+      {/* larger than small screens */}
+          <div className='d-none d-md-block d-sm-none'>
+                <img
+                          className="rounded-circle post-avatar d-md-block"
+                          src={post.user.avatar}
+                          alt=""
+                        />
+                      
+                      <p className="text-center">{post.user.name}
+                      {/* {todaysDate} */}<br/>
+                      {(post.date > todaysDate) ? showDate : fromNow}
+                      </p>
+
           </div>
+   </div>
+       
           <div className="col-md-10">
             {this.renderText()}
             </div>
+
             <div className="post-actions">
             {showActions ? (
               <span>
