@@ -38,9 +38,10 @@ class PostItem extends Component {
     }
   }
 
-  onEditClick = () => {
+  onEditClick = (id) => {
     this.setState({ isEditting: !this.state.isEditting });
-  }
+  } //do I need to somhow make this accesable on postForm.js
+
 
 
   renderText = () => {
@@ -95,34 +96,50 @@ class PostItem extends Component {
       <div className="card card-body mb-3 post-card">
     
         <div className="row">
-          <div className="col-md-2">
-          
-          
-              <img
-                className="rounded-circle post-avatar d-md-block"
-                src={post.user.avatar}
-                alt=""
-              />
-           
-            <br />
-            <p className="text-center">{post.user.name}
-            <br/>
+        <div className="col-md-2">
 
-             {/* {todaysDate} */}
-        {(post.date > todaysDate) ? showDate : fromNow}
+        {/* small screens */}
+        <div className="d-md-none">
 
-           </p>
+              <div className="col-sm-12">
+                      <img
+                        className="rounded-circle post-avatar d-md-block"
+                        src={post.user.avatar}
+                        alt=""
+                      />
+              </div>
+              <p className="text-center">{post.user.name}
+                   <br/>
+                    {(post.date > todaysDate) ? showDate : fromNow}
+                    </p>
+            </div>
+      {/* larger than small screens */}
+          <div className='d-none d-md-block d-sm-none'>
+                <img
+                          className="rounded-circle post-avatar d-md-block"
+                          src={post.user.avatar}
+                          alt=""
+                        />
+                      
+                      <p className="text-center">{post.user.name}
+                     <br/>
+                      {(post.date > todaysDate) ? showDate : fromNow}
+                      </p>
+
           </div>
+   </div>
+       
           <div className="col-md-10">
             {this.renderText()}
             </div>
+
             <div className="post-actions">
             {showActions ? (
               <span>
                 <button
                   onClick={this.onLikeClick.bind(this, post._id)}
                   type="button"
-                  className="btn btn-light mr-1"
+                  className="btn btn-light btn-sm mr-1"
                 >
                   <i
                     className={classnames('fas fa-thumbs-up', {
@@ -134,7 +151,7 @@ class PostItem extends Component {
                 <button
                   onClick={this.onUnlikeClick.bind(this, post._id)}
                   type="button"
-                  className="btn btn-light mr-1"
+                  className="btn btn-light btn-sm mr-1"
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
@@ -149,17 +166,18 @@ class PostItem extends Component {
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="badge badge-light mr-1"
+                    className="btn red-button btn-sm mr-1 float-right"
                   >
-                  <span className="text-danger"> Delete Post </span>
+                    <i className="fas fa-trash-alt" />
                   </button>
                   <button 
                     onClick={ this.onEditClick }
                     type = "button"
-                    className = "badge badge-light mr-1"
-                  >
-                    <span>Edit Post</span>
-                  </button>
+                className = "btn gray-button mr-1 btn-sm float-right"
+                >
+                <i className="fas fa-edit" />
+              </button>
+                 
                 </Fragment>
                 ) : null}
               </span>

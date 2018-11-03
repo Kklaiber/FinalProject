@@ -58,14 +58,14 @@ class CommentItem extends Component {
                 type="button"
                 className="btn btn-danger mr-1 float-left"
               >
-                <i className="fas fa-archive" />
+               <i class="fas fa-trash-alt"></i>
               </button>
               <button 
                 onClick={ this.onEditClick }
                 type = "button"
-                className = "badge badge-light mr-1"
+                className = "btn btn-info mr-1 float-left"
                 >
-                <span> Edit Post</span>
+                <i className="fas fa-edit" />
               </button>
             </Fragment>
             ) : null}

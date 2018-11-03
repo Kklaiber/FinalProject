@@ -43,9 +43,15 @@ const ProfileActions = () => {
         </div>
         <div className="col-sm-12">
         <Link to="/add-group" className="btn btn-block btn-light">
-          <i className="fas fa-users text-warning text-warning mr-1" />
+          <i className="fas fa-users text-warning mr-1" />
             Add Group
         </Link>
+        </div>
+        
+        <div className="col-sm-12">
+        <a className="btn btn-block btn-light" href="https://docs.google.com/forms/d/e/1FAIpQLSd8UG6Tyg4ZmbunLP6R-8HCO8kJApx3HtBk6X8_QLGgSdNPGQ/viewform?usp=sf_link" target="_blank">
+        <i className="fas fa-microphone text-warning"></i> Collective Feedback
+        </a>
         </div>
         </div> 
         <div className="col-md-6">

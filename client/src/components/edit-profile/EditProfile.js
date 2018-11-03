@@ -125,7 +125,7 @@ class CreateProfile extends Component {
   }
 
   render() {
-    const { errors, displaySocialInputs, handle } = this.state;
+    const { errors, displaySocialInputs } = this.state;
 
     let socialInputs;
 

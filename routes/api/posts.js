@@ -59,7 +59,8 @@ router.post(
       text: req.body.text,
       // name: req.body.name,
       user: req.user.id,
-      community: "general"
+      community: "general",
+      avatar: req.body.avatar
     });
 
     newPost.save().then(post => {
@@ -99,7 +100,6 @@ router.put(
           { $set: postFields },
           { new: true }
         ).then(post => res.json(post));
-        //console.log(post);
       }
     });
   }
@@ -296,8 +296,8 @@ router.post(
             return res.json(post);
           });
       });
-    });
-    // .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
+    })
+    .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
   }
 );
 

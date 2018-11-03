@@ -85,7 +85,7 @@ class EventItem extends Component {
           <div className="col-md-2">
            
               <img
-                className="rounded-circle post-avatar d-md-block"
+                className="rounded-circle event-avatar d-md-block"
                 src={event.avatar}
                 alt=""
               />
