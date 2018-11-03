@@ -194,6 +194,37 @@ router.post(
   }
 );
 
+// @route   EDIT api/posts/:id
+// @desc    EDIT and UPDATE post
+// @access  Private
+router.put(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // check validation
+    const { errors, isValid } = validatePostInput(req.body);
+
+    const postFields = {};
+    postFields.user = req.user.id;
+    if (req.body.title) postFields.title = req.body.title;
+    if (req.body.image) postFields.image = req.body.image;
+    if (req.body.text) postFields.text = req.body.text;
+    Post.findById(req.params.id).then(post => {
+      // Check for post owner
+      if (post.user.toString() !== req.user.id) {
+        return res.status(401).json({ notauthorized: "User not authorized" });
+      } else {
+        // UPDATE
+        Post.findOneAndUpdate(
+          { _id: req.params.id },
+          { $set: postFields },
+          { new: true }
+        ).then(post => res.json(outdoors));
+      }
+    });
+  }
+);
+
 // @route   DELETE api/posts/comment/:id/:comment_id
 // @desc    Remove comment from post
 // @access  Private

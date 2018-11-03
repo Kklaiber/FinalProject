@@ -95,7 +95,6 @@ class NavbarMain extends Component {
         {profileLink}
       </NavItem>
         <li className="nav-item">
-        <Redirect to="/"/>
             <a
             href="/"
             onClick={this.onLogoutClick.bind(this)}

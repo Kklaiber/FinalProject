@@ -40,7 +40,7 @@ class PostItem extends Component {
 
   onEditClick = (id) => {
     this.setState({ isEditting: !this.state.isEditting });
-  } //do I need to somhow make this accesable on postForm.js
+  } 
 
 
 
