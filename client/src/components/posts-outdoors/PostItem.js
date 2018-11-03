@@ -90,23 +90,39 @@ class PostItem extends Component {
       <FadeIn>
       <div className="card card-body mb-3 post-card">
         <div className="row">
-          <div className="col-md-2">
+        <div className="col-md-2">
           
-              <img
-                className="rounded-circle post-avatar d-md-block"
-                src={post.avatar}
-                alt=""
-              />
-          
-            <br />
-            <p className="text-center">{post.name}
-            <br/>
+          {/* small screens */}
+          <div className="d-md-none">
+          <div className="col-sm-12">
+             <img
+               className="rounded-circle post-avatar d-md-block"
+               src={post.avatar}
+               alt=""
+             />
+</div>
+           
+           <p className="text-center">{post.name}
+           <br/>
+       {(post.date > todaysDate) ? showDate : fromNow}
+          </p>
+</div>
 
-             {/* {todaysDate} */}
-        {(post.date > todaysDate) ? showDate : fromNow}
-           </p>
+        {/* larger than small screens */}
+         <div className='d-none d-md-block d-sm-none'>
+               <img
+                         className="rounded-circle post-avatar d-md-block"
+                         src={post.avatar}
+                         alt=""
+                       />
+                     
+                     <p className="text-center">{post.name}
+                     {/* {todaysDate} */}<br/>
+                     {(post.date > todaysDate) ? showDate : fromNow}
+                     </p>
 
-          </div>
+         </div>
+    </div>
 
            <div className="col-md-10">
             {this.renderText()}
@@ -117,7 +133,7 @@ class PostItem extends Component {
                 <button
                   onClick={this.onLikeClick.bind(this, post._id)}
                   type="button"
-                  className="btn btn-light mr-1"
+                  className="btn btn-light mr-1 btn-sm"
                 >
                   <i
                     className={classnames('fas fa-thumbs-up', {
@@ -129,26 +145,28 @@ class PostItem extends Component {
                 <button
                   onClick={this.onUnlikeClick.bind(this, post._id)}
                   type="button"
-                  className="btn btn-light mr-1"
+                  className="btn btn-light btn-sm mr-1"
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
                 <Link to={`outdoors/post/${post._id}`} className="badge badge-light mr-1">
                 {post.comments.length} {(post.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
+
+
                 {post.user === auth.user.id ? (
                   <Fragment>
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="btn btn-danger mr-1 float-right"
+                    className="btn red-button mr-1 btn-sm float-right"
                   >
                     <i className="fas fa-trash-alt" />
                   </button>
                   <button 
                     onClick={ this.onEditClick }
                     type = "button"
-                className = "btn btn-info mr-1 float-right"
+                className = "btn gray-button btn-sm mr-1 float-right"
                 >
                 <i className="fas fa-edit" />
               </button>

@@ -109,7 +109,7 @@ class PostItem extends Component {
                       />
               </div>
               <p className="text-center">{post.user.name}
-                    {/* {todaysDate} */}<br/>
+                   <br/>
                     {(post.date > todaysDate) ? showDate : fromNow}
                     </p>
             </div>
@@ -122,7 +122,7 @@ class PostItem extends Component {
                         />
                       
                       <p className="text-center">{post.user.name}
-                      {/* {todaysDate} */}<br/>
+                     <br/>
                       {(post.date > todaysDate) ? showDate : fromNow}
                       </p>
 
@@ -139,7 +139,7 @@ class PostItem extends Component {
                 <button
                   onClick={this.onLikeClick.bind(this, post._id)}
                   type="button"
-                  className="btn btn-light mr-1"
+                  className="btn btn-light btn-sm mr-1"
                 >
                   <i
                     className={classnames('fas fa-thumbs-up', {
@@ -151,7 +151,7 @@ class PostItem extends Component {
                 <button
                   onClick={this.onUnlikeClick.bind(this, post._id)}
                   type="button"
-                  className="btn btn-light mr-1"
+                  className="btn btn-light btn-sm mr-1"
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
@@ -166,14 +166,14 @@ class PostItem extends Component {
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="btn btn-danger mr-1 float-right"
+                    className="btn red-button btn-sm mr-1 float-right"
                   >
                     <i className="fas fa-trash-alt" />
                   </button>
                   <button 
                     onClick={ this.onEditClick }
                     type = "button"
-                className = "btn btn-info mr-1 float-right"
+                className = "btn gray-button mr-1 btn-sm float-right"
                 >
                 <i className="fas fa-edit" />
               </button>
