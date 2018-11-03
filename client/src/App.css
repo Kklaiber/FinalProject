@@ -266,5 +266,10 @@ nav li a:hover {
     width: 4.2rem;
     margin: 0px 38%;
   }
+  .event-avatar {
+    height: 4.2rem;
+    width: 4.2rem;
+    margin: 0px 40%;
+  }
   
 }
