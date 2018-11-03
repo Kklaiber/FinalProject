@@ -59,7 +59,7 @@ class Profile extends Component {
    
     );
 
-    const { profile, loading } = this.props.profile;
+    const { profile, loading, auth, showActions } = this.props.profile;
     let profileContent;
 
     if (profile === null || loading) {
@@ -79,11 +79,21 @@ class Profile extends Component {
           <ProfileHeader profile={profile} />
            {/* {editProfile}<br/> */}
           <ProfileAbout profile={profile} />
-        
+          
           <ProfileCreds
             education={profile.education}
             experience={profile.experience}
           />
+          {showActions ? (
+            <span>
+              {profile.user._id === auth.user.id ? (
+                  <Link to="/edit-profile" className="btn btn-light">
+                    <i className="fas fa-user-circle  text-warning mr-1" /> 
+                    Edit Profile
+                  </Link>
+              ) : null}
+            </span>
+          ) : null}
         </div>
       );
       
