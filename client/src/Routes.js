@@ -44,10 +44,12 @@ function Routes({ auth }) {
         <Router>
             <div className="App">
             <Navbar />
-            <div className="container">            
+              <div>
             {isAuthenticated ? (
+                  <div className="container">        
                 <Switch>
                     <PrivateRoute exact path="/" component={Dashboard} />
+                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
                     <PrivateRoute
                     exact
                     path="/create-profile"
@@ -102,7 +104,9 @@ function Routes({ auth }) {
                     <Route exact path="/profiles" component={Profiles} />
                     <Route exact path="/profile/:handle" component={Profile} />
                 </Switch>
+               </div>
             ): (
+                
                 <Switch>
                     <Route exact path="/" component={Landing} />
                     <Route exact path="/register" component={Register} />
@@ -110,9 +114,9 @@ function Routes({ auth }) {
                     <Route exact path="/not-found" component={NotFound} />
                 </Switch>
             )}
-            </div>
+             </div>
             <Footer />
-            </div>
+           </div>
         </Router>
     )
 }
