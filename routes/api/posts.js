@@ -370,7 +370,7 @@ router.delete(
 // @desc    Create post
 // @access  Private
 router.post(
-  "/dashboard",
+  "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const newPost = new Post({
