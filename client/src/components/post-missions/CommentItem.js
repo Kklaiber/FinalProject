@@ -36,7 +36,7 @@ class CommentItem extends Component {
                 type="button"
                 className="btn red-button mr-1 btn-sm float-right"
               >
-               <i class="fas fa-trash-alt"></i>
+               <i className="fas fa-trash-alt"></i>
               </button>
             ) : null}
             </div>
