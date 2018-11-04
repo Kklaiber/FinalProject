@@ -51,7 +51,7 @@ export const getProfileByHandle = handle => dispatch => {
 export const createProfile = (profileData, history) => dispatch => {
   axios
     .post("/api/profile", profileData)
-    .then(res => history.push("/dashboard"))
+    .then(res => history.push("/"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -64,7 +64,7 @@ export const createProfile = (profileData, history) => dispatch => {
 export const addExperience = (expData, history) => dispatch => {
   axios
     .post("/api/profile/experience", expData)
-    .then(res => history.push("/dashboard"))
+    .then(res => history.push("/"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -77,7 +77,7 @@ export const addExperience = (expData, history) => dispatch => {
 export const addEducation = (eduData, history) => dispatch => {
   axios
     .post("/api/profile/education", eduData)
-    .then(res => history.push("/dashboard"))
+    .then(res => history.push("/"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -92,7 +92,7 @@ export const addInterests = (intData, history, handle) => dispatch => {
    
     .post("/api/profile/interests", intData)
     //here is where youd get the profile by handle
-    .then(res => history.push('/dashboard')) 
+    .then(res => history.push('/')) 
     .catch(err =>
        dispatch({
         type: GET_ERRORS,
@@ -118,7 +118,7 @@ export const addProfilePicture = (picData, history) => dispatch => {
 export const addGroup = (groupData, history) => dispatch => {
   axios
     .post("/api/profile/group", groupData)
-    .then(res => history.push("/dashboard"))
+    .then(res => history.push("/"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

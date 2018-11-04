@@ -99,14 +99,14 @@ function Routes({ auth }) {
                     <PrivateRoute exact path="/add-group" component={AddGroup} />
                     <PrivateRoute exact path="/feed" component={Posts} />
                     <PrivateRoute exact path="/post/:id" component={Post} />
+                    <Route exact path="/profiles" component={Profiles} />
+                    <Route exact path="/profile/:handle" component={Profile} />
                 </Switch>
             ): (
                 <Switch>
                     <Route exact path="/" component={Landing} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/profiles" component={Profiles} />
-                    <Route exact path="/profile/:handle" component={Profile} />
                     <Route exact path="/not-found" component={NotFound} />
                 </Switch>
             )}
