@@ -11,8 +11,7 @@ class PostForm extends Component {
     this.state = {
       text: '',
       errors: {},
-      community: 'missions' 
-      //this needs to be changed to corresponding community
+      community: 'missions'
     };
 
     this.onChange = this.onChange.bind(this);

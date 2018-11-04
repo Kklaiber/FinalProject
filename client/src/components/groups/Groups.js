@@ -25,7 +25,7 @@ class Groups extends Component {
                   strengthen local fellowship."{" "}
                 </p>
                 <Link to="/feed">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Collective
                   </a>
                 </Link>
@@ -49,7 +49,7 @@ class Groups extends Component {
                 </p>
 
                 <Link to="/missions">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     GO
                   </a>
                 </Link>
@@ -121,7 +121,7 @@ class Groups extends Component {
                 </p>
 
                 <Link to="/feed">
-                  <a href="" className="btn btn-secondary">
+                  <a href="" className="btn that-blue-color text-white">
                     Impact Culture
                   </a>
                 </Link>

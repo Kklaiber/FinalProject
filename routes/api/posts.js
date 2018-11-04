@@ -366,23 +366,24 @@ router.delete(
   }
 );
 
-// @route   POST api/dashboard
-// @desc    Create post
-// @access  Private
-router.post(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const newPost = new Post({
-      text: req.body.text,
-      name: req.body.name,
-      avatar: req.body.avatar,
-      user: req.user.id
-    });
+// // @route   POST api/dashboard
+// // @desc    Create post
+// // @access  Private
+// router.post(
+//   "/",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     const newPost = new Post({
+//       text: req.body.text,
+//       name: req.body.name,
+//       avatar: req.body.avatar,
+//       user: req.user.id
+//     });
 
-    newPost.save().then(post => res.json(post));
-  }
-);
+//     newPost.save().then(post => res.json(post));
+//   }
+// );
+
 // @route   POST api/posts/update/:id/:comment_id
 // @desc    Update post
 // @access  Private
