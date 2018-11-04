@@ -24,7 +24,6 @@ router.get("/", (req, res) => {
     .populate("user")
     .sort({ date: -1 })
     .then(posts => {
-      // console.log(posts[0]);
       return res.json(posts);
     })
     .catch(err => res.status(404).json({ nopostsfound: "No posts found" }));

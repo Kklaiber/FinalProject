@@ -47,7 +47,12 @@ class PostItem extends Component {
   }
 
   render() {
+
     const { post, auth, showActions } = this.props;
+    
+    if(!post.user) {
+      return <p></p>;
+    }
 
     const fromNow = (
       <Moment fromNow className="text-secondary small"
@@ -75,7 +80,7 @@ class PostItem extends Component {
            <div className="col-sm-12">
               <img
                 className="rounded-circle post-avatar d-md-block"
-                src={post.avatar}
+                src={post.user.avatar}
                 alt=""
               />
 </div>
@@ -90,7 +95,7 @@ class PostItem extends Component {
           <div className='d-none d-md-block d-sm-none'>
                 <img
                           className="rounded-circle post-avatar d-md-block"
-                          src={post.avatar}
+                          src={post.user.avatar}
                           alt=""
                         />
                       
@@ -134,7 +139,7 @@ class PostItem extends Component {
                 </Link>
 
 
-                {post.user === auth.user.id ? (
+                {post.user._id === auth.user.id ? (
                    <Fragment>
                    <button
                      onClick={this.onDeleteClick.bind(this, post._id)}

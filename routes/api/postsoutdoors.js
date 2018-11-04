@@ -21,6 +21,7 @@ router.get('/test', (req, res) => res.json({ msg: 'Posts Works' }));
 // @access  Public
 router.get('/', (req, res) => {
   Post.find({ community: 'outdoors' })
+    .populate("user")
     .sort({ date: -1 })
     .then(posts => res.json(posts))
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
@@ -60,7 +61,14 @@ router.post(
       community: 'outdoors'
     });
 
-    newPost.save().then(post => res.json(post));
+    newPost.save().then(post => {
+      Post.findById(post._id)
+        .populate("user")
+        .then(post => {
+          // console.log(post);
+          return res.json(post);
+        });
+    });
   }
 );
 

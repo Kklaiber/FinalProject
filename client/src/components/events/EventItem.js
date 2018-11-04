@@ -78,6 +78,9 @@ class EventItem extends Component {
 
   render() {
     const { event, auth, showActions, fullDescription } = this.props;
+    if(!event.user) {
+      return <p></p>;
+    }
 
     return (
       <FadeIn>
