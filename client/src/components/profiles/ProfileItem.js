@@ -7,6 +7,10 @@ class ProfileItem extends Component {
   render() {
     const { profile } = this.props;
 
+    if(!profile.user) {
+      return <p></p>;
+    }
+
     return (
       <div className="card card-body bg-light mb-3">
         <div className="row">
