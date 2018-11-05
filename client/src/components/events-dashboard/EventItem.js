@@ -166,9 +166,9 @@ class EventItem extends Component {
                 <Link to={`/event/${event._id}`} className="badge badge-light mr-1">
                 {event.comments.length} {(event.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
-                {/* <Link to={`/event/${event._id}`} className="badge badge-light mr-1">
+                <Link to={`/event/${event._id}`} className="badge badge-light mr-1">
                 More Details
-                </Link> */}
+                </Link>
                 {event.user === auth.user.id ? (
                   <button
                     onClick={this.onDeleteClick.bind(this, event._id)}
