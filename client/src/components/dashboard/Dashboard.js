@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
-// import Experience from "./Experience";
-// import Education from "./Education";
-// import Group from "./Group";
+import Experience from "./Experience";
+import Education from "./Education";
+import Group from "./Group";
 import PopupModal from './Modal';
 import HelpModal from './HelpModal';
 import Posts from "../posts-dashboard/Posts"
@@ -41,9 +41,9 @@ class Dashboard extends Component {
               <br/>
             <ProfileActions />
 
-            {/* <Experience experience={profile.experience} />
+            <Experience experience={profile.experience} />
             <Education education={profile.education} />
-            <Group group={profile.group} /> */}
+            <Group group={profile.group} />
             <HelpModal />
             <div style={{ marginBottom: "60px" }} />
           </div>
