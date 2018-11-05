@@ -41,7 +41,7 @@ class EditCommentForm extends Component {
       <h6 className="float-right" id="count_message" style={{color:'#BEBEBE'}}>
         500 Character Limit
       </h6>
-      <button type="submit" className="btn btn-dark" onClick={this.handleSubmit}>
+      <button type="submit" className="btn btn-dark btn-sm" onClick={this.handleSubmit}>
         Submit
       </button>
     </form>

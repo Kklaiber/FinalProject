@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import { deleteComment, addLike, removeLike } from '../../actions/postActions';
 
@@ -11,7 +12,7 @@ class CommentItem extends Component {
   
   state = {
     isEditting: false, 
-}
+  }
 
   onDeleteClick(postId, commentId) {
     this.props.deleteComment(postId, commentId);
@@ -44,7 +45,10 @@ class CommentItem extends Component {
               />
             </a>
             <br />
-            <p className="text-center">{comment.name}</p>
+            <p className="text-center">{comment.name}<br/>
+            <Moment fromNow className="text-secondary small"
+             date={comment.date}/>
+             </p>
           </div>
 
           <div className="col-md-10">

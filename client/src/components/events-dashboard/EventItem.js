@@ -104,7 +104,7 @@ class EventItem extends Component {
                                  : 
            <span>
            <p className="lead">
-           <span className="event-title">{event.title}</span>
+           <Link to={`/event/${event._id}`}> <span className="event-title">{event.title}</span></Link>
               <br/>
               <strong>Description: </strong> {event.description}
               <br/>
@@ -125,7 +125,7 @@ class EventItem extends Component {
                 >
                   <i
                     className={classnames("fas fa-user-plus", {
-                      "text-warning": this.findUserGoing(event.going)
+                      "event-title": this.findUserGoing(event.going)
                     })}
                   />
                   <span className="badge badge-light">
@@ -155,7 +155,7 @@ class EventItem extends Component {
                 >
                   <i
                     className={classnames("fas fa-times", {
-                      "text-info": this.findUserNotGoing(event.notGoing)
+                      "text-danger": this.findUserNotGoing(event.notGoing)
                     })}
                   />
                   <span className="badge badge-light">
@@ -166,14 +166,14 @@ class EventItem extends Component {
                 <Link to={`/event/${event._id}`} className="badge badge-light mr-1">
                 {event.comments.length} {(event.comments.length === 1) ? "Comment" : "Comments"}
                 </Link>
-                <Link to={`/event/${event._id}`} className="badge badge-light mr-1">
+                {/* <Link to={`/event/${event._id}`} className="badge badge-light mr-1">
                 More Details
-                </Link>
+                </Link> */}
                 {event.user === auth.user.id ? (
                   <button
                     onClick={this.onDeleteClick.bind(this, event._id)}
                     type="button"
-                    className="btn btn-danger mr-1 float-right"
+                    className="btn btn-danger mr-1 btn-sm float-right"
                   >
                     <i className="fas fa-archive" />
                   </button>
