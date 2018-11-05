@@ -74,6 +74,10 @@ class PostItem extends Component {
   render() {
     const { post, auth, showActions } = this.props;
   
+    if(!post.user) {
+      return <p></p>;
+    }
+    
     const fromNow = (
       <Moment fromNow className="text-secondary small"
              date={post.date}/>
