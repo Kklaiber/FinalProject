@@ -35,6 +35,7 @@
     "randomatic": "^3.1.0",
     "react": "^16.5.2",
     "reactstrap": "^6.5.0",
+    "remove-node-modules": "^1.7.4",
     "validator": "^9.4.1"
   },
   "devDependencies": {
